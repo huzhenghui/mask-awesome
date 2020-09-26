@@ -58,6 +58,10 @@ brew install gawk
 
 [实现默认任务效果代码](https://github.com/huzhenghui/mask-awesome/blob/master/Justfile)
 
+# 发表
+
+[`Mask`工具使用示例](https://huzhenghui.blog.csdn.net/article/details/108812328)
+
 # 任务
 
 ## mask-choose
