@@ -112,7 +112,7 @@ mask mask-SubCommands-visible | mask mask-SubCommand-names-extractor
 
 > (hidden) 从 `mask` 的帮助中提取子命令的 `awk` 脚本，在交互选择列表中不可见
 
-```awk
+```gawk
 {
     if ("SubCommands" == section)
     {
@@ -130,7 +130,7 @@ mask mask-SubCommands-visible | mask mask-SubCommand-names-extractor
 
 > (hidden) 过滤描述的开头使用 `(hidden)` 标记交互选择中不可见的子命令的 `awk` 脚本，在交互选择列表中不可见
 
-```awk
+```gawk
 {
     if ("(hidden)" != $2)
         print;
@@ -141,7 +141,7 @@ mask mask-SubCommands-visible | mask mask-SubCommand-names-extractor
 
 > (hidden) 提取子命令名称的 `awk` 脚本
 
-```awk
+```gawk
 {
     print $1;
 }
