@@ -62,19 +62,35 @@ brew install gawk
 
 ## mask-choose
 
+> 使用交互选择工具 `choose-gui` 选择本文档中可以执行的命令
+
 ```bash
-choose_recipe=$(mask mask-SubCommand-visible-names | /usr/local/opt/choose-gui/bin/choose)
+choose_recipe=$(mask mask-SubCommands-visible | /usr/local/opt/choose-gui/bin/choose)
 echo "Choose Recipe: ${choose_recipe}"
-mask "${choose_recipe}"
+task=$(echo "${choose_recipe}" | mask mask-SubCommand-names-extractor)
+echo "Task : ${task}"
+mask "${task}"
 ```
 
 ## mask-SubCommands
+
+> 提取本文档中的子命令
 
 ```bash
 mask --help | mask mask-SubCommands-extractor
 ```
 
+## mask-SubCommands-visible
+
+> 提取本文档中交互选择可见的子命令，描述的开头使用 `(hidden)` 标记交互选择中不可见的子命令，在 `mask-SubCommand-visible-filter` 中过滤
+
+```bash
+mask mask-SubCommands | mask mask-SubCommand-visible-filter
+```
+
 ## mask-SubCommand-names
+
+> 本文档中的子命令的名称列表
 
 ```bash
 mask mask-SubCommands | mask mask-SubCommand-names-extractor
@@ -82,18 +98,23 @@ mask mask-SubCommands | mask mask-SubCommand-names-extractor
 
 ## mask-SubCommand-visible-names
 
+> 本文档中交互选择可见的子命令的名称列表
+
 ```bash
-mask mask-SubCommands | mask mask-SubCommand-visible-filter | mask mask-SubCommand-names-extractor
+mask mask-SubCommands-visible | mask mask-SubCommand-names-extractor
 ```
 
 ## mask-SubCommands-extractor
 
-> (hidden)
+> (hidden) 从 `mask` 的帮助中提取子命令的 `awk` 脚本，在交互选择列表中不可见
 
 ```awk
 {
     if ("SubCommands" == section)
+    {
+        sub(/^[ ]+/, "");
         print;
+    }
 }
 {
     if ("SUBCOMMANDS:" == $0)
@@ -103,7 +124,7 @@ mask mask-SubCommands | mask mask-SubCommand-visible-filter | mask mask-SubComma
 
 ## mask-SubCommand-visible-filter
 
-> (hidden)
+> (hidden) 过滤描述的开头使用 `(hidden)` 标记交互选择中不可见的子命令的 `awk` 脚本，在交互选择列表中不可见
 
 ```awk
 {
@@ -114,7 +135,7 @@ mask mask-SubCommands | mask mask-SubCommand-visible-filter | mask mask-SubComma
 
 ## mask-SubCommand-names-extractor
 
-> (hidden)
+> (hidden) 提取子命令名称的 `awk` 脚本
 
 ```awk
 {
@@ -124,11 +145,15 @@ mask mask-SubCommands | mask mask-SubCommand-visible-filter | mask mask-SubComma
 
 ## mask-draft-dir
 
+> 个人本地使用的脚本，读者请忽略
+
 ```bash
 jump cd mask-draft
 ```
 
 ## code
+
+> 个人本地使用的脚本，读者请忽略
 
 ```bash
     root_dir=`pwd`
