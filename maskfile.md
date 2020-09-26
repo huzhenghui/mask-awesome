@@ -1,4 +1,4 @@
-# 安装
+# 安装：核心工具
 
 主要使用工具
 [mask](https://github.com/jakedeichert/mask/)
@@ -9,7 +9,7 @@
 brew install mask
 ```
 
-# 默认任务
+# 安装：实现默认任务效果所需工具
 
 [mask](https://github.com/jakedeichert/mask/)
 [0.9.0](https://github.com/jakedeichert/mask/releases/tag/v0.9.0)
@@ -36,7 +36,7 @@ _default:
 just
 ```
 
-# 交互选择
+# 安装：交互选择工具
 
 示例代码中使用了交互选择工具 `choose-gui`，在 `Mac` 中的安装方式为
 
@@ -44,7 +44,7 @@ just
 brew install choose-gui
 ```
 
-# 文本处理
+# 安装：文本处理工具
 
 示例代码中使用 `awk` 处理文本，在 `Mac` 中的安装方式为
 
@@ -52,7 +52,13 @@ brew install choose-gui
 brew install gawk
 ```
 
-# Tasks
+# 代码位置
+
+[本页面](https://github.com/huzhenghui/mask-awesome/blob/master/maskfile.md)
+
+[实现默认任务效果代码](https://github.com/huzhenghui/mask-awesome/blob/master/Justfile)
+
+# 任务
 
 ## mask-choose
 
