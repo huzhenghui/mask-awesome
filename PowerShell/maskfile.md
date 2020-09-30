@@ -88,7 +88,7 @@ brew install powershell
 
 # 发表
 
-[`Mask`工具在`PowerShell`中使用示例，支持 `Windows` 和 `Mac`]
+[`Mask`工具在`PowerShell`中使用示例，支持 `Windows` 和 `Mac`](https://huzhenghui.blog.csdn.net/article/details/108891392)
 
 [`Mask`工具在`Mac`中使用示例](https://huzhenghui.blog.csdn.net/article/details/108812328)
 
@@ -118,7 +118,7 @@ $Recipe |
     Select-String -Pattern $SubCommandRegExp |
     Where-Object {$_.Matches.Length -eq 1} |
     ForEach-Object { $_.Matches[0].Value } |
-    Foreach-Object {
+    ForEach-Object {
         Write-Host "Task :" $_
         mask $_
     }
