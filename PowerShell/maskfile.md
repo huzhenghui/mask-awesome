@@ -3,10 +3,16 @@
 主要使用工具
 [mask](https://github.com/jakedeichert/mask/)
 
-在 `Windows` 中使用 `Rust` 的 `Cargo` 命令安装
+在 `Windows` 中使用 [Rust](https://www.rust-lang.org/) 的 [Cargo](https://doc.rust-lang.org/cargo/) 命令安装
 
 ```PowerShell
 cargo install mask
+```
+
+在 `Mac` 中使用 [Brew](https://brew.sh/) 安装
+
+```bash
+brew install mask
 ```
 
 # 安装：实现默认任务效果所需工具
@@ -17,10 +23,16 @@ cargo install mask
 [Just](https://github.com/casey/just)
 。
 
-在 `Windows` 中使用 `scoop` 安装
+在 `Windows` 中使用 [Scoop](https://scoop.sh/) 安装
 
 ```PowerShell
 scoop install just
+```
+
+在 `Mac` 中使用 [Brew](https://brew.sh/) 安装
+
+```bash
+brew install just
 ```
 
 相关代码为
@@ -40,21 +52,43 @@ just
 
 # 安装：交互选择工具
 
-示例代码中使用了交互选择工具 `fzf`，在 `Windows` 中的安装方式为
+示例代码中使用了交互选择工具 [fzf](https://github.com/junegunn/fzf)
+
+在 `Windows` 中使用 [Scoop](https://scoop.sh/) 安装
 
 ```PowerShell
 scoop install fzf
 ```
 
+在 `Mac` 中使用 [Brew](https://brew.sh/) 安装
+
+```bash
+brew install fzf
+```
+
+# 安装：`PowerShell Core`
+
+在 `Windows` 中使用 [chocolatey](https://www.chocolatey.org/) 安装
+
+```PowerShell
+choco install powershell-core
+```
+
+在 `Mac` 中使用 [Brew](https://brew.sh/) 安装
+
+```bash
+brew install powershell
+```
+
 # 代码位置
 
-[本页面]
+[本页面](https://github.com/huzhenghui/mask-awesome/blob/master/PowerShell/maskfile.md)
 
-[实现默认任务效果代码]
+[实现默认任务效果代码](https://github.com/huzhenghui/mask-awesome/blob/master/PowerShell/Justfile)
 
 # 发表
 
-[`Mask`工具在`Windows`中使用示例]
+[`Mask`工具在`PowerShell`中使用示例，支持 `Windows` 和 `Mac`]
 
 [`Mask`工具在`Mac`中使用示例](https://huzhenghui.blog.csdn.net/article/details/108812328)
 
