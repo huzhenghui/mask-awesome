@@ -17,13 +17,15 @@ brew install mask
 
 # 代码位置
 
-[本页面]
-[`fake` 模拟的代码]
-[通用的 `shims` 的代码]
+[本页面](https://github.com/huzhenghui/mask-awesome/blob/master/raw-code/maskfile.md)
+
+[`fake` 模拟的代码](https://github.com/huzhenghui/mask-awesome/blob/master/raw-code/fake/bash)
+
+[通用的 `shims` 的代码](https://github.com/huzhenghui/mask-awesome/blob/master/raw-code/raw-shims/raw-shims.sh)
 
 # 发表
 
-[借助`shims`方式获取`mask`中的源代码]
+[借助`shims`方式获取`mask`中的源代码](https://huzhenghui.blog.csdn.net/article/details/108995457)
 
 # 任务
 
@@ -164,7 +166,7 @@ echo "${2}"
 ### 运行后输出
 
 ```
-/Users/huzhenghui/OneDrive/mask-draft/raw-code/raw-shims
+./raw-code/raw-shims
 echo "${PATH}"
 
 which bash
@@ -179,4 +181,3 @@ mask which-bash
 mask bash-version
 mask raw-code
 ```
-
