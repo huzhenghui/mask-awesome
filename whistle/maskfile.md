@@ -57,10 +57,11 @@ echo "${BASEDIR}"
 ## whistle-start-port
 
 **OPTIONS**
-* port
-    * flags: --port
-    * type: string
-    * desc: set the proxy port (8899 by default)
+
+- port
+  - flags: --port
+  - type: string
+  - desc: set the proxy port (8899 by default)
 
 ```bash
 PORT=${port:-8899}
