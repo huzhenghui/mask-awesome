@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="504px" preserveAspectRatio="none" style="width:1435px;height:504px;" version="1.1" viewBox="0 0 1435 504" width="1435px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="317" x="552.5" y="17.4023">Spring PetClinic - Deployment - Live</text><!--MD5=[7252ecac489e25e5f6f00861d7134bca]
+cluster 5--><polygon fill="#FFFFFF" points="16,37.1992,26,27.1992,1418,27.1992,1418,487.1992,1408,497.1992,16,497.1992,16,37.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1408" x2="1418" y1="37.1992" y2="27.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="1408" y1="37.1992" y2="37.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1408" x2="1408" y1="37.1992" y2="497.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="156" x="635" y="53.7344">Amazon Web Services</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="643.5" y="70.2227">[Deployment Node]</text><!--MD5=[b663eb4e27a1e6092385000714b0506e]
+cluster 6--><polygon fill="#FFFFFF" points="40,101.1992,50,91.1992,1394,91.1992,1394,463.1992,1384,473.1992,40,473.1992,40,101.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1384" x2="1394" y1="101.1992" y2="91.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="40" x2="1384" y1="101.1992" y2="101.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1384" x2="1384" y1="101.1992" y2="473.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="75" x="675.5" y="117.7344">US-East-1</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="643.5" y="134.2227">[Deployment Node]</text><!--MD5=[1a90fd883f88e4e282354d081dea8cca]
+cluster 12--><polygon fill="#FFFFFF" points="1070,169.1992,1080,159.1992,1370,159.1992,1370,435.1992,1360,445.1992,1070,445.1992,1070,169.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1360" x2="1370" y1="169.1992" y2="159.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1070" x2="1360" y1="169.1992" y2="169.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1360" x2="1360" y1="169.1992" y2="445.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="92" x="1170" y="185.7344">Amazon RDS</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="1146.5" y="202.2227">[Deployment Node]</text><!--MD5=[2a577d1b1375e445e2af73fd46b61068]
+cluster 13--><polygon fill="#FFFFFF" points="1094,233.1992,1104,223.1992,1346,223.1992,1346,411.1992,1336,421.1992,1094,421.1992,1094,233.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1336" x2="1346" y1="233.1992" y2="223.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1094" x2="1336" y1="233.1992" y2="233.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="1336" x2="1336" y1="233.1992" y2="421.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49" x="1191.5" y="249.7344">MySQL</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="1146.5" y="266.2227">[Deployment Node]</text><!--MD5=[7c66d0e4e6eaa80c0c4023709e74e2b3]
+cluster 9--><polygon fill="#FFFFFF" points="662,165.1992,672,155.1992,957,155.1992,957,439.1992,947,449.1992,662,449.1992,662,165.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="947" x2="957" y1="165.1992" y2="155.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="662" x2="947" y1="165.1992" y2="165.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="947" x2="947" y1="165.1992" y2="449.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="132" x="739.5" y="181.7344">Autoscaling group</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="736" y="198.2227">[Deployment Node]</text><!--MD5=[12e7b27a5decfde6b3773108bbaa6a3f]
+cluster 10--><polygon fill="#FFFFFF" points="686,229.1992,696,219.1992,933,219.1992,933,415.1992,923,425.1992,686,425.1992,686,229.1992" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="923" x2="933" y1="229.1992" y2="219.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="686" x2="923" y1="229.1992" y2="229.1992"/><line style="stroke:#000000;stroke-width:1.5;" x1="923" x2="923" y1="229.1992" y2="425.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="90" x="760.5" y="245.7344">Amazon EC2</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="139" x="736" y="262.2227">[Deployment Node]</text><!--MD5=[df1cfc51a8f3e60039521c9170723b8d]
+entity 8--><rect fill="#FFFFFF" height="50.6211" rx="10" ry="10" style="stroke:#B2B2B2;stroke-width:1.5;" width="191" x="331" y="316.6992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="171" x="341" y="342.168">Elastic Load Balancer</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="101" x="376" y="355.2109">[Infrastructure Node]</text><!--MD5=[cbb381f34bde73e199f6c8e56df9562c]
+entity 7--><rect fill="#FFFFFF" height="50.6211" rx="10" ry="10" style="stroke:#B2B2B2;stroke-width:1.5;" width="121" x="56" y="316.6992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="79.5" y="342.168">Route 53</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="101" x="66" y="355.2109">[Infrastructure Node]</text><!--MD5=[b289b39ced8dc6d267141842d8cb9775]
+entity 14--><path d="M1110,289.1992 C1110,279.1992 1220,279.1992 1220,279.1992 C1220,279.1992 1330,279.1992 1330,289.1992 L1330,394.7734 C1330,404.7734 1220,404.7734 1220,404.7734 C1220,404.7734 1110,404.7734 1110,394.7734 L1110,289.1992 " fill="#FFFFFF" style="stroke:#B2B2B2;stroke-width:1.5;"/><path d="M1110,289.1992 C1110,299.1992 1220,299.1992 1220,299.1992 C1220,299.1992 1330,299.1992 1330,289.1992 " fill="none" style="stroke:#B2B2B2;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="75" x="1182.5" y="318.668">Database</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="197" x="1121.5" y="331.7109">[Container: Relational database schema]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1222" y="347.3555"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="200" x="1120" y="363.8438">Stores information regarding</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="197" x="1121.5" y="380.332">the veterinarians, the clients,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="99" x="1170.5" y="396.8203">and their pets.</text><!--MD5=[e25884bd7fe840786d881277a14c5a0e]
+entity 11--><rect fill="#FFFFFF" height="133.0625" rx="10" ry="10" style="stroke:#B2B2B2;stroke-width:1.5;" width="215" x="702" y="275.6992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="133" x="743" y="301.168">Web Application</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="159" x="730" y="314.2109">[Container: Java and Spring Boot]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="811.5" y="329.8555"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="174" x="720.5" y="346.3438">Allows employees to view</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="170" x="722.5" y="362.832">and manage information</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="191" x="712" y="379.3203">regarding the veterinarians,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="177" x="721" y="395.8086">the clients, and their pets.</text><!--MD5=[9dd29c1e8d46b0d1d3f862dbda83d71a]
+link 8 to 11--><path d="M522.17,342.1992 C575.01,342.1992 641.15,342.1992 696.55,342.1992 " fill="none" id="8-to-11" style="stroke:#707070;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="701.88,342.1992,692.88,338.1992,696.88,342.1992,692.88,346.1992,701.88,342.1992" style="stroke:#707070;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="89" x="553" y="317.8672">Forwards requests</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="10" x="594" y="329.6445">to</text><text fill="#000000" font-family="sans-serif" font-size="8" lengthAdjust="spacingAndGlyphs" textLength="30" x="584" y="339.4883">[HTTPS]</text><!--MD5=[5ca979b543d038a4b12f05f8f6f2c83d]
+link 7 to 8--><path d="M177.25,342.1992 C219.36,342.1992 276.76,342.1992 325.75,342.1992 " fill="none" id="7-to-8" style="stroke:#707070;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="330.77,342.1992,321.77,338.1992,325.77,342.1992,321.77,346.1992,330.77,342.1992" style="stroke:#707070;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="89" x="208" y="317.8672">Forwards requests</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="10" x="249" y="329.6445">to</text><text fill="#000000" font-family="sans-serif" font-size="8" lengthAdjust="spacingAndGlyphs" textLength="30" x="239" y="339.4883">[HTTPS]</text><!--MD5=[0955c5b0f861334d3399d7abf2a63ee8]
+link 11 to 14--><path d="M917.03,342.1992 C974.63,342.1992 1045.79,342.1992 1104.56,342.1992 " fill="none" id="11-to-14" style="stroke:#707070;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="1109.85,342.1992,1100.85,338.1992,1104.85,342.1992,1100.85,346.1992,1109.85,342.1992" style="stroke:#707070;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="76" x="974" y="317.8672">Reads from and</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="43" x="992" y="329.6445">writes to</text><text fill="#000000" font-family="sans-serif" font-size="8" lengthAdjust="spacingAndGlyphs" textLength="41" x="993" y="339.4883">[JDBC/SSL]</text><!--MD5=[fef5247fa06f96eba8e043d81962bfda]
+@startuml(id=AmazonWebServicesDeployment)
+title Spring PetClinic - Deployment - Live
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+left to right direction
+skinparam rectangle<<11>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam node<<12>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<13>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam database<<14>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+}
+skinparam node<<5>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<6>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam rectangle<<7>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam rectangle<<8>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam node<<9>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<10>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+node "Amazon Web Services\n[Deployment Node]" <<5>> as 5 {
+  node "US-East-1\n[Deployment Node]" <<6>> as 6 {
+    node "Amazon RDS\n[Deployment Node]" <<12>> as 12 {
+      node "MySQL\n[Deployment Node]" <<13>> as 13 {
+        database "==Database\n<size:10>[Container: Relational database schema]</size>\n\nStores information regarding the veterinarians, the clients, and their pets." <<14>> as 14
+      }
+    }
+    node "Autoscaling group\n[Deployment Node]" <<9>> as 9 {
+      node "Amazon EC2\n[Deployment Node]" <<10>> as 10 {
+        rectangle "==Web Application\n<size:10>[Container: Java and Spring Boot]</size>\n\nAllows employees to view and manage information regarding the veterinarians, the clients, and their pets." <<11>> as 11
+      }
+    }
+    rectangle "==Elastic Load Balancer\n<size:10>[Infrastructure Node]</size>" <<8>> as 8
+    rectangle "==Route 53\n<size:10>[Infrastructure Node]</size>" <<7>> as 7
+  }
+}
+8 .[#707070].> 11 : "Forwards requests to\n<size:8>[HTTPS]</size>"
+7 .[#707070].> 8 : "Forwards requests to\n<size:8>[HTTPS]</size>"
+11 .[#707070].> 14 : "Reads from and writes to\n<size:8>[JDBC/SSL]</size>"
+@enduml
+
+PlantUML version 1.2020.21(Tue Dec 01 00:40:11 CST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

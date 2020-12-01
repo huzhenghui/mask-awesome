@@ -1,0 +1,91 @@
+@startuml(id=AmazonWebServicesDeployment)
+title Spring PetClinic - Deployment - Live
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+left to right direction
+skinparam rectangle<<11>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam node<<12>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<13>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam database<<14>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+}
+skinparam node<<5>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<6>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam rectangle<<7>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam rectangle<<8>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #B2B2B2
+  roundCorner 20
+}
+skinparam node<<9>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+skinparam node<<10>> {
+  BackgroundColor #ffffff
+  FontColor #000000
+  BorderColor #000000
+  roundCorner 20
+}
+node "Amazon Web Services\n[Deployment Node]" <<5>> as 5 {
+  node "US-East-1\n[Deployment Node]" <<6>> as 6 {
+    node "Amazon RDS\n[Deployment Node]" <<12>> as 12 {
+      node "MySQL\n[Deployment Node]" <<13>> as 13 {
+        database "==Database\n<size:10>[Container: Relational database schema]</size>\n\nStores information regarding the veterinarians, the clients, and their pets." <<14>> as 14
+      }
+    }
+    node "Autoscaling group\n[Deployment Node]" <<9>> as 9 {
+      node "Amazon EC2\n[Deployment Node]" <<10>> as 10 {
+        rectangle "==Web Application\n<size:10>[Container: Java and Spring Boot]</size>\n\nAllows employees to view and manage information regarding the veterinarians, the clients, and their pets." <<11>> as 11
+      }
+    }
+    rectangle "==Elastic Load Balancer\n<size:10>[Infrastructure Node]</size>" <<8>> as 8
+    rectangle "==Route 53\n<size:10>[Infrastructure Node]</size>" <<7>> as 7
+  }
+}
+8 .[#707070].> 11 : "Forwards requests to\n<size:8>[HTTPS]</size>"
+7 .[#707070].> 8 : "Forwards requests to\n<size:8>[HTTPS]</size>"
+11 .[#707070].> 14 : "Reads from and writes to\n<size:8>[JDBC/SSL]</size>"
+@enduml
