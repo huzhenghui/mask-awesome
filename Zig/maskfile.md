@@ -4,5 +4,5 @@
 
 ```bash
 cd "$(git root)"
-git subtree add --prefix=Zig/practice /Users/huzhenghui/OneDrive/mask-draft/Zig release --squash
+git subtree add --prefix=Zig/practice "$(jump cd mask-draft)"/Zig release --squash
 ```
