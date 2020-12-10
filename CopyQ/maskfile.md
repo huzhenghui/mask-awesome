@@ -16,6 +16,12 @@ which CopyQ
 which CopyQ | xargs realpath
 ```
 
+## CopyQ-config
+
+```bash
+ls ~/.config/copyq
+```
+
 ## CopyQ-help
 
 ```bash
