@@ -115,6 +115,18 @@ CopyQ --help | ugrep --color=always --colors="cx=nHUwK;ms=nHUwK;mt=h+r+Y" --any-
 CopyQ --help | ugrep --color=always --colors="cx=nHUwK;ms=nHUwK;mt=h+r+Y" --any-line "MIME" | ansifilter --html | CopyQ copy text/html -
 ```
 
+## CopyQ-help-MIME-rtf-html-browser
+
+```bash
+CopyQ --help | ugrep --color=always --colors="cx=nHUwK;ms=nHUwK;mt=h+r+Y" --any-line "MIME" | ansifilter --rtf | textutil -stdin -stdout -convert html | browser
+```
+
+## CopyQ-help-MIME-rtf-html-copy
+
+```bash
+CopyQ --help | ugrep --color=always --colors="cx=nHUwK;ms=nHUwK;mt=h+r+Y" --any-line "MIME" | ansifilter --rtf | textutil -stdin -stdout -convert html | CopyQ copy text/html -
+```
+
 ## CopyQ-help-MIME-markdown
 
 ```bash
