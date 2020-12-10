@@ -41,11 +41,15 @@ plantuml -gui ./structurizr-AmazonWebServicesDeployment.puml
 plantuml -tpng ./structurizr-AmazonWebServicesDeployment.puml
 ```
 
+![](./structurizr-AmazonWebServicesDeployment.png)
+
 ## plantuml-svg
 
 ```bash
 plantuml -tsvg ./structurizr-AmazonWebServicesDeployment.puml
 ```
+
+![](./structurizr-AmazonWebServicesDeployment.svg)
 
 ## plantuml-eps
 
