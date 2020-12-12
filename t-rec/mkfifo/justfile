@@ -1,0 +1,4 @@
+wait:
+    echo WINDOWID="${WINDOWID}"
+    echo TEMPFIFO="${TEMPFIFO}"
+    echo "${WINDOWID}" > "${TEMPFIFO}"
