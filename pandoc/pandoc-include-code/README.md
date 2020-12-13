@@ -6,10 +6,10 @@
 mdcat /usr/local/opt/pandoc-include-code/CHANGELOG.md
 ```
 
-## include-code
+## readme
 
 ``` bash
-pandoc --filter pandoc-include-code --from=markdown  --to=gfm  --output=output.md maskfile.md
+pandoc --filter pandoc-include-code --from=markdown  --to=gfm  --output=README.md maskfile.md
 ```
 
 ### changelog
