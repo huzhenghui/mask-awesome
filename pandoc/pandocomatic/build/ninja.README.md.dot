@@ -1,0 +1,21 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fb98dc06cf0" [label="README.md"]
+"0x7fb98dc06ad0" [label="pandocomatic", shape=ellipse]
+"0x7fb98dc06ad0" -> "0x7fb98dc06cf0"
+"0x7fb98dc065d0" -> "0x7fb98dc06ad0" [arrowhead=none]
+"0x7fb98dc06d50" -> "0x7fb98dc06ad0" [arrowhead=none]
+"0x7fb98dc06510" -> "0x7fb98dc06ad0" [arrowhead=none]
+"0x7fb98dc06790" -> "0x7fb98dc06ad0" [arrowhead=none]
+"0x7fb98dc069e0" -> "0x7fb98dc06ad0" [arrowhead=none]
+"0x7fb98dc065d0" [label="maskfile.md"]
+"0x7fb98dc06d50" [label="build.ninja"]
+"0x7fb98dc06510" [label="build/pandocomatic-help.txt"]
+"0x7fb98dc065d0" -> "0x7fb98dc06510" [label=" mask-tee"]
+"0x7fb98dc06790" [label="build/ninja.README.md.dot"]
+"0x7fb98dc065d0" -> "0x7fb98dc06790" [label=" mask-tee"]
+"0x7fb98dc069e0" [label="build/ninja.README.md.png"]
+"0x7fb98dc06790" -> "0x7fb98dc069e0" [label=" mask"]
+}
