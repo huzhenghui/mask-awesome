@@ -1,0 +1,24 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7f991e406f00" [label="README.md"]
+"0x7f991e406cc0" [label="pandocomatic", shape=ellipse]
+"0x7f991e406cc0" -> "0x7f991e406f00"
+"0x7f991e4065d0" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e406fc0" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e406520" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e4067d0" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e4069e0" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e406bd0" -> "0x7f991e406cc0" [arrowhead=none]
+"0x7f991e4065d0" [label="maskfile.md"]
+"0x7f991e406fc0" [label="build.ninja"]
+"0x7f991e406520" [label="build/ninja-help.txt"]
+"0x7f991e4065d0" -> "0x7f991e406520" [label=" mask-tee"]
+"0x7f991e4067d0" [label="build/ninja-tool-list.txt"]
+"0x7f991e4065d0" -> "0x7f991e4067d0" [label=" mask-tee"]
+"0x7f991e4069e0" [label="build/ninja.README.md.dot"]
+"0x7f991e4065d0" -> "0x7f991e4069e0" [label=" mask-tee"]
+"0x7f991e406bd0" [label="build/ninja.README.md.png"]
+"0x7f991e4069e0" -> "0x7f991e406bd0" [label=" mask"]
+}

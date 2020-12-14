@@ -1,0 +1,27 @@
+builddir=./build
+mask_subcommand = --help
+
+rule mask
+  command = mask $mask_subcommand
+
+rule mask-tee
+  command = mask $mask_subcommand 2>&1 | tee $out 1> /dev/null
+
+rule pandocomatic
+  command = pandocomatic --input $in --output $out
+
+build ./build/ninja-help.txt: mask-tee | ./maskfile.md
+  mask_subcommand = ninja-help
+
+build ./build/ninja-tool-list.txt: mask-tee  | ./maskfile.md
+  mask_subcommand = ninja-tool-list
+
+build ./build/ninja.README.md.dot: mask-tee | ./maskfile.md
+  mask_subcommand = readme-grapth-dot
+
+build ./build/ninja.README.md.png : mask | ./build/ninja.README.md.dot
+  mask_subcommand = readme-grapth-png
+
+build README.md: pandocomatic maskfile.md | build.ninja ./build/ninja-help.txt ./build/ninja-tool-list.txt ./build/ninja.README.md.dot ./build/ninja.README.md.png
+
+default README.md
