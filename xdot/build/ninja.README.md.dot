@@ -1,0 +1,21 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7f867f4069c0" [label="README.md"]
+"0x7f867f4067e0" [label="pandocomatic", shape=ellipse]
+"0x7f867f4067e0" -> "0x7f867f4069c0"
+"0x7f867f4062a0" -> "0x7f867f4067e0" [arrowhead=none]
+"0x7f867f406a20" -> "0x7f867f4067e0" [arrowhead=none]
+"0x7f867f4064a0" -> "0x7f867f4067e0" [arrowhead=none]
+"0x7f867f4066f0" -> "0x7f867f4067e0" [arrowhead=none]
+"0x7f867f4061f0" -> "0x7f867f4067e0" [arrowhead=none]
+"0x7f867f4062a0" [label="maskfile.md"]
+"0x7f867f406a20" [label="build.ninja"]
+"0x7f867f4064a0" [label="build/ninja.README.md.dot"]
+"0x7f867f4062a0" -> "0x7f867f4064a0" [label=" mask-tee"]
+"0x7f867f4066f0" [label="build/ninja.README.md.png"]
+"0x7f867f4064a0" -> "0x7f867f4066f0" [label=" mask"]
+"0x7f867f4061f0" [label="build/xdot-help.txt"]
+"0x7f867f4062a0" -> "0x7f867f4061f0" [label=" mask-tee"]
+}
