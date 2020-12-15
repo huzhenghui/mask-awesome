@@ -1,0 +1,24 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fb26f406bb0" [label="README.md"]
+"0x7fb26f406990" [label="pandocomatic", shape=ellipse]
+"0x7fb26f406990" -> "0x7fb26f406bb0"
+"0x7fb26f406300" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f406c70" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f406240" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f4064f0" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f406690" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f406880" -> "0x7fb26f406990" [arrowhead=none]
+"0x7fb26f406300" [label="maskfile.md"]
+"0x7fb26f406c70" [label="build.ninja"]
+"0x7fb26f406240" [label="build/ninja.README.md.dot"]
+"0x7fb26f406300" -> "0x7fb26f406240" [label=" mask-tee"]
+"0x7fb26f4064f0" [label="build/ninja.README.md.png"]
+"0x7fb26f406240" -> "0x7fb26f4064f0" [label=" mask"]
+"0x7fb26f406690" [label="build/duck-help.txt"]
+"0x7fb26f406300" -> "0x7fb26f406690" [label=" mask-tee"]
+"0x7fb26f406880" [label="build/hello-world-output.txt"]
+"0x7fb26f406300" -> "0x7fb26f406880" [label=" mask-tee"]
+}

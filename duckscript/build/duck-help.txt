@@ -1,0 +1,15 @@
+duckscript 0.7.1
+Sagie Gur-Ari <sagiegurari@gmail.com>
+The duckscript command line executable.
+
+USAGE:
+    duck [FLAGS] [FILE]
+
+FLAGS:
+    -h, --help      Prints help information
+    -e, --eval      Evaluate script
+    -l, --lint      Lints the provided file
+
+ARGS:
+    <FILE>          The script file to execute/lint
+
