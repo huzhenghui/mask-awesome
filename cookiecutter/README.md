@@ -72,7 +72,7 @@ cookiecutter --version
 Cookiecutter 1.7.2 from /usr/local/Cellar/cookiecutter/1.7.2_1/libexec/lib/python3.9/site-packages (Python 3.9)
 ```
 
-## cookiecutter-create
+## cookiecutter-create-ghq
 
 ``` bash
 cookiecutter \
@@ -80,8 +80,27 @@ cookiecutter \
     --no-input \
     --debug-file "${MASKFILE_DIR}"/build/cookiecutter.create.debug.txt \
     --output-dir "${MASKFILE_DIR}"/mask-cookiecutter-output \
-    /Users/huzhenghui/OneDrive/mask-draft/mask-cookiecutter-template \
+    "$(ghq list --full-path https://github.com/huzhenghui/mask-cookiecutter-template)" \
     project_name="My Mask Cookiecutter"
+```
+
+## cookiecutter-create-git
+
+``` bash
+cookiecutter \
+    --verbose \
+    --no-input \
+    --debug-file "${MASKFILE_DIR}"/build/cookiecutter.create.debug.txt \
+    --output-dir "${MASKFILE_DIR}"/mask-cookiecutter-output \
+    https://github.com/huzhenghui/mask-cookiecutter-template \
+    project_name="My Mask Cookiecutter"
+```
+
+## ninja-mask-cookiecutter-output
+
+``` bash
+cd "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
+ninja --verbose
 ```
 
 ## clear-mask-cookiecutter-output
@@ -90,7 +109,7 @@ cookiecutter \
 trash "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
 ```
 
-## 以下为模版
+## begin: mask task in template
 
 ## readme
 
@@ -181,25 +200,25 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fba1bc06c10" [label="README.md"]
-"0x7fba1bc069b0" [label="pandocomatic", shape=ellipse]
-"0x7fba1bc069b0" -> "0x7fba1bc06c10"
-"0x7fba1bc06300" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc06cd0" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc06240" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc064f0" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc066c0" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc068e0" -> "0x7fba1bc069b0" [arrowhead=none]
-"0x7fba1bc06300" [label="maskfile.md"]
-"0x7fba1bc06cd0" [label="build.ninja"]
-"0x7fba1bc06240" [label="build/ninja.README.md.dot"]
-"0x7fba1bc06300" -> "0x7fba1bc06240" [label=" mask-tee"]
-"0x7fba1bc064f0" [label="build/ninja.README.md.png"]
-"0x7fba1bc06240" -> "0x7fba1bc064f0" [label=" mask"]
-"0x7fba1bc066c0" [label="build/cookiecutter-help.txt"]
-"0x7fba1bc06300" -> "0x7fba1bc066c0" [label=" mask-tee"]
-"0x7fba1bc068e0" [label="build/cookiecutter-version.txt"]
-"0x7fba1bc06300" -> "0x7fba1bc068e0" [label=" mask-tee"]
+"0x7f9712605340" [label="README.md"]
+"0x7f97126050e0" [label="pandocomatic", shape=ellipse]
+"0x7f97126050e0" -> "0x7f9712605340"
+"0x7f9712604a30" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712605400" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712604970" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712604c20" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712604df0" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712605010" -> "0x7f97126050e0" [arrowhead=none]
+"0x7f9712604a30" [label="maskfile.md"]
+"0x7f9712605400" [label="build.ninja"]
+"0x7f9712604970" [label="build/ninja.README.md.dot"]
+"0x7f9712604a30" -> "0x7f9712604970" [label=" mask-tee"]
+"0x7f9712604c20" [label="build/ninja.README.md.png"]
+"0x7f9712604970" -> "0x7f9712604c20" [label=" mask"]
+"0x7f9712604df0" [label="build/cookiecutter-help.txt"]
+"0x7f9712604a30" -> "0x7f9712604df0" [label=" mask-tee"]
+"0x7f9712605010" [label="build/cookiecutter-version.txt"]
+"0x7f9712604a30" -> "0x7f9712605010" [label=" mask-tee"]
 }
 ```
 
@@ -210,3 +229,5 @@ dot -Tpng -o./build/ninja.README.md.png ./build/ninja.README.md.dot
 ```
 
 ![README.md](./build/ninja.README.md.png)
+
+## end: mask task in template
