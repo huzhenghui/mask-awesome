@@ -28,10 +28,10 @@ rule pandocomatic
 # begin: build in template
 
 build ./build/ninja.README.md.dot: mask-tee | ./maskfile.md
-  mask_subcommand = readme-grapth-dot
+  mask_subcommand = readme-graph-dot
 
 build ./build/ninja.README.md.png : mask | ./build/ninja.README.md.dot
-  mask_subcommand = readme-grapth-png
+  mask_subcommand = readme-graph-png
 
 # end: build in template
 #######################################

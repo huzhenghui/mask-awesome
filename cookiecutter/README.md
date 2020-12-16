@@ -103,6 +103,13 @@ cd "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
 ninja --verbose
 ```
 
+## mask-cookiecutter-output-readme-graph-dot-xdot
+
+``` bash
+cd "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
+mask readme-graph-dot-xdot
+```
+
 ## clear-mask-cookiecutter-output
 
 ``` bash
@@ -150,10 +157,10 @@ rule pandocomatic
 # begin: build in template
 
 build ./build/ninja.README.md.dot: mask-tee | ./maskfile.md
-  mask_subcommand = readme-grapth-dot
+  mask_subcommand = readme-graph-dot
 
 build ./build/ninja.README.md.png : mask | ./build/ninja.README.md.dot
-  mask_subcommand = readme-grapth-png
+  mask_subcommand = readme-graph-png
 
 # end: build in template
 #######################################
@@ -187,42 +194,42 @@ default README.md
 #######################################
 ```
 
-## readme-grapth-dot
+## readme-graph-dot
 
 ``` bash
 ninja -t graph README.md
 ```
 
-### readme-grapth-dot-output
+### readme-graph-dot-output
 
 ``` dot
 digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7f9712605340" [label="README.md"]
-"0x7f97126050e0" [label="pandocomatic", shape=ellipse]
-"0x7f97126050e0" -> "0x7f9712605340"
-"0x7f9712604a30" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712605400" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712604970" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712604c20" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712604df0" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712605010" -> "0x7f97126050e0" [arrowhead=none]
-"0x7f9712604a30" [label="maskfile.md"]
-"0x7f9712605400" [label="build.ninja"]
-"0x7f9712604970" [label="build/ninja.README.md.dot"]
-"0x7f9712604a30" -> "0x7f9712604970" [label=" mask-tee"]
-"0x7f9712604c20" [label="build/ninja.README.md.png"]
-"0x7f9712604970" -> "0x7f9712604c20" [label=" mask"]
-"0x7f9712604df0" [label="build/cookiecutter-help.txt"]
-"0x7f9712604a30" -> "0x7f9712604df0" [label=" mask-tee"]
-"0x7f9712605010" [label="build/cookiecutter-version.txt"]
-"0x7f9712604a30" -> "0x7f9712605010" [label=" mask-tee"]
+"0x7fc9b9406c10" [label="README.md"]
+"0x7fc9b94069b0" [label="pandocomatic", shape=ellipse]
+"0x7fc9b94069b0" -> "0x7fc9b9406c10"
+"0x7fc9b9406300" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b9406cd0" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b9406240" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b94064f0" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b94066c0" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b94068e0" -> "0x7fc9b94069b0" [arrowhead=none]
+"0x7fc9b9406300" [label="maskfile.md"]
+"0x7fc9b9406cd0" [label="build.ninja"]
+"0x7fc9b9406240" [label="build/ninja.README.md.dot"]
+"0x7fc9b9406300" -> "0x7fc9b9406240" [label=" mask-tee"]
+"0x7fc9b94064f0" [label="build/ninja.README.md.png"]
+"0x7fc9b9406240" -> "0x7fc9b94064f0" [label=" mask"]
+"0x7fc9b94066c0" [label="build/cookiecutter-help.txt"]
+"0x7fc9b9406300" -> "0x7fc9b94066c0" [label=" mask-tee"]
+"0x7fc9b94068e0" [label="build/cookiecutter-version.txt"]
+"0x7fc9b9406300" -> "0x7fc9b94068e0" [label=" mask-tee"]
 }
 ```
 
-## readme-grapth-png
+## readme-graph-png
 
 ``` bash
 dot -Tpng -o./build/ninja.README.md.png ./build/ninja.README.md.dot

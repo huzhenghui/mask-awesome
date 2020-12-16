@@ -69,6 +69,13 @@ cd "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
 ninja --verbose
 ```
 
+## mask-cookiecutter-output-readme-graph-dot-xdot
+
+```bash
+cd "${MASKFILE_DIR}"/mask-cookiecutter-output/my_mask_cookiecutter
+mask readme-graph-dot-xdot
+```
+
 ## clear-mask-cookiecutter-output
 
 ```bash
@@ -89,19 +96,19 @@ ninja --verbose README.md
 
 ```
 
-## readme-grapth-dot
+## readme-graph-dot
 
 ```bash
 ninja -t graph README.md
 ```
 
-### readme-grapth-dot-output
+### readme-graph-dot-output
 
 ```{.dot include=./build/ninja.README.md.dot}
 
 ```
 
-## readme-grapth-png
+## readme-graph-png
 
 ```bash
 dot -Tpng -o./build/ninja.README.md.png ./build/ninja.README.md.dot
