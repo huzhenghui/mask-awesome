@@ -1,0 +1,21 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7ffe03406860" [label="README.md"]
+"0x7ffe034067f0" [label="pandocomatic", shape=ellipse]
+"0x7ffe034067f0" -> "0x7ffe03406860"
+"0x7ffe03406320" -> "0x7ffe034067f0" [arrowhead=none]
+"0x7ffe03406ab0" -> "0x7ffe034067f0" [arrowhead=none]
+"0x7ffe03406260" -> "0x7ffe034067f0" [arrowhead=none]
+"0x7ffe03406510" -> "0x7ffe034067f0" [arrowhead=none]
+"0x7ffe034066e0" -> "0x7ffe034067f0" [arrowhead=none]
+"0x7ffe03406320" [label="maskfile.md"]
+"0x7ffe03406ab0" [label="build.ninja"]
+"0x7ffe03406260" [label="build/ninja.README.md.dot"]
+"0x7ffe03406320" -> "0x7ffe03406260" [label=" mask-tee"]
+"0x7ffe03406510" [label="build/ninja.README.md.png"]
+"0x7ffe03406260" -> "0x7ffe03406510" [label=" mask"]
+"0x7ffe034066e0" [label="build/font-patcher-help.txt"]
+"0x7ffe03406320" -> "0x7ffe034066e0" [label=" mask-tee"]
+}
