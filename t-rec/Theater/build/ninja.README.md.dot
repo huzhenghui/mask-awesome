@@ -1,0 +1,24 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7f8eead04830" [label="README.md"]
+"0x7f8eead045b0" [label="pandocomatic", shape=ellipse]
+"0x7f8eead045b0" -> "0x7f8eead04830"
+"0x7f8eeac06540" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eead04920" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eeac06480" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eeac06730" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eead042a0" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eead044a0" -> "0x7f8eead045b0" [arrowhead=none]
+"0x7f8eeac06540" [label="maskfile.md"]
+"0x7f8eead04920" [label="build.ninja"]
+"0x7f8eeac06480" [label="build/ninja.README.md.dot"]
+"0x7f8eeac06540" -> "0x7f8eeac06480" [label=" mask-tee"]
+"0x7f8eeac06730" [label="build/ninja.README.md.png"]
+"0x7f8eeac06480" -> "0x7f8eeac06730" [label=" mask"]
+"0x7f8eead042a0" [label="build/run-Calculator-Screencast.gif"]
+"0x7f8eeac06540" -> "0x7f8eead042a0" [label=" screencast"]
+"0x7f8eead044a0" [label="build/run-Music-Screencast.gif"]
+"0x7f8eeac06540" -> "0x7f8eead044a0" [label=" screencast"]
+}

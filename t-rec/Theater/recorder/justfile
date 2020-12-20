@@ -1,0 +1,5 @@
+wait:
+    echo "just wait start: WINDOWID=${WINDOWID}" | lolcat >&2
+    echo "just wait start: TEMPFIFO=${TEMPFIFO}" | lolcat >&2
+    echo "${WINDOWID}" > "${TEMPFIFO}"
+    echo "just wait done: TEMPFIFO=${TEMPFIFO}" | lolcat >&2
