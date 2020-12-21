@@ -1,0 +1,27 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fdfd9406e50" [label="README.md"]
+"0x7fdfd9406bd0" [label="pandocomatic", shape=ellipse]
+"0x7fdfd9406bd0" -> "0x7fdfd9406e50"
+"0x7fdfd9406300" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd9406f30" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd9406240" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd94064f0" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd94066c0" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd94068c0" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd9406ae0" -> "0x7fdfd9406bd0" [arrowhead=none]
+"0x7fdfd9406300" [label="maskfile.md"]
+"0x7fdfd9406f30" [label="build.ninja"]
+"0x7fdfd9406240" [label="build/ninja.README.md.dot"]
+"0x7fdfd9406300" -> "0x7fdfd9406240" [label=" mask-tee"]
+"0x7fdfd94064f0" [label="build/ninja.README.md.png"]
+"0x7fdfd9406240" -> "0x7fdfd94064f0" [label=" mask"]
+"0x7fdfd94066c0" [label="build/genpass-apple-output.txt"]
+"0x7fdfd9406300" -> "0x7fdfd94066c0" [label=" mask-tee"]
+"0x7fdfd94068c0" [label="build/genpass-monkey-output.txt"]
+"0x7fdfd9406300" -> "0x7fdfd94068c0" [label=" mask-tee"]
+"0x7fdfd9406ae0" [label="build/genpass-xkcd-output.txt"]
+"0x7fdfd9406300" -> "0x7fdfd9406ae0" [label=" mask-tee"]
+}
