@@ -41,7 +41,7 @@ zsh --interactive -c 'genpass-monkey'
 ## genpass-xkcd
 
 ```bash
-zsh --interactive -c 'genpass-xkcd '
+zsh --interactive -c 'genpass-xkcd'
 ```
 
 ### genpass-xkcd-output
