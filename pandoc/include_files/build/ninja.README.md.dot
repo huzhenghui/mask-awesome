@@ -1,0 +1,26 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fc1f0407070" [label="README.md"]
+"0x7fc1f0406e30" [label="pandocomatic", shape=ellipse]
+"0x7fc1f0406e30" -> "0x7fc1f0407070"
+"0x7fc1f04065e0" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f0407160" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f0406400" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f04067d0" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f0406aa0" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f0406d50" -> "0x7fc1f0406e30" [arrowhead=none]
+"0x7fc1f04065e0" [label="maskfile.md"]
+"0x7fc1f0407160" [label="build.ninja"]
+"0x7fc1f0406400" [label="build/ninja.README.md.dot"]
+"0x7fc1f04065e0" -> "0x7fc1f0406400" [label=" mask-tee"]
+"0x7fc1f04067d0" [label="build/ninja.README.md.png"]
+"0x7fc1f0406400" -> "0x7fc1f04067d0" [label=" mask"]
+"0x7fc1f0406aa0" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fc1f0406a30" [label="ghq", shape=ellipse]
+"0x7fc1f0406a30" -> "0x7fc1f0406aa0"
+"0x7fc1f0406d50" [label="build/pandoc-lua-filters/include-files/README.md"]
+"0x7fc1f0406ce0" [label="ghq", shape=ellipse]
+"0x7fc1f0406ce0" -> "0x7fc1f0406d50"
+}

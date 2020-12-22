@@ -1,0 +1,69 @@
+builddir=./build
+mask_subcommand = --help
+
+#######################################
+# begin: rule in template
+
+rule mask
+  command = mask $mask_subcommand
+
+rule mask-tee
+  command = mask $mask_subcommand 2>&1 | tee $out 1> /dev/null
+
+rule pandocomatic
+  command = pandocomatic --input $in --output $out
+
+# end: rule in template
+#######################################
+
+#######################################
+# begin: custom rule
+
+rule ghq
+  command = ghq get --update "$repository" && find -d "$link_dirname" -exec rmdir {} \; && ln -Fs "$$(ghq list --full-path $repository)" "$link_dirname"
+  generator = 1
+
+# end: custom rule
+#######################################
+
+#######################################
+# begin: build in template
+
+build ./build/ninja.README.md.dot: mask-tee | ./maskfile.md
+  mask_subcommand = readme-graph-dot
+
+build ./build/ninja.README.md.png : mask | ./build/ninja.README.md.dot
+  mask_subcommand = readme-graph-png
+
+# end: build in template
+#######################################
+
+#######################################
+# begin: custom build
+
+build ./build/pandoc-lua-filters/include-files/include-files.lua : ghq
+  repository = https://github.com/pandoc/lua-filters
+  link_dirname = ./build/pandoc-lua-filters
+
+build ./build/pandoc-lua-filters/include-files/README.md : ghq
+  repository = https://github.com/pandoc/lua-filters
+  link_dirname = ./build/pandoc-lua-filters
+
+# end: custom build
+#######################################
+
+#######################################
+# begin: build README.md
+# $ followed by a newline
+# escape the newline (continue the current line across a line break).
+# the first 4 line in this build is template
+build README.md: pandocomatic maskfile.md | $
+  build.ninja $
+  ./build/ninja.README.md.dot $
+  ./build/ninja.README.md.png $
+  ./build/pandoc-lua-filters/include-files/include-files.lua $
+  ./build/pandoc-lua-filters/include-files/README.md
+
+default README.md
+# end: build README.md
+#######################################
