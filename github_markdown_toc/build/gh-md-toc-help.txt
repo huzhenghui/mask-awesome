@@ -1,0 +1,19 @@
+usage: gh-md-toc [<flags>] [<path>...]
+
+Flags:
+  --help         Show context-sensitive help (also try --help-long and
+                 --help-man).
+  --serial       Grab TOCs in the serial mode
+  --hide-header  Hide TOC header
+  --hide-footer  Hide TOC footer
+  --depth=0      How many levels of headings to include. Defaults to 0 (all)
+  --no-escape    Do not escape chars in sections
+  --token=TOKEN  GitHub personal token
+  --indent=2     Indent space of generated list
+  --debug        Show debug info
+  --version      Show application version.
+
+Args:
+  [<path>]  Local path or URL of the document to grab TOC. Read MD from stdin if
+            not entered.
+
