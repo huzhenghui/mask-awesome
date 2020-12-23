@@ -17,13 +17,13 @@ rule pandocomatic
 #######################################
 
 #######################################
-# begin: custom rule
+# start snippet custom-rule
 
 rule ghq
   command = ghq get --update "$repository" && find -d "$link_dirname" -exec rmdir {} \; && ln -Fs "$$(ghq list --full-path $repository)" "$link_dirname"
   generator = 1
 
-# end: custom rule
+# end snippet custom-rule
 #######################################
 
 #######################################
@@ -39,7 +39,7 @@ build ./build/ninja.README.md.png : mask | ./build/ninja.README.md.dot
 #######################################
 
 #######################################
-# begin: custom build
+# start snippet custom-build
 
 build ./build/pandoc-lua-filters/include-files/include-files.lua : ghq
   repository = https://github.com/pandoc/lua-filters
@@ -49,7 +49,7 @@ build ./build/pandoc-lua-filters/include-files/README.md : ghq
   repository = https://github.com/pandoc/lua-filters
   link_dirname = ./build/pandoc-lua-filters
 
-# end: custom build
+# end snippet custom-build
 #######################################
 
 #######################################

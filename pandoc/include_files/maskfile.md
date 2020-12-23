@@ -32,6 +32,18 @@
 
 ```
 
+# ninja custom-rule
+
+```{.ninja include=build.ninja snippet=custom-rule}
+
+```
+
+# ninja custom-build
+
+```{.ninja include=build.ninja snippet=custom-build}
+
+```
+
 # include-files README
 
 > start snippet include-files-usage
