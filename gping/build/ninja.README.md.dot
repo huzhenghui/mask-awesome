@@ -1,0 +1,33 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fe74c606140" [label="README.md"]
+"0x7fe74c605ec0" [label="pandocomatic", shape=ellipse]
+"0x7fe74c605ec0" -> "0x7fe74c606140"
+"0x7fe74c605250" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c606220" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605030" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605410" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605700" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c6059b0" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605bd0" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605dd0" -> "0x7fe74c605ec0" [arrowhead=none]
+"0x7fe74c605250" [label="maskfile.md"]
+"0x7fe74c606220" [label="build.ninja"]
+"0x7fe74c605030" [label="build/ninja.README.md.dot"]
+"0x7fe74c605250" -> "0x7fe74c605030" [label=" mask-tee"]
+"0x7fe74c605410" [label="build/ninja.README.md.png"]
+"0x7fe74c605030" -> "0x7fe74c605410" [label=" mask"]
+"0x7fe74c605700" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fe74c605690" [label="ghq", shape=ellipse]
+"0x7fe74c605690" -> "0x7fe74c605700"
+"0x7fe74c6059b0" [label="build/README.TOC.md"]
+"0x7fe74c6058a0" -> "0x7fe74c6059b0" [label=" github-markdown-toc"]
+"0x7fe74c6058a0" [label="build/temp/README.md"]
+"0x7fe74c605250" -> "0x7fe74c6058a0" [label=" copy_alternate"]
+"0x7fe74c605bd0" [label="build/gping-help-output.txt"]
+"0x7fe74c605250" -> "0x7fe74c605bd0" [label=" mask-tee"]
+"0x7fe74c605dd0" [label="build/gping-version-output.txt"]
+"0x7fe74c605250" -> "0x7fe74c605dd0" [label=" mask-tee"]
+}
