@@ -1,0 +1,2 @@
+This application was written by somebody who wants to remain anonymous.
+Please use https://bugs.kde.org to report bugs.

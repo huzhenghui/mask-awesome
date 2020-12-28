@@ -1,0 +1,33 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x7fc219c08010" [label="README.md"]
+"0x7fc219c07da0" [label="pandocomatic", shape=ellipse]
+"0x7fc219c07da0" -> "0x7fc219c08010"
+"0x7fc219c07150" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c08120" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c06f10" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c07300" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c075d0" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c07880" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c07ac0" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c07ca0" -> "0x7fc219c07da0" [arrowhead=none]
+"0x7fc219c07150" [label="maskfile.md"]
+"0x7fc219c08120" [label="build.ninja"]
+"0x7fc219c06f10" [label="build/ninja.README.md.dot"]
+"0x7fc219c07150" -> "0x7fc219c06f10" [label=" mask-tee"]
+"0x7fc219c07300" [label="build/ninja.README.md.png"]
+"0x7fc219c06f10" -> "0x7fc219c07300" [label=" mask"]
+"0x7fc219c075d0" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fc219c07560" [label="ghq", shape=ellipse]
+"0x7fc219c07560" -> "0x7fc219c075d0"
+"0x7fc219c07880" [label="build/README.TOC.md"]
+"0x7fc219c07770" -> "0x7fc219c07880" [label=" github-markdown-toc"]
+"0x7fc219c07770" [label="build/temp/README.md"]
+"0x7fc219c07150" -> "0x7fc219c07770" [label=" copy_alternate"]
+"0x7fc219c07ac0" [label="build/kdiff3-author-output.txt"]
+"0x7fc219c07150" -> "0x7fc219c07ac0" [label=" mask-tee"]
+"0x7fc219c07ca0" [label="build/kdiff3-license-output.txt"]
+"0x7fc219c07150" -> "0x7fc219c07ca0" [label=" mask-tee"]
+}
