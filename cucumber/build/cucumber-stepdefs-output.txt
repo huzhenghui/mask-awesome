@@ -1,0 +1,26 @@
+.{"name":"Something","tag":8264}
+220
+.@persons/[tag=8264]
+
+220	{"name":"Something","tag":8264}
+
+Something
+Something
+...{"name":"Another","tag":2244}
+221
+.@persons/[tag=2244]
+
+221	{"name":"Another","tag":2244}
+
+Another
+Another
+..
+
+2.0126370 "Start ejdb"         # features/step_definitions/ejdb_steps.rb:10
+1.0265005 "Stop ejdb"          # features/step_definitions/ejdb_steps.rb:29
+0.0080245 "Send {string}"      # features/step_definitions/ejdb_steps.rb:18
+0.0064935 "Receive {string}"   # features/step_definitions/ejdb_steps.rb:22
+
+2 scenarios (2 passed)
+8 steps (8 passed)
+0m6.176s

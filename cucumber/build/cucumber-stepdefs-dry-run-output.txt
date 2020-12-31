@@ -1,0 +1,9 @@
+--------
+
+"Receive {string}"   # features/step_definitions/ejdb_steps.rb:22
+"Send {string}"      # features/step_definitions/ejdb_steps.rb:18
+"Start ejdb"         # features/step_definitions/ejdb_steps.rb:10
+"Stop ejdb"          # features/step_definitions/ejdb_steps.rb:29
+
+2 scenarios (2 skipped)
+8 steps (8 skipped)

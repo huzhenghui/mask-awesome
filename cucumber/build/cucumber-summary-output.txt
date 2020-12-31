@@ -1,0 +1,58 @@
+PingPong
+  PingPong1 01 Jan 00:25:19.900 INFO: HTTP/WS endpoint at localhost:9191
+INFO: Listening on port 9191
+INFO: Server is running 1 worker X 6 threads with facil.io 0.7.4 (kqueue)
+* Detected capacity: 131056 open file limit
+* Root pid: 91717
+* Press ^C to stop
+
+{"name":"Something","tag":6778}
+216
+@persons/[tag=6778]
+
+216	{"name":"Something","tag":6778}
+
+Something
+Something
+INFO: (91717) detected exit signal.
+INFO:    ---  Shutdown Complete  ---
+
+
+✓
+  PingPong2 01 Jan 00:25:22.937 INFO: HTTP/WS endpoint at localhost:9191
+INFO: Listening on port 9191
+INFO: Server is running 1 worker X 6 threads with facil.io 0.7.4 (kqueue)
+* Detected capacity: 131056 open file limit
+* Root pid: 91724
+* Press ^C to stop
+
+{"name":"Another","tag":6769}
+217
+@persons/[tag=6769]
+
+217	{"name":"Another","tag":6769}
+
+Another
+Another
+INFO: (91724) detected exit signal.
+INFO:    ---  Shutdown Complete  ---
+
+
+✓
+
+2 scenarios (2 passed)
+8 steps (8 passed)
+0m6.291s
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Share your Cucumber Report with your team at https://reports.cucumber.io │
+│                                                                          │
+│ Command line option:    --publish                                        │
+│ Environment variable:   CUCUMBER_PUBLISH_ENABLED=true                    │
+│ cucumber.yml:           default: --publish                               │
+│                                                                          │
+│ More information at https://reports.cucumber.io/docs/cucumber-ruby       │
+│                                                                          │
+│ To disable this message, specify CUCUMBER_PUBLISH_QUIET=true or use the  │
+│ --publish-quiet option. You can also add this to your cucumber.yml:      │
+│ default: --publish-quiet                                                 │
+└──────────────────────────────────────────────────────────────────────────┘

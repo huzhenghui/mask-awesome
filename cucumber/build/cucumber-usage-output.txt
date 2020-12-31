@@ -1,0 +1,34 @@
+.{"name":"Something","tag":3691}
+222
+.@persons/[tag=3691]
+
+222	{"name":"Something","tag":3691}
+
+Something
+Something
+...{"name":"Another","tag":4069}
+223
+.@persons/[tag=4069]
+
+223	{"name":"Another","tag":4069}
+
+Another
+Another
+..
+
+2.0036135 "Start ejdb"               # features/step_definitions/ejdb_steps.rb:10
+  2.0042220 Given Start ejdb         # features/ejdb.feature:5
+  2.0030050 Given Start ejdb         # features/ejdb.feature:10
+1.0321255 "Stop ejdb"                # features/step_definitions/ejdb_steps.rb:29
+  1.0436100 Given Stop ejdb          # features/ejdb.feature:8
+  1.0206410 Given Stop ejdb          # features/ejdb.feature:13
+0.0090565 "Receive {string}"         # features/step_definitions/ejdb_steps.rb:22
+  0.0149710 Then Receive "Something" # features/ejdb.feature:7
+  0.0031420 Then Receive "Another"   # features/ejdb.feature:12
+0.0072500 "Send {string}"            # features/step_definitions/ejdb_steps.rb:18
+  0.0088170 When Send "Something"    # features/ejdb.feature:6
+  0.0056830 When Send "Another"      # features/ejdb.feature:11
+
+2 scenarios (2 passed)
+8 steps (8 passed)
+0m6.157s
