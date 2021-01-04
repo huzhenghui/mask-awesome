@@ -53,7 +53,7 @@ go get github.com/magefile/mage/mg
 
 ## settings-go-buildTags
 
-> Set co.buildTags equal 'mage' in settings.json of Visual Studio Code
+> Set go.buildTags equal 'mage' in settings.json of Visual Studio Code
 
 ``` bash
 json5 "$(git root)/.vscode/settings.json" | jq 'with_entries(select(.key == "go.buildTags"))'
@@ -184,7 +184,7 @@ Running target: Read
 ### mage-launcher-launcher-Hello
 
 ``` plain
-Hello, World!2021-01-04T16:19:02+08:00
+Hello, World!2021-01-04T17:22:34+08:00
 ```
 
 ### mage-launcher-launcher-statik
@@ -209,7 +209,7 @@ import (
 
 
 func init() {
-	data := "PK\x03\x04\x14\x00\x08\x00\x08\x00\x00\x00!(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00	\x00	\x00Hello.txtUT\x05\x00\x01\x80Cm8\xf2H\xcd\xc9\xc9\xd7Q\x08\xcf/\xcaIQ4202\xd450\xd450	14\xb32\xb4\xb420\xd26\xb0\xb020\x00\x04\x00\x00\xff\xffPK\x07\x08 ))\x1e,\x00\x00\x00&\x00\x00\x00PK\x01\x02\x14\x03\x14\x00\x08\x00\x08\x00\x00\x00!( ))\x1e,\x00\x00\x00&\x00\x00\x00	\x00	\x00\x00\x00\x00\x00\x00\x00\x00\x00\xa4\x81\x00\x00\x00\x00Hello.txtUT\x05\x00\x01\x80Cm8PK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x00@\x00\x00\x00l\x00\x00\x00\x00\x00"
+	data := "PK\x03\x04\x14\x00\x08\x00\x08\x00\x00\x00!(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00	\x00	\x00Hello.txtUT\x05\x00\x01\x80Cm8\xf2H\xcd\xc9\xc9\xd7Q\x08\xcf/\xcaIQ4202\xd450\xd450	14\xb722\xb226\xd16\xb0\xb020\x00\x04\x00\x00\xff\xffPK\x07\x08\x8a_\xe2O,\x00\x00\x00&\x00\x00\x00PK\x01\x02\x14\x03\x14\x00\x08\x00\x08\x00\x00\x00!(\x8a_\xe2O,\x00\x00\x00&\x00\x00\x00	\x00	\x00\x00\x00\x00\x00\x00\x00\x00\x00\xa4\x81\x00\x00\x00\x00Hello.txtUT\x05\x00\x01\x80Cm8PK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x00@\x00\x00\x00l\x00\x00\x00\x00\x00"
 		fs.Register(data)
 	}
 	
@@ -949,46 +949,46 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fa49be071e0" [label="README.md"]
-"0x7fa49be07170" [label="pandocomatic", shape=ellipse]
-"0x7fa49be07170" -> "0x7fa49be071e0"
-"0x7fa49be05bb0" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be076b0" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be05b00" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be05d70" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06060" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06310" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06550" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06740" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be068f0" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06bb0" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06db0" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be06f60" -> "0x7fa49be07170" [arrowhead=none]
-"0x7fa49be05bb0" [label="maskfile.md"]
-"0x7fa49be076b0" [label="build.ninja"]
-"0x7fa49be05b00" [label="build/ninja.README.md.dot"]
-"0x7fa49be05bb0" -> "0x7fa49be05b00" [label=" mask-tee"]
-"0x7fa49be05d70" [label="build/ninja.README.md.png"]
-"0x7fa49be05b00" -> "0x7fa49be05d70" [label=" mask"]
-"0x7fa49be06060" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7fa49be05ff0" [label="ghq", shape=ellipse]
-"0x7fa49be05ff0" -> "0x7fa49be06060"
-"0x7fa49be06310" [label="build/README.TOC.md"]
-"0x7fa49be06200" -> "0x7fa49be06310" [label=" github-markdown-toc"]
-"0x7fa49be06200" [label="build/temp/README.md"]
-"0x7fa49be05bb0" -> "0x7fa49be06200" [label=" copy_alternate"]
-"0x7fa49be06550" [label="build/settings-go-buildTags.json"]
-"0x7fa49be05bb0" -> "0x7fa49be06550" [label=" mask-stdout-tee"]
-"0x7fa49be06740" [label="build/mage-help-output.txt"]
-"0x7fa49be05bb0" -> "0x7fa49be06740" [label=" mask-stdout-tee"]
-"0x7fa49be068f0" [label="build/mage-version-output.txt"]
-"0x7fa49be05bb0" -> "0x7fa49be068f0" [label=" mask-stdout-tee"]
-"0x7fa49be06bb0" [label="build/mage-launcher-l-output.txt"]
-"0x7fa49be05bb0" -> "0x7fa49be06bb0" [label=" mask-stdout-tee"]
-"0x7fa49be06db0" [label="build/mage-launcher-h-launcher-output.txt"]
-"0x7fa49be05bb0" -> "0x7fa49be06db0" [label=" mask-stdout-tee"]
-"0x7fa49be06f60" [label="build/mage-launcher-launcher-output.txt"]
-"0x7fa49be05bb0" -> "0x7fa49be06f60" [label=" mask-stderr-tee"]
+"0x7ff0ff5059a0" [label="README.md"]
+"0x7ff0ff5058e0" [label="pandocomatic", shape=ellipse]
+"0x7ff0ff5058e0" -> "0x7ff0ff5059a0"
+"0x7ff0ff5042b0" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff505a60" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff5041f0" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff504540" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff504800" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff504ac0" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff504d10" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff504f00" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff5050b0" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff505340" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff505530" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff5056e0" -> "0x7ff0ff5058e0" [arrowhead=none]
+"0x7ff0ff5042b0" [label="maskfile.md"]
+"0x7ff0ff505a60" [label="build.ninja"]
+"0x7ff0ff5041f0" [label="build/ninja.README.md.dot"]
+"0x7ff0ff5042b0" -> "0x7ff0ff5041f0" [label=" mask-tee"]
+"0x7ff0ff504540" [label="build/ninja.README.md.png"]
+"0x7ff0ff5041f0" -> "0x7ff0ff504540" [label=" mask"]
+"0x7ff0ff504800" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7ff0ff504790" [label="ghq", shape=ellipse]
+"0x7ff0ff504790" -> "0x7ff0ff504800"
+"0x7ff0ff504ac0" [label="build/README.TOC.md"]
+"0x7ff0ff5049a0" -> "0x7ff0ff504ac0" [label=" github-markdown-toc"]
+"0x7ff0ff5049a0" [label="build/temp/README.md"]
+"0x7ff0ff5042b0" -> "0x7ff0ff5049a0" [label=" copy_alternate"]
+"0x7ff0ff504d10" [label="build/settings-go-buildTags.json"]
+"0x7ff0ff5042b0" -> "0x7ff0ff504d10" [label=" mask-stdout-tee"]
+"0x7ff0ff504f00" [label="build/mage-help-output.txt"]
+"0x7ff0ff5042b0" -> "0x7ff0ff504f00" [label=" mask-stdout-tee"]
+"0x7ff0ff5050b0" [label="build/mage-version-output.txt"]
+"0x7ff0ff5042b0" -> "0x7ff0ff5050b0" [label=" mask-stdout-tee"]
+"0x7ff0ff505340" [label="build/mage-launcher-l-output.txt"]
+"0x7ff0ff5042b0" -> "0x7ff0ff505340" [label=" mask-stdout-tee"]
+"0x7ff0ff505530" [label="build/mage-launcher-h-launcher-output.txt"]
+"0x7ff0ff5042b0" -> "0x7ff0ff505530" [label=" mask-stdout-tee"]
+"0x7ff0ff5056e0" [label="build/mage-launcher-launcher-output.txt"]
+"0x7ff0ff5042b0" -> "0x7ff0ff5056e0" [label=" mask-stderr-tee"]
 }
 ```
 

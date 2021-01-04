@@ -32,7 +32,7 @@ go get github.com/magefile/mage/mg
 
 ## settings-go-buildTags
 
-> Set co.buildTags equal 'mage' in settings.json of Visual Studio Code
+> Set go.buildTags equal 'mage' in settings.json of Visual Studio Code
 
 ```bash
 json5 "$(git root)/.vscode/settings.json" | jq 'with_entries(select(.key == "go.buildTags"))'
