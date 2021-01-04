@@ -102,9 +102,14 @@ go get "github.com/magefile/mage"
 mage -d "${MASKFILE_DIR}/launcher" -v -keep launcher
 ```
 
-### mage-launcher-launcher-output
+### mage-launcher-launcher-stderr
 
-```{.plain include=./build/mage-launcher-launcher-output.txt}
+```{.plain include=./build/mage-launcher-launcher-stderr.txt}
+```
+
+### mage-launcher-launcher-stdout
+
+```{.plain include=./build/mage-launcher-launcher-stdout.txt}
 ```
 
 ### mage-launcher-launcher-Hello

@@ -102,7 +102,10 @@ build ./build/mage-launcher-l-output.txt : mask-stdout-tee ./maskfile.md
 build ./build/mage-launcher-h-launcher-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = mage-launcher-h-launcher
 
-build ./build/mage-launcher-launcher-output.txt : mask-stderr-tee ./maskfile.md
+build ./build/mage-launcher-launcher-stderr.txt : mask-stderr-tee ./maskfile.md
+  mask_subcommand = mage-launcher-launcher
+
+build ./build/mage-launcher-launcher-stdout.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = mage-launcher-launcher
 
 # end snippet custom-build
@@ -124,7 +127,8 @@ build README.md : pandocomatic maskfile.md | $
   ./build/mage-version-output.txt $
   ./build/mage-launcher-l-output.txt $
   ./build/mage-launcher-h-launcher-output.txt $
-  ./build/mage-launcher-launcher-output.txt
+  ./build/mage-launcher-launcher-stderr.txt $
+  ./build/mage-launcher-launcher-stdout.txt
 
 default README.md
 # end: build README.md
