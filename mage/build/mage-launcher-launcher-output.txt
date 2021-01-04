@@ -1,0 +1,6 @@
+Running target: Launcher
+exec: go get github.com/rakyll/statik/fs
+38
+exec: statik -src ../FS -dest ../ -f -m -include Hello.txt
+exec: mage -d ../read -v -keep read
+Running target: Read

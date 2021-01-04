@@ -1,0 +1,4 @@
+Mage Build Tool 1.11.0
+Build Date: 2020-12-29
+Commit: 07afc7d
+built with: go1.15.6

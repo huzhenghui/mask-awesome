@@ -1,0 +1,4 @@
+Usage:
+
+	mage launcher
+
