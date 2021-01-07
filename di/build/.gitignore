@@ -1,0 +1,4 @@
+/.ninja_log
+/pandoc-lua-filters
+/temp/*
+!/temp/.gitkeep

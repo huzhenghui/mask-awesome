@@ -1,0 +1,24 @@
+di version 4.48    Default Format: smbuvpT
+Usage: di [-ant] [-d display-size] [-f format] [-x exclude-fstyp-list]
+       [-I include-fstyp-list] [file [...]]
+   -a   : print all mounted devices
+   -d x : size to print blocks in (512 - POSIX, k - kbytes,
+          m - megabytes, g - gigabytes, t - terabytes, h - human readable).
+   -f x : use format string <x>
+   -I x : include only file system types in <x>
+   -x x : exclude file system types in <x>
+   -l   : display local filesystems only
+   -n   : don't print header
+   -t   : print totals
+ Format string values:
+    m - mount point                     M - mount point, full length
+    b - total kbytes                    B - kbytes available for use
+    u - used kbytes                     c - calculated kbytes in use
+    f - kbytes free                     v - kbytes available
+    p - percentage not avail. for use   1 - percentage used
+    2 - percentage of user-available space in use.
+    i - total file slots (i-nodes)      U - used file slots
+    F - free file slots                 P - percentage file slots used
+    s - filesystem name                 S - filesystem name, full length
+    t - disk partition type             T - partition type, full length
+See manual page for more options.
