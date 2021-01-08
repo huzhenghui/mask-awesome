@@ -1,0 +1,44 @@
+  usage: agedu [options] action [action...]
+actions: -s, --scan directory    scan and index a directory
+         -w, --web               serve HTML reports from a temporary web server
+         -t, --text subdir       print a plain text report on a subdirectory
+         -R, --remove            remove the index file
+         -D, --dump              dump the index file on stdout
+         -L, --load              load and index a dump file
+         --presort               prepare a dump file for sorting
+         --postsort              unprepare a dump file after sorting
+         -S, --scan-dump directory scan only, generating a dump
+         -H, --html subdir       print an HTML report on a subdirectory
+         --cgi                   do the right thing when run from a CGI script
+options: -f, --file filename     [most modes] specify index file
+         --cross-fs              [--scan] cross filesystem boundaries
+         --no-cross-fs           [--scan] stick to one filesystem
+         --prune wildcard        [--scan] prune files matching pattern
+         --prune-path wildcard   [--scan] prune pathnames matching pattern
+         --exclude wildcard      [--scan] exclude files matching pattern
+         --exclude-path wildcard [--scan] exclude pathnames matching pattern
+         --include wildcard      [--scan] include files matching pattern
+         --include-path wildcard [--scan] include pathnames matching pattern
+         --progress              [--scan] report progress on stderr
+         --no-progress           [--scan] do not report progress
+         --tty-progress          [--scan] report progress if stderr is a tty
+         --dir-atime             [--scan,--load] keep real atimes on directories
+         --no-dir-atime          [--scan,--load] fake atimes on directories
+         --launch shell-cmd      [--web] pass the base URL to the given command
+         --no-eof                [--web] do not close web server on EOF
+         --mtime                 [--scan] use mtime instead of atime
+         --logicalsize           [--logicalsize] use logical instead of physical file size
+         --files                 [--web,--html,--text] list individual files
+         -r, --age-range age[-age] [--web,--html] set limits of colour coding
+         -o, --output filename   [--html] specify output file or directory name
+         --numeric               [--html] name output files numerically
+         --address addr[:port]   [--web] specify HTTP server address
+         --auth type             [--web] specify HTTP authentication method
+         --auth-file filename    [--web] read HTTP Basic user/pass from file
+         --auth-fd fd            [--web] read HTTP Basic user/pass from fd
+         --title title           [--web,--html] title prefix for web pages
+         -d, --depth levels      [--text,--html] recurse to this many levels
+         -a, --age age           [--text] include only files older than this
+   also: -h, --help              display this help text
+         -V, --version           report version number
+         --licence               display (MIT) licence text
