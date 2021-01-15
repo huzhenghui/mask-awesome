@@ -78,6 +78,17 @@ agedu --file ./report-output/agedu-root.dat --remove
 agedu --file ./report-output/agedu-root.dat --files --web --auth none --launch open
 ```
 
+## web-index
+
+```bash
+cd ./report-output/index/
+file="$(
+    find . -type f | \
+        /usr/local/opt/choose-gui/bin/choose
+)"
+agedu --file "${file}" --files --web --auth none
+```
+
 ## dump-root
 
 ```bash
