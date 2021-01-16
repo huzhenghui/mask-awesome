@@ -48,13 +48,14 @@ ${MASK} starship-init-powershell-profile | \
 
 ### starship-init-powershell-profile-content-output
 
-```{.plain include=./build/starship-init-powershell-profile-content-output.ps1}
+```{.pwsh include=./build/starship-init-powershell-profile-content-output.ps1}
 ```
 
 ## starship-config-name
 
 ```bash
-EDITOR="echo" starship config
+EDITOR="echo" starship config |
+    xargs /usr/local/opt/coreutils/bin/realpath  --relative-to="${HOME}"
 ```
 
 ### starship-config-name-output
