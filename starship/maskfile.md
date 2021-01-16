@@ -579,7 +579,7 @@ ninja -t targets all
 
 ### ninja build-all
 
-```{.ninja include=build.ninja snippet=build-all}∏
+```{.ninja include=build.ninja snippet=build-all}
 ```
 
 ### ninja custom-build
