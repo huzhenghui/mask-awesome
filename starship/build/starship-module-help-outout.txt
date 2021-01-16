@@ -1,0 +1,20 @@
+starship-module 
+Prints a specific prompt module
+
+USAGE:
+    starship module [FLAGS] [OPTIONS] <name>
+
+FLAGS:
+    -h, --help       Prints help information
+    -l, --list       List out all supported modules
+    -V, --version    Prints version information
+
+OPTIONS:
+    -d, --cmd-duration <CMD_DURATION>    The execution duration of the last command, in milliseconds
+    -j, --jobs <JOBS>                    The number of currently running jobs
+    -k, --keymap <KEYMAP>                The keymap of fish/zsh
+    -p, --path <PATH>                    The path that the prompt should render for
+    -s, --status <STATUS_CODE>           The status code of the previously run command
+
+ARGS:
+    <name>    The name of the module to be printed

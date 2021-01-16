@@ -1,0 +1,13 @@
+starship-config 
+Edit the starship configuration
+
+USAGE:
+    starship config [ARGS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+ARGS:
+    <name>     Configuration key to edit
+    <value>    Value to place into that key

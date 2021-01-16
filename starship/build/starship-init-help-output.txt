@@ -1,0 +1,14 @@
+starship-init 
+Prints the shell function used to execute starship
+
+USAGE:
+    starship init [FLAGS] <SHELL>
+
+FLAGS:
+    -h, --help               Prints help information
+        --print-full-init    Print the main initialization script (as opposed to the init stub)
+    -V, --version            Prints version information
+
+ARGS:
+    <SHELL>    The name of the currently running shell
+               Currently supported options: bash, zsh, fish, powershell, ion

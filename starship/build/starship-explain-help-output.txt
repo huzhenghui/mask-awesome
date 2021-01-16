@@ -1,0 +1,9 @@
+starship-explain 
+Explains the currently showing modules
+
+USAGE:
+    starship explain
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information

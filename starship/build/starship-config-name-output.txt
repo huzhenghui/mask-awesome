@@ -1,0 +1,1 @@
+/Users/huzhenghui/.config/starship.toml

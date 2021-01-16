@@ -1,0 +1,9 @@
+starship-timings 
+Prints timings of all active modules
+
+USAGE:
+    starship timings
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information

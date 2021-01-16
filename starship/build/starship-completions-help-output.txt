@@ -1,0 +1,13 @@
+starship-completions 
+Generate starship shell completions for your shell to stdout
+
+USAGE:
+    starship completions <SHELL>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+ARGS:
+    <SHELL>    the shell to generate completions for [env: STARSHIP_SHELL=]  [possible values: zsh, bash, fish,
+               powershell, elvish]

@@ -1,0 +1,9 @@
+starship-session 
+Generate random session key
+
+USAGE:
+    starship session
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information

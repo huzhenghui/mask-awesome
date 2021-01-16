@@ -1,0 +1,16 @@
+starship-prompt 
+Prints the full starship prompt
+
+USAGE:
+    starship prompt [OPTIONS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+    -d, --cmd-duration <CMD_DURATION>    The execution duration of the last command, in milliseconds
+    -j, --jobs <JOBS>                    The number of currently running jobs
+    -k, --keymap <KEYMAP>                The keymap of fish/zsh
+    -p, --path <PATH>                    The path that the prompt should render for
+    -s, --status <STATUS_CODE>           The status code of the previously run command
