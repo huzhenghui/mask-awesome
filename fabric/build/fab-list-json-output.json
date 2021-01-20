@@ -1,0 +1,13 @@
+{
+  "name": "fabfile",
+  "help": null,
+  "default": null,
+  "tasks": [
+    {
+      "name": "info",
+      "help": null,
+      "aliases": []
+    }
+  ],
+  "collections": []
+}

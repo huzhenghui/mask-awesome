@@ -1,0 +1,8 @@
+Usage: fab [--core-opts] info [other tasks here ...]
+
+Docstring:
+  none
+
+Options:
+  none
+

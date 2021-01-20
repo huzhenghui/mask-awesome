@@ -1,0 +1,3 @@
+Fabric 2.6.0
+Paramiko 2.7.2
+Invoke 1.5.0
