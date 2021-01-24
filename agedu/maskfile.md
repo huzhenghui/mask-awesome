@@ -61,6 +61,20 @@ file="$(
 agedu --file "${file}" --files --web --auth none
 ```
 
+## scan-dump-pwd
+
+```bash
+agedu --scan-dump "$(pwd)" > ./report-output/dump/pwd.ageduscan.dump.dat
+```
+
+## find-pwd
+
+```bash
+output_file="./report-output/dump/find.pwd.ageduscan.dump.dat"
+echo "agedu dump file. pathsep=2f" > "${output_file}"
+find -s "$(pwd)" -exec stat -f "%z %a %N" {} \; >> "${output_file}"
+```
+
 ## agedu-help
 
 ```bash
