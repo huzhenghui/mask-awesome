@@ -1,0 +1,2 @@
+/.snakemake/log/*.snakemake.log
+/.snakemake/metadata/*

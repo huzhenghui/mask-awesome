@@ -33,6 +33,28 @@ agedu --version
 ```{.plain include=./build/agedu-version-output.txt}
 ```
 
+## snakemake
+
+```bash
+snakemake --cores all
+```
+
+### Snakefile
+
+```{.Snakefile include=./Snakefile}
+```
+
+## web
+
+```bash
+cd ./report-output/index/
+file="$(
+    find . -type f | \
+        /usr/local/opt/choose-gui/bin/choose
+)"
+agedu --file "${file}" --files --web --auth none
+```
+
 ## agedu-help
 
 ```bash
@@ -52,12 +74,6 @@ agedu --help
 sudo agedu --progress --file ./report-output/agedu-home.dat --scan "$(cd ~; pwd)"
 ```
 
-## web-home
-
-```bash
-sudo agedu --file ./report-output/agedu-home.dat --web --auth none
-```
-
 ## scan-root
 
 ```bash
@@ -70,23 +86,6 @@ sudo chown "${USER}" ./report-output/agedu-root.dat
 
 ```bash
 agedu --file ./report-output/agedu-root.dat --remove
-```
-
-## web-root
-
-```bash
-agedu --file ./report-output/agedu-root.dat --files --web --auth none --launch open
-```
-
-## web-index
-
-```bash
-cd ./report-output/index/
-file="$(
-    find . -type f | \
-        /usr/local/opt/choose-gui/bin/choose
-)"
-agedu --file "${file}" --files --web --auth none
 ```
 
 ## dump-root

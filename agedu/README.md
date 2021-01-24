@@ -6,13 +6,14 @@
 -   [Mask SubCommands](#mask-subcommands)
     -   [agedu-version](#agedu-version)
         -   [agedu-version-output](#agedu-version-output)
+    -   [snakemake](#snakemake)
+        -   [Snakefile](#snakefile)
+    -   [web](#web)
     -   [agedu-help](#agedu-help)
         -   [agedu-help-output](#agedu-help-output)
     -   [scan-home](#scan-home)
-    -   [web-home](#web-home)
     -   [scan-root](#scan-root)
     -   [remove-root](#remove-root)
-    -   [web-root](#web-root)
     -   [dump-root](#dump-root)
     -   [html-root](#html-root)
     -   [report](#report)
@@ -77,6 +78,41 @@ agedu --version
 
 ``` plain
 agedu, revision 20200705.2a7d4a2
+```
+
+## snakemake
+
+``` bash
+snakemake --cores all
+```
+
+### Snakefile
+
+``` Snakefile
+input_pattern = 'report-output/dump/{storage_name}.ageduscan.dump.dat'
+output_pattern = 'report-output/index/{storage_name}.ageduscan.index.dat'
+STORAGES, = glob_wildcards(input_pattern, followlinks=False)
+
+rule all:
+    input:
+        expand(output_pattern, storage_name=STORAGES)
+
+rule stat:
+    input: input_pattern
+    output: output_pattern
+    shell:
+        'cat {input} | agedu --load --file {output}'
+```
+
+## web
+
+``` bash
+cd ./report-output/index/
+file="$(
+    find . -type f | \
+        /usr/local/opt/choose-gui/bin/choose
+)"
+agedu --file "${file}" --files --web --auth none
 ```
 
 ## agedu-help
@@ -144,12 +180,6 @@ options: -f, --file filename     [most modes] specify index file
 sudo agedu --progress --file ./report-output/agedu-home.dat --scan "$(cd ~; pwd)"
 ```
 
-## web-home
-
-``` bash
-sudo agedu --file ./report-output/agedu-home.dat --web --auth none
-```
-
 ## scan-root
 
 ``` bash
@@ -162,12 +192,6 @@ sudo chown "${USER}" ./report-output/agedu-root.dat
 
 ``` bash
 agedu --file ./report-output/agedu-root.dat --remove
-```
-
-## web-root
-
-``` bash
-agedu --file ./report-output/agedu-root.dat --files --web --auth none --launch open
 ```
 
 ## dump-root
@@ -1290,111 +1314,111 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fb079d06930" [label="all"]
-"0x7fb079d068c0" [label="phony", shape=ellipse]
-"0x7fb079d068c0" -> "0x7fb079d06930"
-"0x7fb079d06990" -> "0x7fb079d068c0" [arrowhead=none]
-"0x7fb079d06a50" -> "0x7fb079d068c0" [arrowhead=none]
-"0x7fb079d06990" [label="README.md"]
-"0x7fb079d0a9d0" [label="pandocomatic", shape=ellipse]
-"0x7fb079d0a9d0" -> "0x7fb079d06990"
-"0x7fb079d06f10" -> "0x7fb079d0a9d0" [arrowhead=none]
-"0x7fb079d0a150" -> "0x7fb079d0a9d0" [arrowhead=none]
-"0x7fb079d0a3a0" -> "0x7fb079d0a9d0" [arrowhead=none]
-"0x7fb079d0a6a0" -> "0x7fb079d0a9d0" [arrowhead=none]
-"0x7fb079d0a880" -> "0x7fb079d0a9d0" [arrowhead=none]
-"0x7fb079d06f10" [label="maskfile.md"]
-"0x7fb079d0a150" [label="README-template"]
-"0x7fb079d0a230" [label="phony", shape=ellipse]
-"0x7fb079d0a230" -> "0x7fb079d0a150"
-"0x7fb079d09570" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d0a520" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d09740" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d099f0" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d09bb0" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d09e10" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d0a0f0" -> "0x7fb079d0a230" [arrowhead=none]
-"0x7fb079d09570" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7fb079d09500" [label="ghq", shape=ellipse]
-"0x7fb079d09500" -> "0x7fb079d09570"
-"0x7fb079d0a520" [label="build.ninja"]
-"0x7fb079d09740" [label="build/ninja/ninja-rules-output.txt"]
-"0x7fb079d06f10" -> "0x7fb079d09740" [label=" mask-stdout-tee"]
-"0x7fb079d099f0" [label="build/ninja/ninja-targets-output.txt"]
-"0x7fb079d06f10" -> "0x7fb079d099f0" [label=" mask-stdout-tee"]
-"0x7fb079d09bb0" [label="build/ninja/ninja.graph.dot"]
-"0x7fb079d06f10" -> "0x7fb079d09bb0" [label=" mask-tee"]
-"0x7fb079d09e10" [label="build/ninja/ninja.graph.png"]
-"0x7fb079d09da0" [label="mask", shape=ellipse]
-"0x7fb079d09da0" -> "0x7fb079d09e10"
-"0x7fb079d06f10" -> "0x7fb079d09da0" [arrowhead=none]
-"0x7fb079d09bb0" -> "0x7fb079d09da0" [arrowhead=none]
-"0x7fb079d0a0f0" [label="build/README.TOC/README.TOC.md"]
-"0x7fb079d09fa0" -> "0x7fb079d0a0f0" [label=" github-markdown-toc"]
-"0x7fb079d09fa0" [label="build/temp/README.md"]
-"0x7fb079d06f10" -> "0x7fb079d09fa0" [label=" copy_alternate"]
-"0x7fb079d0a3a0" [label="build/agedu-version-output.txt"]
-"0x7fb079d06f10" -> "0x7fb079d0a3a0" [label=" mask-stdout-tee"]
-"0x7fb079d0a6a0" [label="build/agedu-help-output.txt"]
-"0x7fb079d06f10" -> "0x7fb079d0a6a0" [label=" mask-stdout-tee"]
-"0x7fb079d0a880" [label="build/man/man-agedu.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d0a880" [label=" mask-man-markdown"]
-"0x7fb079d06a50" [label="report-output/report.md"]
-"0x7fb079d08000" [label="pandocomatic", shape=ellipse]
-"0x7fb079d08000" -> "0x7fb079d06a50"
-"0x7fb079d09210" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d06e50" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07060" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07270" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07470" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07660" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d078e0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07af0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07d70" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d07f40" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d080f0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d082c0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d08570" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d087b0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d089c0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d08b30" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d08eb0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d08fc0" -> "0x7fb079d08000" [arrowhead=none]
-"0x7fb079d09210" [label="report-template/report.md"]
-"0x7fb079d06e50" [label="report-output/root.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d06e50" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07060" [label="report-output/root-Applications.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07060" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07270" [label="report-output/root-Users.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07270" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07470" [label="report-output/HOME.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07470" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07660" [label="report-output/HOME--local.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07660" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d078e0" [label="report-output/HOME--local-share.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d078e0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07af0" [label="report-output/HOME--local-share-Trash.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07af0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07d70" [label="report-output/HOME--local-share-Trash-files.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07d70" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d07f40" [label="report-output/HOME--vagrant-d.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d07f40" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d080f0" [label="report-output/HOME--vagrant-d-boxes.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d080f0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d082c0" [label="report-output/HOME-ghq.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d082c0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d08570" [label="report-output/HOME-ghq-github-com.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d08570" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d087b0" [label="report-output/HOME-ghq-github-com-huzhenghui.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d087b0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d089c0" [label="report-output/HOME-ghq-github-com-huzhenghui-mask-awesome.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d089c0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d08b30" [label="report-output/HOME-Library.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d08b30" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d08eb0" [label="report-output/HOME-Library-Containers.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d08eb0" [label=" mask-textual-report-sort-csv-markdown"]
-"0x7fb079d08fc0" [label="report-output/HOME-OneDrive.auto-generated.md"]
-"0x7fb079d06f10" -> "0x7fb079d08fc0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f06370" [label="all"]
+"0x7f9650f06300" [label="phony", shape=ellipse]
+"0x7f9650f06300" -> "0x7f9650f06370"
+"0x7f9650f063d0" -> "0x7f9650f06300" [arrowhead=none]
+"0x7f9650f06490" -> "0x7f9650f06300" [arrowhead=none]
+"0x7f9650f063d0" [label="README.md"]
+"0x7f96521056a0" [label="pandocomatic", shape=ellipse]
+"0x7f96521056a0" -> "0x7f9650f063d0"
+"0x7f9650f06950" -> "0x7f96521056a0" [arrowhead=none]
+"0x7f9652104cb0" -> "0x7f96521056a0" [arrowhead=none]
+"0x7f9652105060" -> "0x7f96521056a0" [arrowhead=none]
+"0x7f9652105390" -> "0x7f96521056a0" [arrowhead=none]
+"0x7f9652105570" -> "0x7f96521056a0" [arrowhead=none]
+"0x7f9650f06950" [label="maskfile.md"]
+"0x7f9652104cb0" [label="README-template"]
+"0x7f9652104f30" [label="phony", shape=ellipse]
+"0x7f9652104f30" -> "0x7f9652104cb0"
+"0x7f96521040d0" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f9652105210" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f9652104390" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f96521046d0" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f96521048c0" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f9652104b00" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f9652104db0" -> "0x7f9652104f30" [arrowhead=none]
+"0x7f96521040d0" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7f9652004080" [label="ghq", shape=ellipse]
+"0x7f9652004080" -> "0x7f96521040d0"
+"0x7f9652105210" [label="build.ninja"]
+"0x7f9652104390" [label="build/ninja/ninja-rules-output.txt"]
+"0x7f9650f06950" -> "0x7f9652104390" [label=" mask-stdout-tee"]
+"0x7f96521046d0" [label="build/ninja/ninja-targets-output.txt"]
+"0x7f9650f06950" -> "0x7f96521046d0" [label=" mask-stdout-tee"]
+"0x7f96521048c0" [label="build/ninja/ninja.graph.dot"]
+"0x7f9650f06950" -> "0x7f96521048c0" [label=" mask-tee"]
+"0x7f9652104b00" [label="build/ninja/ninja.graph.png"]
+"0x7f9652104a90" [label="mask", shape=ellipse]
+"0x7f9652104a90" -> "0x7f9652104b00"
+"0x7f9650f06950" -> "0x7f9652104a90" [arrowhead=none]
+"0x7f96521048c0" -> "0x7f9652104a90" [arrowhead=none]
+"0x7f9652104db0" [label="build/README.TOC/README.TOC.md"]
+"0x7f9652104c50" -> "0x7f9652104db0" [label=" github-markdown-toc"]
+"0x7f9652104c50" [label="build/temp/README.md"]
+"0x7f9650f06950" -> "0x7f9652104c50" [label=" copy_alternate"]
+"0x7f9652105060" [label="build/agedu-version-output.txt"]
+"0x7f9650f06950" -> "0x7f9652105060" [label=" mask-stdout-tee"]
+"0x7f9652105390" [label="build/agedu-help-output.txt"]
+"0x7f9650f06950" -> "0x7f9652105390" [label=" mask-stdout-tee"]
+"0x7f9652105570" [label="build/man/man-agedu.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9652105570" [label=" mask-man-markdown"]
+"0x7f9650f06490" [label="report-output/report.md"]
+"0x7f9650f07a40" [label="pandocomatic", shape=ellipse]
+"0x7f9650f07a40" -> "0x7f9650f06490"
+"0x7f9650f08c50" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f06890" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f06aa0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f06cb0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f06eb0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f070a0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07320" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07530" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f077b0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07980" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07b30" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07d00" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f07fb0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f081f0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f08400" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f08570" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f088f0" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f08a00" -> "0x7f9650f07a40" [arrowhead=none]
+"0x7f9650f08c50" [label="report-template/report.md"]
+"0x7f9650f06890" [label="report-output/root.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f06890" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f06aa0" [label="report-output/root-Applications.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f06aa0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f06cb0" [label="report-output/root-Users.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f06cb0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f06eb0" [label="report-output/HOME.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f06eb0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f070a0" [label="report-output/HOME--local.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f070a0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07320" [label="report-output/HOME--local-share.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07320" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07530" [label="report-output/HOME--local-share-Trash.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07530" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f077b0" [label="report-output/HOME--local-share-Trash-files.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f077b0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07980" [label="report-output/HOME--vagrant-d.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07980" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07b30" [label="report-output/HOME--vagrant-d-boxes.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07b30" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07d00" [label="report-output/HOME-ghq.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07d00" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f07fb0" [label="report-output/HOME-ghq-github-com.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f07fb0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f081f0" [label="report-output/HOME-ghq-github-com-huzhenghui.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f081f0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f08400" [label="report-output/HOME-ghq-github-com-huzhenghui-mask-awesome.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f08400" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f08570" [label="report-output/HOME-Library.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f08570" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f088f0" [label="report-output/HOME-Library-Containers.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f088f0" [label=" mask-textual-report-sort-csv-markdown"]
+"0x7f9650f08a00" [label="report-output/HOME-OneDrive.auto-generated.md"]
+"0x7f9650f06950" -> "0x7f9650f08a00" [label=" mask-textual-report-sort-csv-markdown"]
 }
 ```
 
