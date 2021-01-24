@@ -1,0 +1,13 @@
+input_pattern = 'report-output/dump/{storage_name}.ageduscan.dump.dat'
+output_pattern = 'report-output/index/{storage_name}.ageduscan.index.dat'
+STORAGES, = glob_wildcards(input_pattern, followlinks=False)
+
+rule all:
+    input:
+        expand(output_pattern, storage_name=STORAGES)
+
+rule stat:
+    input: input_pattern
+    output: output_pattern
+    shell:
+        'cat {input} | agedu --load --file {output}'
