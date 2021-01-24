@@ -4,6 +4,7 @@
     * [agedu-version-output](#agedu-version-output)
   * [snakemake](#snakemake)
     * [Snakefile](#snakefile)
+  * [snakemake-snakefile](#snakemake-snakefile)
   * [web](#web)
   * [agedu-help](#agedu-help)
     * [agedu-help-output](#agedu-help-output)

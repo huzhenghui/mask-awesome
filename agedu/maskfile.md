@@ -44,6 +44,12 @@ snakemake --cores all
 ```{.Snakefile include=./Snakefile}
 ```
 
+## snakemake-snakefile
+
+```bash
+snakemake --snakefile $(ghq list --full-path https://github.com/huzhenghui/mask-awesome)/agedu/Snakefile --cores all
+```
+
 ## web
 
 ```bash
