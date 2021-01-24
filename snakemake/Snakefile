@@ -1,0 +1,13 @@
+input_pattern = '{filename}.md'
+output_pattern = 'build/snakemake-output/{filename}.md5.txt'
+IDS, = glob_wildcards(input_pattern, followlinks=False)
+
+rule all:
+    input:
+        expand(output_pattern, filename=IDS)
+
+rule stat:
+    input: input_pattern
+    output: output_pattern
+    shell:
+        'md5 {input} > {output}'

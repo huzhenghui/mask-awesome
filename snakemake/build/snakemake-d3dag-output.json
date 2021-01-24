@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "value": {
+        "jobid": 0,
+        "label": "all",
+        "rule": "all"
+      }
+    },
+    {
+      "id": 1,
+      "value": {
+        "jobid": 1,
+        "label": "stat",
+        "rule": "stat"
+      }
+    },
+    {
+      "id": 2,
+      "value": {
+        "jobid": 2,
+        "label": "stat",
+        "rule": "stat"
+      }
+    },
+    {
+      "id": 3,
+      "value": {
+        "jobid": 3,
+        "label": "stat",
+        "rule": "stat"
+      }
+    },
+    {
+      "id": 4,
+      "value": {
+        "jobid": 4,
+        "label": "stat",
+        "rule": "stat"
+      }
+    },
+    {
+      "id": 5,
+      "value": {
+        "jobid": 5,
+        "label": "stat",
+        "rule": "stat"
+      }
+    },
+    {
+      "id": 6,
+      "value": {
+        "jobid": 6,
+        "label": "stat",
+        "rule": "stat"
+      }
+    }
+  ],
+  "links": [
+    {
+      "u": 1,
+      "v": 0
+    },
+    {
+      "u": 2,
+      "v": 0
+    },
+    {
+      "u": 5,
+      "v": 0
+    },
+    {
+      "u": 6,
+      "v": 0
+    }
+  ]
+}

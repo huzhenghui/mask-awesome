@@ -1,0 +1,99 @@
+Building DAG of jobs...
+Using shell: /usr/local/bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	stat
+	7
+Select jobs to execute...
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: maskfile.md
+    output: build/snakemake-output/maskfile.md5.txt
+    jobid: 2
+    reason: Forced execution
+    wildcards: filename=maskfile
+
+md5 maskfile.md > build/snakemake-output/maskfile.md5.txt
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: build/README.TOC/README.TOC.md
+    output: build/snakemake-output/build/README.TOC/README.TOC.md5.txt
+    jobid: 6
+    reason: Forced execution
+    wildcards: filename=build/README.TOC/README.TOC
+
+md5 build/README.TOC/README.TOC.md > build/snakemake-output/build/README.TOC/README.TOC.md5.txt
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: build/temp/README.md
+    output: build/snakemake-output/build/temp/README.md5.txt
+    jobid: 5
+    reason: Forced execution
+    wildcards: filename=build/temp/README
+
+md5 build/temp/README.md > build/snakemake-output/build/temp/README.md5.txt
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: build/snakemake-summary-output.md
+    output: build/snakemake-output/build/snakemake-summary-output.md5.txt
+    jobid: 4
+    reason: Forced execution
+    wildcards: filename=build/snakemake-summary-output
+
+md5 build/snakemake-summary-output.md > build/snakemake-output/build/snakemake-summary-output.md5.txt
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: README.md
+    output: build/snakemake-output/README.md5.txt
+    jobid: 1
+    reason: Forced execution
+    wildcards: filename=README
+
+md5 README.md > build/snakemake-output/README.md5.txt
+[Sun Jan 24 17:49:02 2021]
+Finished job 2.
+1 of 7 steps (14%) done
+
+[Sun Jan 24 17:49:02 2021]
+rule stat:
+    input: build/snakemake-detailed-summary-output.md
+    output: build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt
+    jobid: 3
+    reason: Forced execution
+    wildcards: filename=build/snakemake-detailed-summary-output
+
+md5 build/snakemake-detailed-summary-output.md > build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt
+[Sun Jan 24 17:49:02 2021]
+Finished job 6.
+2 of 7 steps (29%) done
+[Sun Jan 24 17:49:02 2021]
+Finished job 5.
+3 of 7 steps (43%) done
+[Sun Jan 24 17:49:02 2021]
+Finished job 4.
+4 of 7 steps (57%) done
+[Sun Jan 24 17:49:02 2021]
+Finished job 1.
+5 of 7 steps (71%) done
+[Sun Jan 24 17:49:02 2021]
+Finished job 3.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Sun Jan 24 17:49:02 2021]
+localrule all:
+    input: build/snakemake-output/README.md5.txt, build/snakemake-output/maskfile.md5.txt, build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt, build/snakemake-output/build/snakemake-summary-output.md5.txt, build/snakemake-output/build/temp/README.md5.txt, build/snakemake-output/build/README.TOC/README.TOC.md5.txt
+    jobid: 0
+    reason: Forced execution
+
+[Sun Jan 24 17:49:02 2021]
+Finished job 0.
+7 of 7 steps (100%) done

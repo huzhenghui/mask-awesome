@@ -1,0 +1,77 @@
+{
+    "total_runtime": 0.07307696342468262,
+    "rules": {
+        "stat": {
+            "mean-runtime": 0.022251486778259277,
+            "min-runtime": 0.015948057174682617,
+            "max-runtime": 0.026703834533691406
+        },
+        "all": {
+            "mean-runtime": 0.0005629062652587891,
+            "min-runtime": 0.0005629062652587891,
+            "max-runtime": 0.0005629062652587891
+        }
+    },
+    "files": {
+        "build/snakemake-output/maskfile.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.02456498146057129,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        },
+        "build/snakemake-output/build/README.TOC/README.TOC.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.02598404884338379,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        },
+        "build/snakemake-output/build/temp/README.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.026703834533691406,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        },
+        "build/snakemake-output/build/snakemake-summary-output.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.02260112762451172,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        },
+        "build/snakemake-output/README.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.017706871032714844,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        },
+        "build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt": {
+            "start-time": "Sun Jan 24 17:49:02 2021",
+            "stop-time": "Sun Jan 24 17:49:02 2021",
+            "duration": 0.015948057174682617,
+            "priority": 0,
+            "resources": {
+                "_cores": 1,
+                "_nodes": 1
+            }
+        }
+    }
+}

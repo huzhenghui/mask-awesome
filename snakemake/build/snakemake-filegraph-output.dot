@@ -1,0 +1,47 @@
+digraph snakemake_dag {
+    graph[bgcolor=white, margin=0];
+    node[shape=box, style=rounded, fontname=sans,                 fontsize=10, penwidth=2];
+    edge[penwidth=2, color=grey];
+0 [ shape=none, margin=0, label=<<table border="2" color="#D95757" cellspacing="3" cellborder="0">
+<tr><td>
+<b><font point-size="18">all</font></b>
+</td></tr>
+<hr/>
+<tr><td align="left"> <b><font point-size="14">&#8618; input</font></b> </td></tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/README.md5.txt</font></td>
+</tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/build/README.TOC/README.TOC.md5.txt</font></td>
+</tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt</font></td>
+</tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/build/snakemake-summary-output.md5.txt</font></td>
+</tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/build/temp/README.md5.txt</font></td>
+</tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/maskfile.md5.txt</font></td>
+</tr>
+<hr/>
+<tr><td align="right">  </td> </tr>
+</table>>]
+1 [ shape=none, margin=0, label=<<table border="2" color="#57D957" cellspacing="3" cellborder="0">
+<tr><td>
+<b><font point-size="18">stat</font></b>
+</td></tr>
+<hr/>
+<tr><td align="left"> <b><font point-size="14">&#8618; input</font></b> </td></tr>
+<tr>
+<td align="left"><font face="monospace">{filename}.md</font></td>
+</tr>
+<hr/>
+<tr><td align="right"> <b><font point-size="14">output &rarr;</font></b> </td> </tr>
+<tr>
+<td align="left"><font face="monospace">build/snakemake-output/{filename}.md5.txt</font></td></tr>
+</table>>]
+	1 -> 0
+}            

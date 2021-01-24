@@ -1,0 +1,115 @@
+Building DAG of jobs...
+candidate job all
+    wildcards: 
+candidate job stat
+    wildcards: filename=README
+selected job stat
+    wildcards: filename=README
+file build/snakemake-output/README.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+candidate job stat
+    wildcards: filename=maskfile
+selected job stat
+    wildcards: filename=maskfile
+file build/snakemake-output/maskfile.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+candidate job stat
+    wildcards: filename=build/snakemake-detailed-summary-output
+selected job stat
+    wildcards: filename=build/snakemake-detailed-summary-output
+file build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+candidate job stat
+    wildcards: filename=build/snakemake-summary-output
+selected job stat
+    wildcards: filename=build/snakemake-summary-output
+file build/snakemake-output/build/snakemake-summary-output.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+candidate job stat
+    wildcards: filename=build/temp/README
+selected job stat
+    wildcards: filename=build/temp/README
+file build/snakemake-output/build/temp/README.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+candidate job stat
+    wildcards: filename=build/README.TOC/README.TOC
+selected job stat
+    wildcards: filename=build/README.TOC/README.TOC
+file build/snakemake-output/build/README.TOC/README.TOC.md5.txt:
+    Producer found, hence exceptions are ignored.
+
+selected job all
+    wildcards: 
+file None:
+    Producer found, hence exceptions are ignored.
+
+Job counts:
+	count	jobs
+	1	all
+	6	stat
+	7
+
+[Sun Jan 24 17:48:56 2021]
+rule stat:
+    input: maskfile.md
+    output: build/snakemake-output/maskfile.md5.txt
+    jobid: 2
+    wildcards: filename=maskfile
+
+
+[Sun Jan 24 17:48:57 2021]
+rule stat:
+    input: build/README.TOC/README.TOC.md
+    output: build/snakemake-output/build/README.TOC/README.TOC.md5.txt
+    jobid: 6
+    wildcards: filename=build/README.TOC/README.TOC
+
+
+[Sun Jan 24 17:48:57 2021]
+rule stat:
+    input: build/temp/README.md
+    output: build/snakemake-output/build/temp/README.md5.txt
+    jobid: 5
+    wildcards: filename=build/temp/README
+
+
+[Sun Jan 24 17:48:57 2021]
+rule stat:
+    input: build/snakemake-summary-output.md
+    output: build/snakemake-output/build/snakemake-summary-output.md5.txt
+    jobid: 4
+    wildcards: filename=build/snakemake-summary-output
+
+
+[Sun Jan 24 17:48:57 2021]
+rule stat:
+    input: README.md
+    output: build/snakemake-output/README.md5.txt
+    jobid: 1
+    wildcards: filename=README
+
+
+[Sun Jan 24 17:48:57 2021]
+rule stat:
+    input: build/snakemake-detailed-summary-output.md
+    output: build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt
+    jobid: 3
+    wildcards: filename=build/snakemake-detailed-summary-output
+
+
+[Sun Jan 24 17:48:57 2021]
+localrule all:
+    input: build/snakemake-output/README.md5.txt, build/snakemake-output/maskfile.md5.txt, build/snakemake-output/build/snakemake-detailed-summary-output.md5.txt, build/snakemake-output/build/snakemake-summary-output.md5.txt, build/snakemake-output/build/temp/README.md5.txt, build/snakemake-output/build/README.TOC/README.TOC.md5.txt
+    jobid: 0
+
+Job counts:
+	count	jobs
+	1	all
+	6	stat
+	7
+This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.
