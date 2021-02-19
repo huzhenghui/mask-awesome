@@ -1,0 +1,3 @@
+NAME                                        READY   STATUS    RESTARTS   AGE
+dashboard-metrics-scraper-c95fcf479-vtfwh   1/1     Running   3          35d
+kubernetes-dashboard-6cff4c7c4f-jvb9l       1/1     Running   5          35d
