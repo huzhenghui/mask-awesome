@@ -1,0 +1,1 @@
+[farmer_goat,farmer_alone,farmer_wolf,farmer_goat,farmer_cabbage,farmer_alone,farmer_goat]
