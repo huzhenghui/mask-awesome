@@ -4,6 +4,12 @@
 
 -   [farmer](#farmer)
 -   [farmer.comment.pi](#farmercommentpi)
+-   [import](#import)
+-   [main](#main)
+-   [final](#final)
+-   [action](#action)
+-   [opposite](#opposite)
+-   [unsafe](#unsafe)
 -   [Mask SubCommands](#mask-subcommands)
     -   [picat-farmer.pi](#picat-farmerpi)
         -   [picat-farmer.pi-output](#picat-farmerpi-output)
@@ -41,6 +47,8 @@
 
 [farmer.comment.pi](./farmer.comment.pi)
 
+# import
+
 -   `import planner.`
     -   [Chapter 8 The planner
         Module](http://retina.inf.ufsc.br/picat_guide/#x1-1130008)
@@ -48,6 +56,8 @@
 ``` picat
 import planner.
 ```
+
+# main
 
 -   `main =>`
     -   [How to Run Programs
@@ -86,6 +96,8 @@ main =>
     println(Plan).
 ```
 
+# final
+
 -   `final([n,n,n,n]) => true.`
     -   [final( *S*
         )](http://retina.inf.ufsc.br/picat_guide/#dx1-113003)
@@ -94,6 +106,8 @@ main =>
 ``` picat
 final([n,n,n,n]) => true.
 ```
+
+# action
 
 -   `action([F,F,G,C],S1,Action,ActionCost) ?=>`
     -   [Defining
@@ -147,6 +161,8 @@ action([F,W,G,C],S1,Action,ActionCost) =>
     not unsafe(S1).
 ```
 
+# opposite
+
 <!-- markdownlint-disable MD013 -->
 
 -   [`opposite`](#opposite)
@@ -166,6 +182,8 @@ index (+,-) (-,+)
 opposite(n,s).
 opposite(s,n).
 ```
+
+# unsafe
 
 ``` picat
 unsafe([F,W,G,_C]),W == G,F !== W => true.
@@ -387,56 +405,56 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fa6ddc08af0" [label="all"]
-"0x7fa6ddc08c60" -> "0x7fa6ddc08af0" [label=" phony"]
-"0x7fa6ddc08c60" [label="README.md"]
-"0x7fa6ddc0a410" [label="pandocomatic", shape=ellipse]
-"0x7fa6ddc0a410" -> "0x7fa6ddc08c60"
-"0x7fa6ddc09210" -> "0x7fa6ddc0a410" [arrowhead=none]
-"0x7fa6ddc09a20" -> "0x7fa6ddc0a410" [arrowhead=none]
-"0x7fa6ddc0a320" -> "0x7fa6ddc0a410" [arrowhead=none]
-"0x7fa6ddc09210" [label="maskfile.md"]
-"0x7fa6ddc09a20" [label="README-template"]
-"0x7fa6ddc09c70" [label="phony", shape=ellipse]
-"0x7fa6ddc09c70" -> "0x7fa6ddc09a20"
-"0x7fa6ddc08f40" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc09f90" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc09150" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc093d0" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc09620" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc09830" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc09b20" -> "0x7fa6ddc09c70" [arrowhead=none]
-"0x7fa6ddc08f40" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7fa6ddc08ed0" [label="ghq", shape=ellipse]
-"0x7fa6ddc08ed0" -> "0x7fa6ddc08f40"
-"0x7fa6ddc09f90" [label="build.ninja"]
-"0x7fa6ddc09150" [label="build/ninja/ninja-rules-output.txt"]
-"0x7fa6ddc09210" -> "0x7fa6ddc09150" [label=" mask-stdout-tee"]
-"0x7fa6ddc093d0" [label="build/ninja/ninja-targets-output.txt"]
-"0x7fa6ddc09210" -> "0x7fa6ddc093d0" [label=" mask-stdout-tee"]
-"0x7fa6ddc09620" [label="build/ninja/ninja.graph.dot"]
-"0x7fa6ddc09210" -> "0x7fa6ddc09620" [label=" mask-tee"]
-"0x7fa6ddc09830" [label="build/ninja/ninja.graph.png"]
-"0x7fa6ddc097c0" [label="mask", shape=ellipse]
-"0x7fa6ddc097c0" -> "0x7fa6ddc09830"
-"0x7fa6ddc09210" -> "0x7fa6ddc097c0" [arrowhead=none]
-"0x7fa6ddc09620" -> "0x7fa6ddc097c0" [arrowhead=none]
-"0x7fa6ddc09b20" [label="build/README.TOC/README.TOC.md"]
-"0x7fa6ddc09980" -> "0x7fa6ddc09b20" [label=" github-markdown-toc"]
-"0x7fa6ddc09980" [label="build/temp/README.md"]
-"0x7fa6ddc09210" -> "0x7fa6ddc09980" [label=" copy_alternate"]
-"0x7fa6ddc0a320" [label="README-custom"]
-"0x7fa6ddc0a2b0" [label="phony", shape=ellipse]
-"0x7fa6ddc0a2b0" -> "0x7fa6ddc0a320"
-"0x7fa6ddc09c10" -> "0x7fa6ddc0a2b0" [arrowhead=none]
-"0x7fa6ddc0a1d0" -> "0x7fa6ddc0a2b0" [arrowhead=none]
-"0x7fa6ddc09c10" [label="build/farmer.pi"]
-"0x7fa6ddc09210" -> "0x7fa6ddc09c10" [label=" mask-stdout-tee"]
-"0x7fa6ddc0a1d0" [label="build/picat-farmer.pi-output.txt"]
-"0x7fa6ddc0a130" [label="mask-stdout-tee", shape=ellipse]
-"0x7fa6ddc0a130" -> "0x7fa6ddc0a1d0"
-"0x7fa6ddc09210" -> "0x7fa6ddc0a130" [arrowhead=none]
-"0x7fa6ddc09c10" -> "0x7fa6ddc0a130" [arrowhead=none]
+"0x7fc64b408af0" [label="all"]
+"0x7fc64b408c60" -> "0x7fc64b408af0" [label=" phony"]
+"0x7fc64b408c60" [label="README.md"]
+"0x7fc64b40a410" [label="pandocomatic", shape=ellipse]
+"0x7fc64b40a410" -> "0x7fc64b408c60"
+"0x7fc64b409210" -> "0x7fc64b40a410" [arrowhead=none]
+"0x7fc64b409a20" -> "0x7fc64b40a410" [arrowhead=none]
+"0x7fc64b40a320" -> "0x7fc64b40a410" [arrowhead=none]
+"0x7fc64b409210" [label="maskfile.md"]
+"0x7fc64b409a20" [label="README-template"]
+"0x7fc64b409c70" [label="phony", shape=ellipse]
+"0x7fc64b409c70" -> "0x7fc64b409a20"
+"0x7fc64b408f40" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b409f90" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b409150" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b4093d0" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b409620" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b409830" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b409b20" -> "0x7fc64b409c70" [arrowhead=none]
+"0x7fc64b408f40" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fc64b408ed0" [label="ghq", shape=ellipse]
+"0x7fc64b408ed0" -> "0x7fc64b408f40"
+"0x7fc64b409f90" [label="build.ninja"]
+"0x7fc64b409150" [label="build/ninja/ninja-rules-output.txt"]
+"0x7fc64b409210" -> "0x7fc64b409150" [label=" mask-stdout-tee"]
+"0x7fc64b4093d0" [label="build/ninja/ninja-targets-output.txt"]
+"0x7fc64b409210" -> "0x7fc64b4093d0" [label=" mask-stdout-tee"]
+"0x7fc64b409620" [label="build/ninja/ninja.graph.dot"]
+"0x7fc64b409210" -> "0x7fc64b409620" [label=" mask-tee"]
+"0x7fc64b409830" [label="build/ninja/ninja.graph.png"]
+"0x7fc64b4097c0" [label="mask", shape=ellipse]
+"0x7fc64b4097c0" -> "0x7fc64b409830"
+"0x7fc64b409210" -> "0x7fc64b4097c0" [arrowhead=none]
+"0x7fc64b409620" -> "0x7fc64b4097c0" [arrowhead=none]
+"0x7fc64b409b20" [label="build/README.TOC/README.TOC.md"]
+"0x7fc64b409980" -> "0x7fc64b409b20" [label=" github-markdown-toc"]
+"0x7fc64b409980" [label="build/temp/README.md"]
+"0x7fc64b409210" -> "0x7fc64b409980" [label=" copy_alternate"]
+"0x7fc64b40a320" [label="README-custom"]
+"0x7fc64b40a2b0" [label="phony", shape=ellipse]
+"0x7fc64b40a2b0" -> "0x7fc64b40a320"
+"0x7fc64b409c10" -> "0x7fc64b40a2b0" [arrowhead=none]
+"0x7fc64b40a1d0" -> "0x7fc64b40a2b0" [arrowhead=none]
+"0x7fc64b409c10" [label="build/farmer.pi"]
+"0x7fc64b409210" -> "0x7fc64b409c10" [label=" mask-stdout-tee"]
+"0x7fc64b40a1d0" [label="build/picat-farmer.pi-output.txt"]
+"0x7fc64b40a130" [label="mask-stdout-tee", shape=ellipse]
+"0x7fc64b40a130" -> "0x7fc64b40a1d0"
+"0x7fc64b409210" -> "0x7fc64b40a130" [arrowhead=none]
+"0x7fc64b409c10" -> "0x7fc64b40a130" [arrowhead=none]
 }
 ```
 

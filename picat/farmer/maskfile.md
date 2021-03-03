@@ -22,11 +22,15 @@ pandocomatic_:
 
 [farmer.comment.pi](./farmer.comment.pi)
 
+# import
+
 -   `import planner.`
     -   [Chapter 8 The planner Module](http://retina.inf.ufsc.br/picat_guide/#x1-1130008)
 
 ```{.picat include=./farmer.comment.pi snippet=import}
 ```
+
+# main
 
 -   `main =>`
     -   [How to Run Programs Directly](http://retina.inf.ufsc.br/picat_guide/#x1-430002.1.5)
@@ -57,12 +61,16 @@ pandocomatic_:
 ```{.picat include=./farmer.comment.pi snippet=main}
 ```
 
+# final
+
 -   `final([n,n,n,n]) => true.`
     -   [final( _S_ )](http://retina.inf.ufsc.br/picat_guide/#dx1-113003)
         -   This predicate succeeds if _S_ is a final state.
 
 ```{.picat include=./farmer.comment.pi snippet=final}
 ```
+
+# action
 
 -   `action([F,F,G,C],S1,Action,ActionCost) ?=>`
     -   [Defining Predicates](http://retina.inf.ufsc.br/picat_guide/#x1-100001.2)
@@ -90,6 +98,8 @@ pandocomatic_:
 ```{.picat include=./farmer.comment.pi snippet=action-farmer_alone}
 ```
 
+# opposite
+
 <!-- markdownlint-disable MD013 -->
 -   [`opposite`](#opposite)
     -   `index (+,-) (-,+)`
@@ -103,6 +113,8 @@ pandocomatic_:
 
 ```{.picat include=./farmer.comment.pi snippet=opposite}
 ```
+
+# unsafe
 
 ```{.picat include=./farmer.comment.pi snippet=unsafe}
 ```
