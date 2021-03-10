@@ -4,6 +4,8 @@
     * [fselect-name-output](#fselect-name-output)
   * [fselect-contains](#fselect-contains)
     * [fselect-contains-output](#fselect-contains-output)
+  * [fselect-Downloads-book](#fselect-downloads-book)
+  * [fselect-Downloads-doc](#fselect-downloads-doc)
   * [fselect-help](#fselect-help)
     * [fselect-help-output](#fselect-help-output)
   * [begin: mask task in template : build content](#begin-mask-task-in-template--build-content)
