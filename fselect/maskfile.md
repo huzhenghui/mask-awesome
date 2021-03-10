@@ -60,6 +60,16 @@ fselect "concat('[', path, '](../', path, ')'), size, mime, line_count \
 ```
 <!-- markdownlint-enable MD013 -->
 
+## fselect-Home-Today
+
+> **Very slow!**
+
+```bash
+cd ~
+echo -e "path\tsize"
+RUST_BACKTRACE=1 fselect path, size where modified = today order by path
+```
+
 ## fselect-Downloads-archive
 
 ```bash

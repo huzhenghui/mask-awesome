@@ -8,6 +8,7 @@
         -   [fselect-name-output](#fselect-name-output)
     -   [fselect-contains](#fselect-contains)
         -   [fselect-contains-output](#fselect-contains-output)
+    -   [fselect-Home-Today](#fselect-home-today)
     -   [fselect-Downloads-archive](#fselect-downloads-archive)
     -   [fselect-Downloads-book](#fselect-downloads-book)
     -   [fselect-Downloads-doc](#fselect-downloads-doc)
@@ -90,14 +91,24 @@ fselect "concat('[', path, '](../', path, ')'), size, mime, line_count \
 | [./.vale/Spell/Spell.yml](.././.vale/Spell/Spell.yml)                                               | 342   | text/plain        | 15          |
 | [./.vale/Vocab/fselect.txt](.././.vale/Vocab/fselect.txt)                                           | 26    | text/plain        | 3           |
 | [./.vscode/extension/.favorites.json](.././.vscode/extension/.favorites.json)                       | 13501 | text/plain        | 432         |
-| [./fselect/README.md](.././fselect/README.md)                                                       | 34054 | text/plain        | 796         |
+| [./fselect/README.md](.././fselect/README.md)                                                       | 34272 | text/plain        | 807         |
 | [./fselect/build.ninja](.././fselect/build.ninja)                                                   | 7274  | text/plain        | 227         |
 | [./fselect/build/fselect-help-output.txt](.././fselect/build/fselect-help-output.txt)               | 14518 | text/plain        | 189         |
 | [./fselect/build/ninja/ninja-targets-output.txt](.././fselect/build/ninja/ninja-targets-output.txt) | 804   | text/plain        | 18          |
 | [./fselect/build/ninja/ninja.graph.dot](.././fselect/build/ninja/ninja.graph.dot)                   | 2741  | text/vnd.graphviz | 55          |
-| [./fselect/maskfile.md](.././fselect/maskfile.md)                                                   | 3494  | text/plain        | 206         |
+| [./fselect/maskfile.md](.././fselect/maskfile.md)                                                   | 3647  | text/plain        | 216         |
 
 <!-- markdownlint-enable MD013 -->
+
+## fselect-Home-Today
+
+> **Very slow!**
+
+``` bash
+cd ~
+echo -e "path\tsize"
+RUST_BACKTRACE=1 fselect path, size where modified = today order by path
+```
 
 ## fselect-Downloads-archive
 
@@ -502,56 +513,56 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fe0c8c08a60" [label="all"]
-"0x7fe0c8c08be0" -> "0x7fe0c8c08a60" [label=" phony"]
-"0x7fe0c8c08be0" [label="README.md"]
-"0x7fe0c8c0ae80" [label="pandocomatic", shape=ellipse]
-"0x7fe0c8c0ae80" -> "0x7fe0c8c08be0"
-"0x7fe0c8c09030" -> "0x7fe0c8c0ae80" [arrowhead=none]
-"0x7fe0c8c0a450" -> "0x7fe0c8c0ae80" [arrowhead=none]
-"0x7fe0c8c0adc0" -> "0x7fe0c8c0ae80" [arrowhead=none]
-"0x7fe0c8c09030" [label="maskfile.md"]
-"0x7fe0c8c0a450" [label="README-template"]
-"0x7fe0c8c0a530" [label="phony", shape=ellipse]
-"0x7fe0c8c0a530" -> "0x7fe0c8c0a450"
-"0x7fe0c8c098e0" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c0a820" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c09a80" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c09c40" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c09ec0" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c0a0d0" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c0a3c0" -> "0x7fe0c8c0a530" [arrowhead=none]
-"0x7fe0c8c098e0" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7fe0c8c09830" [label="ghq", shape=ellipse]
-"0x7fe0c8c09830" -> "0x7fe0c8c098e0"
-"0x7fe0c8c0a820" [label="build.ninja"]
-"0x7fe0c8c09a80" [label="build/ninja/ninja-rules-output.txt"]
-"0x7fe0c8c09030" -> "0x7fe0c8c09a80" [label=" mask-stdout-tee"]
-"0x7fe0c8c09c40" [label="build/ninja/ninja-targets-output.txt"]
-"0x7fe0c8c09030" -> "0x7fe0c8c09c40" [label=" mask-stdout-tee"]
-"0x7fe0c8c09ec0" [label="build/ninja/ninja.graph.dot"]
-"0x7fe0c8c09030" -> "0x7fe0c8c09ec0" [label=" mask-tee"]
-"0x7fe0c8c0a0d0" [label="build/ninja/ninja.graph.png"]
-"0x7fe0c8c0a030" [label="mask", shape=ellipse]
-"0x7fe0c8c0a030" -> "0x7fe0c8c0a0d0"
-"0x7fe0c8c09030" -> "0x7fe0c8c0a030" [arrowhead=none]
-"0x7fe0c8c09ec0" -> "0x7fe0c8c0a030" [arrowhead=none]
-"0x7fe0c8c0a3c0" [label="build/README.TOC/README.TOC.md"]
-"0x7fe0c8c0a290" -> "0x7fe0c8c0a3c0" [label=" github-markdown-toc"]
-"0x7fe0c8c0a290" [label="build/temp/README.md"]
-"0x7fe0c8c09030" -> "0x7fe0c8c0a290" [label=" copy_alternate"]
-"0x7fe0c8c0adc0" [label="README-custom"]
-"0x7fe0c8c0ad50" [label="phony", shape=ellipse]
-"0x7fe0c8c0ad50" -> "0x7fe0c8c0adc0"
-"0x7fe0c8c0a720" -> "0x7fe0c8c0ad50" [arrowhead=none]
-"0x7fe0c8c0ab00" -> "0x7fe0c8c0ad50" [arrowhead=none]
-"0x7fe0c8c0acc0" -> "0x7fe0c8c0ad50" [arrowhead=none]
-"0x7fe0c8c0a720" [label="build/fselect-name-output.md"]
-"0x7fe0c8c09030" -> "0x7fe0c8c0a720" [label=" mask-stdout-csv-markdown"]
-"0x7fe0c8c0ab00" [label="build/fselect-contains-output.md"]
-"0x7fe0c8c09030" -> "0x7fe0c8c0ab00" [label=" mask-stdout-csv-markdown"]
-"0x7fe0c8c0acc0" [label="build/fselect-help-output.txt"]
-"0x7fe0c8c09030" -> "0x7fe0c8c0acc0" [label=" mask-stdout-tee"]
+"0x7f8209d06d10" [label="all"]
+"0x7f8209d06e90" -> "0x7f8209d06d10" [label=" phony"]
+"0x7f8209d06e90" [label="README.md"]
+"0x7f8209d09130" [label="pandocomatic", shape=ellipse]
+"0x7f8209d09130" -> "0x7f8209d06e90"
+"0x7f8209d072e0" -> "0x7f8209d09130" [arrowhead=none]
+"0x7f8209d08700" -> "0x7f8209d09130" [arrowhead=none]
+"0x7f8209d09070" -> "0x7f8209d09130" [arrowhead=none]
+"0x7f8209d072e0" [label="maskfile.md"]
+"0x7f8209d08700" [label="README-template"]
+"0x7f8209d087e0" [label="phony", shape=ellipse]
+"0x7f8209d087e0" -> "0x7f8209d08700"
+"0x7f8209d07b90" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d08ad0" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d07d30" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d07ef0" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d08170" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d08380" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d08670" -> "0x7f8209d087e0" [arrowhead=none]
+"0x7f8209d07b90" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7f8209d07ae0" [label="ghq", shape=ellipse]
+"0x7f8209d07ae0" -> "0x7f8209d07b90"
+"0x7f8209d08ad0" [label="build.ninja"]
+"0x7f8209d07d30" [label="build/ninja/ninja-rules-output.txt"]
+"0x7f8209d072e0" -> "0x7f8209d07d30" [label=" mask-stdout-tee"]
+"0x7f8209d07ef0" [label="build/ninja/ninja-targets-output.txt"]
+"0x7f8209d072e0" -> "0x7f8209d07ef0" [label=" mask-stdout-tee"]
+"0x7f8209d08170" [label="build/ninja/ninja.graph.dot"]
+"0x7f8209d072e0" -> "0x7f8209d08170" [label=" mask-tee"]
+"0x7f8209d08380" [label="build/ninja/ninja.graph.png"]
+"0x7f8209d082e0" [label="mask", shape=ellipse]
+"0x7f8209d082e0" -> "0x7f8209d08380"
+"0x7f8209d072e0" -> "0x7f8209d082e0" [arrowhead=none]
+"0x7f8209d08170" -> "0x7f8209d082e0" [arrowhead=none]
+"0x7f8209d08670" [label="build/README.TOC/README.TOC.md"]
+"0x7f8209d08540" -> "0x7f8209d08670" [label=" github-markdown-toc"]
+"0x7f8209d08540" [label="build/temp/README.md"]
+"0x7f8209d072e0" -> "0x7f8209d08540" [label=" copy_alternate"]
+"0x7f8209d09070" [label="README-custom"]
+"0x7f8209d09000" [label="phony", shape=ellipse]
+"0x7f8209d09000" -> "0x7f8209d09070"
+"0x7f8209d089d0" -> "0x7f8209d09000" [arrowhead=none]
+"0x7f8209d08db0" -> "0x7f8209d09000" [arrowhead=none]
+"0x7f8209d08f70" -> "0x7f8209d09000" [arrowhead=none]
+"0x7f8209d089d0" [label="build/fselect-name-output.md"]
+"0x7f8209d072e0" -> "0x7f8209d089d0" [label=" mask-stdout-csv-markdown"]
+"0x7f8209d08db0" [label="build/fselect-contains-output.md"]
+"0x7f8209d072e0" -> "0x7f8209d08db0" [label=" mask-stdout-csv-markdown"]
+"0x7f8209d08f70" [label="build/fselect-help-output.txt"]
+"0x7f8209d072e0" -> "0x7f8209d08f70" [label=" mask-stdout-tee"]
 }
 ```
 
