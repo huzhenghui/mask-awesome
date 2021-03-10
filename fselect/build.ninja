@@ -134,15 +134,23 @@ default all
 #######################################
 # start snippet report-build
 
-build ./report-output/fselect-Downloads-book-output.md : mask-stdout-csv-markdown ./maskfile.md
- mask_subcommand = fselect-Downloads-book
- mask_stdout_csv_markdowndelimiter = "\t"
+build ./report-output/fselect-Downloads-archive-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-archive
+  mask_stdout_csv_markdowndelimiter = "\t"
 
-build ./report-output/fselect-Downloads-doc-output.md : mask-stdout-csv-markdown ./maskfile.md
- mask_subcommand = fselect-Downloads-doc
- mask_stdout_csv_markdowndelimiter = "\t"
+build ./report-output/fselect-Downloads-book-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-book
+  mask_stdout_csv_markdowndelimiter = "\t"
+
+build ./report-output/fselect-Downloads-doc-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-doc
+  mask_stdout_csv_markdowndelimiter = "\t"
 
 build report : phony $
+  ./report-output/fselect-Downloads-archive-output.md $
   ./report-output/fselect-Downloads-book-output.md $
   ./report-output/fselect-Downloads-doc-output.md
 

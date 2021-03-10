@@ -60,6 +60,14 @@ fselect "concat('[', path, '](../', path, ')'), size, mime, line_count \
 ```
 <!-- markdownlint-enable MD013 -->
 
+## fselect-Downloads-archive
+
+```bash
+cd ~/Downloads
+echo -e "path\tsize\tmime\tmodified"
+fselect path, size, mime, modified where is_archive = true order by path
+```
+
 ## fselect-Downloads-book
 
 ```bash

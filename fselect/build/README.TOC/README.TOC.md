@@ -4,6 +4,7 @@
     * [fselect-name-output](#fselect-name-output)
   * [fselect-contains](#fselect-contains)
     * [fselect-contains-output](#fselect-contains-output)
+  * [fselect-Downloads-archive](#fselect-downloads-archive)
   * [fselect-Downloads-book](#fselect-downloads-book)
   * [fselect-Downloads-doc](#fselect-downloads-doc)
   * [fselect-help](#fselect-help)
