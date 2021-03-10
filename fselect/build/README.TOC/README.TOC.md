@@ -8,6 +8,7 @@
   * [fselect-Downloads-archive](#fselect-downloads-archive)
   * [fselect-Downloads-book](#fselect-downloads-book)
   * [fselect-Downloads-doc](#fselect-downloads-doc)
+  * [fselect-Downloads-image](#fselect-downloads-image)
   * [fselect-help](#fselect-help)
     * [fselect-help-output](#fselect-help-output)
   * [begin: mask task in template : build content](#begin-mask-task-in-template--build-content)

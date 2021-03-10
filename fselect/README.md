@@ -12,6 +12,7 @@
     -   [fselect-Downloads-archive](#fselect-downloads-archive)
     -   [fselect-Downloads-book](#fselect-downloads-book)
     -   [fselect-Downloads-doc](#fselect-downloads-doc)
+    -   [fselect-Downloads-image](#fselect-downloads-image)
     -   [fselect-help](#fselect-help)
         -   [fselect-help-output](#fselect-help-output)
     -   [begin: mask task in template : build
@@ -91,12 +92,12 @@ fselect "concat('[', path, '](../', path, ')'), size, mime, line_count \
 | [./.vale/Spell/Spell.yml](.././.vale/Spell/Spell.yml)                                               | 342   | text/plain        | 15          |
 | [./.vale/Vocab/fselect.txt](.././.vale/Vocab/fselect.txt)                                           | 26    | text/plain        | 3           |
 | [./.vscode/extension/.favorites.json](.././.vscode/extension/.favorites.json)                       | 13501 | text/plain        | 432         |
-| [./fselect/README.md](.././fselect/README.md)                                                       | 34272 | text/plain        | 807         |
-| [./fselect/build.ninja](.././fselect/build.ninja)                                                   | 7274  | text/plain        | 227         |
+| [./fselect/README.md](.././fselect/README.md)                                                       | 34937 | text/plain        | 829         |
+| [./fselect/build.ninja](.././fselect/build.ninja)                                                   | 7517  | text/plain        | 233         |
 | [./fselect/build/fselect-help-output.txt](.././fselect/build/fselect-help-output.txt)               | 14518 | text/plain        | 189         |
-| [./fselect/build/ninja/ninja-targets-output.txt](.././fselect/build/ninja/ninja-targets-output.txt) | 804   | text/plain        | 18          |
+| [./fselect/build/ninja/ninja-targets-output.txt](.././fselect/build/ninja/ninja-targets-output.txt) | 878   | text/plain        | 19          |
 | [./fselect/build/ninja/ninja.graph.dot](.././fselect/build/ninja/ninja.graph.dot)                   | 2741  | text/vnd.graphviz | 55          |
-| [./fselect/maskfile.md](.././fselect/maskfile.md)                                                   | 3647  | text/plain        | 216         |
+| [./fselect/maskfile.md](.././fselect/maskfile.md)                                                   | 3847  | text/plain        | 225         |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -132,6 +133,15 @@ fselect path, size, mime, modified where is_book = true order by path
 cd ~/Downloads
 echo -e "path\tsize\tmime\tmodified"
 fselect path, size, mime, modified where is_doc = true order by path
+```
+
+## fselect-Downloads-image
+
+``` bash
+cd ~/Downloads
+echo -e "path\tsize\tmime\tmodified\twidth\theight"
+fselect path, size, mime, modified, width, height \
+    where is_image = true order by path
 ```
 
 ## fselect-help
@@ -414,10 +424,16 @@ build ./report-output/fselect-Downloads-doc-output.md : $
   mask_subcommand = fselect-Downloads-doc
   mask_stdout_csv_markdowndelimiter = "\t"
 
+build ./report-output/fselect-Downloads-image-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-image
+  mask_stdout_csv_markdowndelimiter = "\t"
+
 build report : phony $
   ./report-output/fselect-Downloads-archive-output.md $
   ./report-output/fselect-Downloads-book-output.md $
-  ./report-output/fselect-Downloads-doc-output.md
+  ./report-output/fselect-Downloads-doc-output.md $
+  ./report-output/fselect-Downloads-image-output.md
 
 ```
 
@@ -428,6 +444,7 @@ all: phony
 report-output/fselect-Downloads-archive-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-book-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-doc-output.md: mask-stdout-csv-markdown
+report-output/fselect-Downloads-image-output.md: mask-stdout-csv-markdown
 report: phony
 build/pandoc-lua-filters/include-files/include-files.lua: ghq
 build/ninja/ninja-rules-output.txt: mask-stdout-tee
@@ -513,56 +530,56 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7f8209d06d10" [label="all"]
-"0x7f8209d06e90" -> "0x7f8209d06d10" [label=" phony"]
-"0x7f8209d06e90" [label="README.md"]
-"0x7f8209d09130" [label="pandocomatic", shape=ellipse]
-"0x7f8209d09130" -> "0x7f8209d06e90"
-"0x7f8209d072e0" -> "0x7f8209d09130" [arrowhead=none]
-"0x7f8209d08700" -> "0x7f8209d09130" [arrowhead=none]
-"0x7f8209d09070" -> "0x7f8209d09130" [arrowhead=none]
-"0x7f8209d072e0" [label="maskfile.md"]
-"0x7f8209d08700" [label="README-template"]
-"0x7f8209d087e0" [label="phony", shape=ellipse]
-"0x7f8209d087e0" -> "0x7f8209d08700"
-"0x7f8209d07b90" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d08ad0" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d07d30" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d07ef0" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d08170" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d08380" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d08670" -> "0x7f8209d087e0" [arrowhead=none]
-"0x7f8209d07b90" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7f8209d07ae0" [label="ghq", shape=ellipse]
-"0x7f8209d07ae0" -> "0x7f8209d07b90"
-"0x7f8209d08ad0" [label="build.ninja"]
-"0x7f8209d07d30" [label="build/ninja/ninja-rules-output.txt"]
-"0x7f8209d072e0" -> "0x7f8209d07d30" [label=" mask-stdout-tee"]
-"0x7f8209d07ef0" [label="build/ninja/ninja-targets-output.txt"]
-"0x7f8209d072e0" -> "0x7f8209d07ef0" [label=" mask-stdout-tee"]
-"0x7f8209d08170" [label="build/ninja/ninja.graph.dot"]
-"0x7f8209d072e0" -> "0x7f8209d08170" [label=" mask-tee"]
-"0x7f8209d08380" [label="build/ninja/ninja.graph.png"]
-"0x7f8209d082e0" [label="mask", shape=ellipse]
-"0x7f8209d082e0" -> "0x7f8209d08380"
-"0x7f8209d072e0" -> "0x7f8209d082e0" [arrowhead=none]
-"0x7f8209d08170" -> "0x7f8209d082e0" [arrowhead=none]
-"0x7f8209d08670" [label="build/README.TOC/README.TOC.md"]
-"0x7f8209d08540" -> "0x7f8209d08670" [label=" github-markdown-toc"]
-"0x7f8209d08540" [label="build/temp/README.md"]
-"0x7f8209d072e0" -> "0x7f8209d08540" [label=" copy_alternate"]
-"0x7f8209d09070" [label="README-custom"]
-"0x7f8209d09000" [label="phony", shape=ellipse]
-"0x7f8209d09000" -> "0x7f8209d09070"
-"0x7f8209d089d0" -> "0x7f8209d09000" [arrowhead=none]
-"0x7f8209d08db0" -> "0x7f8209d09000" [arrowhead=none]
-"0x7f8209d08f70" -> "0x7f8209d09000" [arrowhead=none]
-"0x7f8209d089d0" [label="build/fselect-name-output.md"]
-"0x7f8209d072e0" -> "0x7f8209d089d0" [label=" mask-stdout-csv-markdown"]
-"0x7f8209d08db0" [label="build/fselect-contains-output.md"]
-"0x7f8209d072e0" -> "0x7f8209d08db0" [label=" mask-stdout-csv-markdown"]
-"0x7f8209d08f70" [label="build/fselect-help-output.txt"]
-"0x7f8209d072e0" -> "0x7f8209d08f70" [label=" mask-stdout-tee"]
+"0x7fcf75606d10" [label="all"]
+"0x7fcf75606e90" -> "0x7fcf75606d10" [label=" phony"]
+"0x7fcf75606e90" [label="README.md"]
+"0x7fcf75609550" [label="pandocomatic", shape=ellipse]
+"0x7fcf75609550" -> "0x7fcf75606e90"
+"0x7fcf756072e0" -> "0x7fcf75609550" [arrowhead=none]
+"0x7fcf75608d20" -> "0x7fcf75609550" [arrowhead=none]
+"0x7fcf756094c0" -> "0x7fcf75609550" [arrowhead=none]
+"0x7fcf756072e0" [label="maskfile.md"]
+"0x7fcf75608d20" [label="README-template"]
+"0x7fcf75608af0" [label="phony", shape=ellipse]
+"0x7fcf75608af0" -> "0x7fcf75608d20"
+"0x7fcf75607e50" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75608dc0" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75607ff0" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75608230" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf756083e0" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75608680" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75608960" -> "0x7fcf75608af0" [arrowhead=none]
+"0x7fcf75607e50" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fcf75607da0" [label="ghq", shape=ellipse]
+"0x7fcf75607da0" -> "0x7fcf75607e50"
+"0x7fcf75608dc0" [label="build.ninja"]
+"0x7fcf75607ff0" [label="build/ninja/ninja-rules-output.txt"]
+"0x7fcf756072e0" -> "0x7fcf75607ff0" [label=" mask-stdout-tee"]
+"0x7fcf75608230" [label="build/ninja/ninja-targets-output.txt"]
+"0x7fcf756072e0" -> "0x7fcf75608230" [label=" mask-stdout-tee"]
+"0x7fcf756083e0" [label="build/ninja/ninja.graph.dot"]
+"0x7fcf756072e0" -> "0x7fcf756083e0" [label=" mask-tee"]
+"0x7fcf75608680" [label="build/ninja/ninja.graph.png"]
+"0x7fcf756085e0" [label="mask", shape=ellipse]
+"0x7fcf756085e0" -> "0x7fcf75608680"
+"0x7fcf756072e0" -> "0x7fcf756085e0" [arrowhead=none]
+"0x7fcf756083e0" -> "0x7fcf756085e0" [arrowhead=none]
+"0x7fcf75608960" [label="build/README.TOC/README.TOC.md"]
+"0x7fcf75608810" -> "0x7fcf75608960" [label=" github-markdown-toc"]
+"0x7fcf75608810" [label="build/temp/README.md"]
+"0x7fcf756072e0" -> "0x7fcf75608810" [label=" copy_alternate"]
+"0x7fcf756094c0" [label="README-custom"]
+"0x7fcf75609370" [label="phony", shape=ellipse]
+"0x7fcf75609370" -> "0x7fcf756094c0"
+"0x7fcf75608ca0" -> "0x7fcf75609370" [arrowhead=none]
+"0x7fcf75609050" -> "0x7fcf75609370" [arrowhead=none]
+"0x7fcf75609310" -> "0x7fcf75609370" [arrowhead=none]
+"0x7fcf75608ca0" [label="build/fselect-name-output.md"]
+"0x7fcf756072e0" -> "0x7fcf75608ca0" [label=" mask-stdout-csv-markdown"]
+"0x7fcf75609050" [label="build/fselect-contains-output.md"]
+"0x7fcf756072e0" -> "0x7fcf75609050" [label=" mask-stdout-csv-markdown"]
+"0x7fcf75609310" [label="build/fselect-help-output.txt"]
+"0x7fcf756072e0" -> "0x7fcf75609310" [label=" mask-stdout-tee"]
 }
 ```
 
@@ -726,10 +743,16 @@ build ./report-output/fselect-Downloads-doc-output.md : $
   mask_subcommand = fselect-Downloads-doc
   mask_stdout_csv_markdowndelimiter = "\t"
 
+build ./report-output/fselect-Downloads-image-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-image
+  mask_stdout_csv_markdowndelimiter = "\t"
+
 build report : phony $
   ./report-output/fselect-Downloads-archive-output.md $
   ./report-output/fselect-Downloads-book-output.md $
-  ./report-output/fselect-Downloads-doc-output.md
+  ./report-output/fselect-Downloads-doc-output.md $
+  ./report-output/fselect-Downloads-image-output.md
 
 # end snippet report-build
 #######################################

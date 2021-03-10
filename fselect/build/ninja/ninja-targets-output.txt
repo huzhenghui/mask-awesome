@@ -2,6 +2,7 @@ all: phony
 report-output/fselect-Downloads-archive-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-book-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-doc-output.md: mask-stdout-csv-markdown
+report-output/fselect-Downloads-image-output.md: mask-stdout-csv-markdown
 report: phony
 build/pandoc-lua-filters/include-files/include-files.lua: ghq
 build/ninja/ninja-rules-output.txt: mask-stdout-tee

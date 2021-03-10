@@ -94,6 +94,15 @@ echo -e "path\tsize\tmime\tmodified"
 fselect path, size, mime, modified where is_doc = true order by path
 ```
 
+## fselect-Downloads-image
+
+```bash
+cd ~/Downloads
+echo -e "path\tsize\tmime\tmodified\twidth\theight"
+fselect path, size, mime, modified, width, height \
+    where is_image = true order by path
+```
+
 ## fselect-help
 
 ```bash
