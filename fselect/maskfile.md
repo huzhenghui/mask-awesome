@@ -111,6 +111,70 @@ fselect path, size, mime, modified, width, height \
     where is_image = true order by path
 ```
 
+## fselect-Pictures-3M-to-4M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 3M and size <= 4M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-4M-to-5M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 4M and size <= 5M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-5M-to-6M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 5M and size <= 6M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-6M-to-7M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 6M and size <= 7M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-7M-to-8M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 7M and size <= 8M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-8M-to-9M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 8M and size <= 9M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-9M-to-10M
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 9M and size <= 10M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
+## fselect-Pictures-10M-plus
+
+```bash
+cd ~/Pictures
+fselect "path where size >= 10M order by size" | \
+    fpp --all-input --command "open -R"
+```
+
 ## fselect-help
 
 ```bash
