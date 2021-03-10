@@ -70,6 +70,14 @@ echo -e "path\tsize"
 RUST_BACKTRACE=1 fselect path, size where modified = today order by path
 ```
 
+## fselect-Downloads-size-1M
+
+``` bash
+cd ~/Downloads
+echo -e "path\tsize\tmime\tmodified"
+fselect "path, size, mime, modified where size > 1M order by path"
+```
+
 ## fselect-Downloads-archive
 
 ```bash

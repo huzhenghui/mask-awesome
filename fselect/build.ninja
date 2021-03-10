@@ -134,6 +134,11 @@ default all
 #######################################
 # start snippet report-build
 
+build ./report-output/fselect-Downloads-size-1M-output.md : $
+  mask-stdout-csv-markdown ./maskfile.md
+  mask_subcommand = fselect-Downloads-size-1M
+  mask_stdout_csv_markdowndelimiter = "\t"
+
 build ./report-output/fselect-Downloads-archive-output.md : $
   mask-stdout-csv-markdown ./maskfile.md
   mask_subcommand = fselect-Downloads-archive
@@ -155,6 +160,7 @@ build ./report-output/fselect-Downloads-image-output.md : $
   mask_stdout_csv_markdowndelimiter = "\t"
 
 build report : phony $
+  ./report-output/fselect-Downloads-size-1M-output.md $
   ./report-output/fselect-Downloads-archive-output.md $
   ./report-output/fselect-Downloads-book-output.md $
   ./report-output/fselect-Downloads-doc-output.md $

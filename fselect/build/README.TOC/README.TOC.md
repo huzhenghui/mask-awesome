@@ -5,6 +5,7 @@
   * [fselect-contains](#fselect-contains)
     * [fselect-contains-output](#fselect-contains-output)
   * [fselect-Home-Today](#fselect-home-today)
+  * [fselect-Downloads-size-1M](#fselect-downloads-size-1m)
   * [fselect-Downloads-archive](#fselect-downloads-archive)
   * [fselect-Downloads-book](#fselect-downloads-book)
   * [fselect-Downloads-doc](#fselect-downloads-doc)

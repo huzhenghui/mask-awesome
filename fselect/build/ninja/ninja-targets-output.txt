@@ -1,4 +1,5 @@
 all: phony
+report-output/fselect-Downloads-size-1M-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-archive-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-book-output.md: mask-stdout-csv-markdown
 report-output/fselect-Downloads-doc-output.md: mask-stdout-csv-markdown
