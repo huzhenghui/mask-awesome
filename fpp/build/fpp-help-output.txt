@@ -1,0 +1,175 @@
+********************************************************************************
+
+Welcome to fpp, the Facebook PathPicker! We hope your stay
+with us is enjoyable.
+
+To get started with fpp, pipe some kind of terminal output into the program.
+Examples include:
+
+    * git status | fpp
+    * git show | fpp
+    * git diff HEAD master | fpp
+    * git diff HEAD~10 --numstat | fpp
+    * grep -r "Banana" . | fpp
+    * find . -iname "*.js" | fpp
+
+Once fpp parses your input (and something that looks like a file matches), it
+will put you inside a pager that will allow you to select files with the
+following commands:
+
+== Navigation ==
+
+
+    * [f] toggle the selection of a file
+    * [F] toggle and move downward by 1
+    * [A] toggle selection of all (unique) files
+    * [down arrow|j] move downward by 1
+    * [up arrow|k] move upward by 1
+    * [<space>] page down
+    * [b] page up
+    * [x] quick select mode
+    * [d] describe file
+
+
+Once you have your files selected, you can
+either open them in your favorite
+text editor or execute commands with
+them via command mode:
+
+    * [<Enter>] open all selected files
+        (or file under cursor if none selected)
+        in $EDITOR
+    * [c] enter command mode
+
+== Command Mode ==
+
+
+Command mode is helpful when you want to
+execute bash commands with the filenames
+you have selected. By default the filenames
+are appended automatically to command you
+enter before it is executed, so all you have
+to do is type the prefix. Some examples:
+
+    * git add
+    * git checkout HEAD~1 --
+    * rm -rf
+
+These commands get formatted into:
+    * git add file1 file2 # etc
+    * git checkout HEAD~1 -- file1 file2
+    * rm -rf file1 file2 # etc
+
+If your command needs filenames in the middle,
+the token "$F" will be replaced with your
+selected filenames if it is found in the command
+string. Examples include:
+
+    * scp $F dev:~/backup
+    * mv $F ../over/here
+
+Which format to:
+    * scp file1 file2 dev:~/backup
+    * mv file1 file2 ../over/here
+
+== Configuration ==
+
+
+PathPicker offers a bit of configuration currently with more to come
+in the future.
+
+~ Editor ~
+
+The $FPP_EDITOR environment variable can be set to tell PathPicker
+which editor to open the selected files with. If that variable
+is not set, $VISUAL and then $EDITOR are used as fallbacks,
+with "vim" as a last resort.
+
+The $FPP_DISABLE_SPLIT environment variable will disable splitting
+files into panes for vim clients (aka sequential editing).
+
+~ Directory ~
+
+PathPicker saves state files for use when starting up, including the
+previous input used and selection pickle. By default, these files are saved
+in $XDG_CACHE_HOME/fpp, but the $FPP_DIR environment variable can be used to tell
+PathPicker to use another directory.
+
+~ Colors ~
+
+FPP will understand colors if the piped input uses them. In general, most
+tools do not unless requested to do so.
+
+For git, try `git config --global color.ui always` or use the command
+line option --color.
+
+For built in commands like `ls`, try `-G` (on Mac, additionally export
+CLICOLOR_FORCE in your environment to anything.)
+
+
+== Command line arguments ==
+
+
+PathPicker supports some command line arguments, as well.
+
+usage: fpp [-h] [-r] [--version] [--clean] [-ko] [-c COMMAND [COMMAND ...]]
+           [-e EXECUTE_KEYS [EXECUTE_KEYS ...]] [-nfc] [-ai] [-ni] [-a]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -r, --record          Record input and output. This is largely used for
+                        testing, but you may find it useful for scripting.
+  --version             Print the version of fpp and exit.
+  --clean               Remove the state files that fpp uses when starting up,
+                        including the previous input used and selection
+                        pickle. Useful when using fpp in a script context
+                        where the previous state should be discarded.
+  -ko, --keep-open      keep PathPicker open once a file selection or command
+                        is performed. This will loop the program until Ctrl-C
+                        is used to terminate the process.
+  -c COMMAND [COMMAND ...], --command COMMAND [COMMAND ...]
+                        You may specify a command while invoking fpp that will
+                        be run once files have been selected. Normally, fpp
+                        opens your editor (see discussion of $EDITOR, $VISUAL,
+                        and $FPP_EDITOR) when you press enter. If you specify
+                        a command here, it will be invoked instead.
+  -e EXECUTE_KEYS [EXECUTE_KEYS ...], --execute-keys EXECUTE_KEYS [EXECUTE_KEYS ...]
+                        Automatically execute the given keys when the file
+                        list shows up. This is useful on certain cases, e.g.
+                        using "END" in order to automatically go to the last
+                        entry when there is a long list.
+  -nfc, --no-file-checks
+                        You may want to turn off file system validation for a
+                        particular instance of PathPicker; this flag disables
+                        our internal logic for checking if a regex match is an
+                        actual file on the system. This is particularly useful
+                        when using PathPicker for an input of, say, deleted
+                        files in git status that you would like to restore to
+                        a given revision. It enables you to select the deleted
+                        files even though they do not exist on the system
+                        anymore.
+  -ai, --all-input      You may force PathPicker to recognize all lines as
+                        acceptable input. Typically, PathPicker will scan the
+                        input for references to file paths. Passing this
+                        option will disable those scans and the program will
+                        assume that every input line is a match. In practice,
+                        this option allows for input selection for a variety
+                        of sources that would otherwise be unsupported -- git
+                        branches, mercurial bookmarks, etc.
+  -ni, --non-interactive
+                        Normally, the command that runs after you've chosen
+                        files to operate on is spawned in an interactive
+                        subshell. This allows you to use aliases and have
+                        access to environment variables defined in your
+                        startup files, but can have strange side-effects when
+                        starting and stopping jobs and redirecting inputs.
+                        Using this flag runs your commands in a non-
+                        interactive subshell, like a normal shell script.
+  -a, --all             Automatically select all available lines once the
+                        interactive editor has been entered.
+
+That's a fairly in-depth overview of Facebook PathPicker.
+We also provide help along the way as you
+use the app, so don't worry and jump on in!
+
+********************************************************************************
