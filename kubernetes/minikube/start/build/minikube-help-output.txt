@@ -13,6 +13,7 @@ Images Commands:
   docker-env     配置环境以使用 minikube's Docker daemon
   podman-env     配置环境以使用 minikube's Podman service
   cache          Add, delete, or push a local image into minikube
+  image          Load a local image into minikube
 
 Configuration and Management Commands:
   addons         Enable or disable a minikube addon

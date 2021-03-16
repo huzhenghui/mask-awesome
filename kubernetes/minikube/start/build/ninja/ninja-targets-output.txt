@@ -7,6 +7,7 @@ build/ninja/ninja.graph.png: mask
 build/temp/README.md: copy_alternate
 build/README.TOC/README.TOC.md: github-markdown-toc
 README-template: phony
+build/minikube-addons-list.md: mask-stdout-tee
 build/kubectl-get-pods-kube-system-output.txt: mask-stdout-tee
 build/kubectl-get-pods-kubernetes-dashboard-output.txt: mask-stdout-tee
 build/kubectl-get-deployment-hello-minikube-output.txt: mask-stdout-tee

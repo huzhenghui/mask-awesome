@@ -28,6 +28,18 @@ pandocomatic_:
 open -a Docker
 ```
 
+## minikube-addons-list
+
+```bash
+minikube addons list | sed '1d;$d'
+```
+
+### minikube-addons-list-output
+
+```{.include}
+./build/minikube-addons-list.md
+```
+
 ## minikube-start
 
 ```bash

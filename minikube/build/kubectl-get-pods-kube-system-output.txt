@@ -1,8 +1,0 @@
-NAME                               READY   STATUS    RESTARTS   AGE
-coredns-f9fd979d6-lkrkg            1/1     Running   3          35d
-etcd-minikube                      1/1     Running   4          35d
-kube-apiserver-minikube            1/1     Running   4          35d
-kube-controller-manager-minikube   1/1     Running   4          35d
-kube-proxy-w6k8d                   1/1     Running   3          35d
-kube-scheduler-minikube            1/1     Running   4          35d
-storage-provisioner                1/1     Running   31         35d

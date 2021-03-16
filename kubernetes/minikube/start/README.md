@@ -5,6 +5,8 @@
 -   [minikube](#minikube)
 -   [Mask SubCommands](#mask-subcommands)
     -   [docker-open](#docker-open)
+    -   [minikube-addons-list](#minikube-addons-list)
+        -   [minikube-addons-list-output](#minikube-addons-list-output)
     -   [minikube-start](#minikube-start)
     -   [kubectl-get-pods](#kubectl-get-pods)
     -   [kubectl-get-pods-kube-system](#kubectl-get-pods-kube-system)
@@ -62,6 +64,45 @@
 open -a Docker
 ```
 
+## minikube-addons-list
+
+``` bash
+minikube addons list | sed '1d;$d'
+```
+
+### minikube-addons-list-output
+
+| ADDON NAME                  | PROFILE  | STATUS    |
+|-----------------------------|----------|-----------|
+| ambassador                  | minikube | disabled  |
+| auto-pause                  | minikube | disabled  |
+| csi-hostpath-driver         | minikube | disabled  |
+| dashboard                   | minikube | enabled ✅ |
+| default-storageclass        | minikube | enabled ✅ |
+| efk                         | minikube | disabled  |
+| freshpod                    | minikube | disabled  |
+| gcp-auth                    | minikube | disabled  |
+| gvisor                      | minikube | disabled  |
+| helm-tiller                 | minikube | disabled  |
+| ingress                     | minikube | disabled  |
+| ingress-dns                 | minikube | disabled  |
+| istio                       | minikube | disabled  |
+| istio-provisioner           | minikube | disabled  |
+| kubevirt                    | minikube | disabled  |
+| logviewer                   | minikube | disabled  |
+| metallb                     | minikube | disabled  |
+| metrics-server              | minikube | disabled  |
+| nvidia-driver-installer     | minikube | disabled  |
+| nvidia-gpu-device-plugin    | minikube | disabled  |
+| olm                         | minikube | disabled  |
+| pod-security-policy         | minikube | disabled  |
+| registry                    | minikube | disabled  |
+| registry-aliases            | minikube | disabled  |
+| registry-creds              | minikube | disabled  |
+| storage-provisioner         | minikube | enabled ✅ |
+| storage-provisioner-gluster | minikube | disabled  |
+| volumesnapshots             | minikube | disabled  |
+
 ## minikube-start
 
 ``` bash
@@ -84,13 +125,13 @@ kubectl get pods --namespace=kube-system
 
 ``` plain
 NAME                               READY   STATUS    RESTARTS   AGE
-coredns-f9fd979d6-lkrkg            1/1     Running   3          35d
-etcd-minikube                      1/1     Running   4          35d
-kube-apiserver-minikube            1/1     Running   4          35d
-kube-controller-manager-minikube   1/1     Running   4          35d
-kube-proxy-w6k8d                   1/1     Running   3          35d
-kube-scheduler-minikube            1/1     Running   4          35d
-storage-provisioner                1/1     Running   31         35d
+coredns-f9fd979d6-4thkx            1/1     Running   2          5d16h
+etcd-minikube                      1/1     Running   2          5d16h
+kube-apiserver-minikube            1/1     Running   2          5d16h
+kube-controller-manager-minikube   1/1     Running   2          5d16h
+kube-proxy-vz6bh                   1/1     Running   2          5d16h
+kube-scheduler-minikube            1/1     Running   2          5d16h
+storage-provisioner                1/1     Running   11         5d16h
 ```
 
 ## kubectl-get-pods-kubernetes-dashboard
@@ -103,8 +144,8 @@ kubectl get pods --namespace=kubernetes-dashboard
 
 ``` plain
 NAME                                        READY   STATUS    RESTARTS   AGE
-dashboard-metrics-scraper-c95fcf479-vtfwh   1/1     Running   3          35d
-kubernetes-dashboard-6cff4c7c4f-jvb9l       1/1     Running   5          35d
+dashboard-metrics-scraper-f6647bd8c-czkbs   1/1     Running   2          5d16h
+kubernetes-dashboard-968bcb79-jhfhh         1/1     Running   2          5d16h
 ```
 
 ## minikube-dashboard
@@ -129,7 +170,7 @@ kubectl get deployment hello-minikube
 
 ``` plain
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-hello-minikube   1/1     1            1           102m
+hello-minikube   1/1     1            1           64m
 ```
 
 ## kubectl-expose-deployment-hello-minikube
@@ -148,7 +189,7 @@ kubectl get service hello-minikube
 
 ``` plain
 NAME             TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-hello-minikube   NodePort   10.107.217.50   <none>        8080:30865/TCP   81m
+hello-minikube   NodePort   10.108.82.144   <none>        8080:32018/TCP   63m
 ```
 
 ## minikube-service-hello-minikube
@@ -203,6 +244,7 @@ Images Commands:
   docker-env     配置环境以使用 minikube's Docker daemon
   podman-env     配置环境以使用 minikube's Podman service
   cache          Add, delete, or push a local image into minikube
+  image          Load a local image into minikube
 
 Configuration and Management Commands:
   addons         Enable or disable a minikube addon
@@ -312,6 +354,7 @@ build/ninja/ninja.graph.png: mask
 build/temp/README.md: copy_alternate
 build/README.TOC/README.TOC.md: github-markdown-toc
 README-template: phony
+build/minikube-addons-list.md: mask-stdout-tee
 build/kubectl-get-pods-kube-system-output.txt: mask-stdout-tee
 build/kubectl-get-pods-kubernetes-dashboard-output.txt: mask-stdout-tee
 build/kubectl-get-deployment-hello-minikube-output.txt: mask-stdout-tee
@@ -330,6 +373,9 @@ ninja --verbose README.md
 ### ninja readme-build
 
 ``` ninja
+build ./build/minikube-addons-list.md : mask-stdout-tee ./maskfile.md
+  mask_subcommand = minikube-addons-list
+
 build ./build/kubectl-get-pods-kube-system-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = kubectl-get-pods-kube-system
 
@@ -348,6 +394,7 @@ build ./build/minikube-help-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = minikube-help
 
 build README-custom : phony $
+  ./build/minikube-addons-list.md $
   ./build/kubectl-get-pods-kube-system-output.txt $
   ./build/kubectl-get-pods-kubernetes-dashboard-output.txt $
   ./build/kubectl-get-deployment-hello-minikube-output.txt $
@@ -398,62 +445,65 @@ digraph ninja {
 rankdir="LR"
 node [fontsize=10, shape=box, height=0.25]
 edge [fontsize=10]
-"0x7fae96408560" [label="all"]
-"0x7fae964085c0" -> "0x7fae96408560" [label=" phony"]
-"0x7fae964085c0" [label="README.md"]
-"0x7fae9640a6d0" [label="pandocomatic", shape=ellipse]
-"0x7fae9640a6d0" -> "0x7fae964085c0"
-"0x7fae96408da0" -> "0x7fae9640a6d0" [arrowhead=none]
-"0x7fae96409740" -> "0x7fae9640a6d0" [arrowhead=none]
-"0x7fae9640a5c0" -> "0x7fae9640a6d0" [arrowhead=none]
-"0x7fae96408da0" [label="maskfile.md"]
-"0x7fae96409740" [label="README-template"]
-"0x7fae96409820" [label="phony", shape=ellipse]
-"0x7fae96409820" -> "0x7fae96409740"
-"0x7fae96408b10" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae96409b50" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae96408ce0" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae96408f50" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae964091a0" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae964093e0" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae964096e0" -> "0x7fae96409820" [arrowhead=none]
-"0x7fae96408b10" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
-"0x7fae96408aa0" [label="ghq", shape=ellipse]
-"0x7fae96408aa0" -> "0x7fae96408b10"
-"0x7fae96409b50" [label="build.ninja"]
-"0x7fae96408ce0" [label="build/ninja/ninja-rules-output.txt"]
-"0x7fae96408da0" -> "0x7fae96408ce0" [label=" mask-stdout-tee"]
-"0x7fae96408f50" [label="build/ninja/ninja-targets-output.txt"]
-"0x7fae96408da0" -> "0x7fae96408f50" [label=" mask-stdout-tee"]
-"0x7fae964091a0" [label="build/ninja/ninja.graph.dot"]
-"0x7fae96408da0" -> "0x7fae964091a0" [label=" mask-tee"]
-"0x7fae964093e0" [label="build/ninja/ninja.graph.png"]
-"0x7fae96409370" [label="mask", shape=ellipse]
-"0x7fae96409370" -> "0x7fae964093e0"
-"0x7fae96408da0" -> "0x7fae96409370" [arrowhead=none]
-"0x7fae964091a0" -> "0x7fae96409370" [arrowhead=none]
-"0x7fae964096e0" [label="build/README.TOC/README.TOC.md"]
-"0x7fae96409570" -> "0x7fae964096e0" [label=" github-markdown-toc"]
-"0x7fae96409570" [label="build/temp/README.md"]
-"0x7fae96408da0" -> "0x7fae96409570" [label=" copy_alternate"]
-"0x7fae9640a5c0" [label="README-custom"]
-"0x7fae9640a640" [label="phony", shape=ellipse]
-"0x7fae9640a640" -> "0x7fae9640a5c0"
-"0x7fae964099c0" -> "0x7fae9640a640" [arrowhead=none]
-"0x7fae96409df0" -> "0x7fae9640a640" [arrowhead=none]
-"0x7fae96409ff0" -> "0x7fae9640a640" [arrowhead=none]
-"0x7fae9640a220" -> "0x7fae9640a640" [arrowhead=none]
-"0x7fae9640a420" -> "0x7fae9640a640" [arrowhead=none]
-"0x7fae964099c0" [label="build/kubectl-get-pods-kube-system-output.txt"]
-"0x7fae96408da0" -> "0x7fae964099c0" [label=" mask-stdout-tee"]
-"0x7fae96409df0" [label="build/kubectl-get-pods-kubernetes-dashboard-output.txt"]
-"0x7fae96408da0" -> "0x7fae96409df0" [label=" mask-stdout-tee"]
-"0x7fae96409ff0" [label="build/kubectl-get-deployment-hello-minikube-output.txt"]
-"0x7fae96408da0" -> "0x7fae96409ff0" [label=" mask-stdout-tee"]
-"0x7fae9640a220" [label="build/kubectl-get-service-hello-minikube.txt"]
-"0x7fae96408da0" -> "0x7fae9640a220" [label=" mask-stdout-tee"]
-"0x7fae9640a420" [label="build/minikube-help-output.txt"]
-"0x7fae96408da0" -> "0x7fae9640a420" [label=" mask-stdout-tee"]
+"0x7fe7a0f057f0" [label="all"]
+"0x7fe7a0f05870" -> "0x7fe7a0f057f0" [label=" phony"]
+"0x7fe7a0f05870" [label="README.md"]
+"0x7fe7a0f07b40" [label="pandocomatic", shape=ellipse]
+"0x7fe7a0f07b40" -> "0x7fe7a0f05870"
+"0x7fe7a0f06090" -> "0x7fe7a0f07b40" [arrowhead=none]
+"0x7fe7a0f06db0" -> "0x7fe7a0f07b40" [arrowhead=none]
+"0x7fe7a0f07a00" -> "0x7fe7a0f07b40" [arrowhead=none]
+"0x7fe7a0f06090" [label="maskfile.md"]
+"0x7fe7a0f06db0" [label="README-template"]
+"0x7fe7a0f06b00" [label="phony", shape=ellipse]
+"0x7fe7a0f06b00" -> "0x7fe7a0f06db0"
+"0x7fe7a0f05dd0" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f06e10" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f05fd0" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f06210" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f06470" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f066b0" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f06970" -> "0x7fe7a0f06b00" [arrowhead=none]
+"0x7fe7a0f05dd0" [label="build/pandoc-lua-filters/include-files/include-files.lua"]
+"0x7fe7a0f05d60" [label="ghq", shape=ellipse]
+"0x7fe7a0f05d60" -> "0x7fe7a0f05dd0"
+"0x7fe7a0f06e10" [label="build.ninja"]
+"0x7fe7a0f05fd0" [label="build/ninja/ninja-rules-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f05fd0" [label=" mask-stdout-tee"]
+"0x7fe7a0f06210" [label="build/ninja/ninja-targets-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f06210" [label=" mask-stdout-tee"]
+"0x7fe7a0f06470" [label="build/ninja/ninja.graph.dot"]
+"0x7fe7a0f06090" -> "0x7fe7a0f06470" [label=" mask-tee"]
+"0x7fe7a0f066b0" [label="build/ninja/ninja.graph.png"]
+"0x7fe7a0f06610" [label="mask", shape=ellipse]
+"0x7fe7a0f06610" -> "0x7fe7a0f066b0"
+"0x7fe7a0f06090" -> "0x7fe7a0f06610" [arrowhead=none]
+"0x7fe7a0f06470" -> "0x7fe7a0f06610" [arrowhead=none]
+"0x7fe7a0f06970" [label="build/README.TOC/README.TOC.md"]
+"0x7fe7a0f06800" -> "0x7fe7a0f06970" [label=" github-markdown-toc"]
+"0x7fe7a0f06800" [label="build/temp/README.md"]
+"0x7fe7a0f06090" -> "0x7fe7a0f06800" [label=" copy_alternate"]
+"0x7fe7a0f07a00" [label="README-custom"]
+"0x7fe7a0f07910" [label="phony", shape=ellipse]
+"0x7fe7a0f07910" -> "0x7fe7a0f07a00"
+"0x7fe7a0f06bf0" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f07050" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f07250" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f074c0" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f076e0" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f07860" -> "0x7fe7a0f07910" [arrowhead=none]
+"0x7fe7a0f06bf0" [label="build/minikube-addons-list.md"]
+"0x7fe7a0f06090" -> "0x7fe7a0f06bf0" [label=" mask-stdout-tee"]
+"0x7fe7a0f07050" [label="build/kubectl-get-pods-kube-system-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f07050" [label=" mask-stdout-tee"]
+"0x7fe7a0f07250" [label="build/kubectl-get-pods-kubernetes-dashboard-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f07250" [label=" mask-stdout-tee"]
+"0x7fe7a0f074c0" [label="build/kubectl-get-deployment-hello-minikube-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f074c0" [label=" mask-stdout-tee"]
+"0x7fe7a0f076e0" [label="build/kubectl-get-service-hello-minikube.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f076e0" [label=" mask-stdout-tee"]
+"0x7fe7a0f07860" [label="build/minikube-help-output.txt"]
+"0x7fe7a0f06090" -> "0x7fe7a0f07860" [label=" mask-stdout-tee"]
 }
 ```
 
@@ -637,6 +687,9 @@ build README-template : phony $
 #######################################
 # start snippet custom-readme-build
 
+build ./build/minikube-addons-list.md : mask-stdout-tee ./maskfile.md
+  mask_subcommand = minikube-addons-list
+
 build ./build/kubectl-get-pods-kube-system-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = kubectl-get-pods-kube-system
 
@@ -655,6 +708,7 @@ build ./build/minikube-help-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = minikube-help
 
 build README-custom : phony $
+  ./build/minikube-addons-list.md $
   ./build/kubectl-get-pods-kube-system-output.txt $
   ./build/kubectl-get-pods-kubernetes-dashboard-output.txt $
   ./build/kubectl-get-deployment-hello-minikube-output.txt $

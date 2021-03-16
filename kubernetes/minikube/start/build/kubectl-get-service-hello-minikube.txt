@@ -1,2 +1,2 @@
 NAME             TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-hello-minikube   NodePort   10.107.217.50   <none>        8080:30865/TCP   81m
+hello-minikube   NodePort   10.108.82.144   <none>        8080:32018/TCP   63m

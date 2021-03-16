@@ -169,6 +169,9 @@ build README-template : phony $
 #######################################
 # start snippet custom-readme-build
 
+build ./build/minikube-addons-list.md : mask-stdout-tee ./maskfile.md
+  mask_subcommand = minikube-addons-list
+
 build ./build/kubectl-get-pods-kube-system-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = kubectl-get-pods-kube-system
 
@@ -187,6 +190,7 @@ build ./build/minikube-help-output.txt : mask-stdout-tee ./maskfile.md
   mask_subcommand = minikube-help
 
 build README-custom : phony $
+  ./build/minikube-addons-list.md $
   ./build/kubectl-get-pods-kube-system-output.txt $
   ./build/kubectl-get-pods-kubernetes-dashboard-output.txt $
   ./build/kubectl-get-deployment-hello-minikube-output.txt $

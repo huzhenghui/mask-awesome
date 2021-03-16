@@ -1,6 +1,8 @@
 * [minikube](#minikube)
 * [Mask SubCommands](#mask-subcommands)
   * [docker-open](#docker-open)
+  * [minikube-addons-list](#minikube-addons-list)
+    * [minikube-addons-list-output](#minikube-addons-list-output)
   * [minikube-start](#minikube-start)
   * [kubectl-get-pods](#kubectl-get-pods)
   * [kubectl-get-pods-kube-system](#kubectl-get-pods-kube-system)
