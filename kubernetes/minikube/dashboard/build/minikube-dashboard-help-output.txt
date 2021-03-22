@@ -1,0 +1,9 @@
+Access the Kubernetes dashboard running within the minikube cluster
+
+Options:
+      --url=false: 显示 dashboard URL，而不是打开浏览器
+
+Usage:
+  minikube dashboard [flags] [options]
+
+Use "minikube options" for a list of global command-line options (applies to all commands).

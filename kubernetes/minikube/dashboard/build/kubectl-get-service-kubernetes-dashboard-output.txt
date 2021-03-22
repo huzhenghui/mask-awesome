@@ -1,0 +1,4 @@
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+dashboard-metrics-scraper   ClusterIP   10.110.0.111    <none>        8000/TCP         10d
+kubernetes-dashboard        ClusterIP   10.103.30.202   <none>        80/TCP           10d
+kubernetes-dashboard-port   NodePort    10.104.94.156   <none>        9090:31172/TCP   65m
