@@ -1,0 +1,10 @@
+goreman-check: mask goreman-check
+goreman-help: mask goreman-help
+goreman-tasks: mask goreman-tasks
+goreman-version: mask goreman-version
+help: mask help
+ninja-all: mask ninja-all
+ninja-graph-png: mask ninja-graph-png
+ninja-rules: mask ninja-rules
+ninja-targets: mask ninja-targets
+readme-md: mask readme-md

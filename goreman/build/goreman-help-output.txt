@@ -1,0 +1,15 @@
+Usage of goreman:
+  -b uint
+    	base number of port (default 5000)
+  -basedir string
+    	base directory
+  -exit-on-error
+    	Exit goreman if a subprocess quits with a nonzero return code
+  -f string
+    	proc file (default "Procfile")
+  -logtime
+    	show timestamp in log (default true)
+  -p uint
+    	port (default 8555)
+  -set-ports
+    	False to avoid setting PORT env var for each subprocess (default true)

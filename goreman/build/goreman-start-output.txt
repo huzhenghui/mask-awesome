@@ -1,0 +1,116 @@
+16:07:01            help | mask 0.11.0
+16:07:01            help | USAGE:
+16:07:01            help |     mask [FLAGS] [OPTIONS] <SUBCOMMAND>
+16:07:01            help | FLAGS:
+16:07:01            help |     -h, --help          Prints help information
+16:07:01            help |         --introspect    Print out the maskfile command structure in json
+16:07:01            help |     -V, --version       Prints version information
+16:07:01            help | OPTIONS:
+16:07:01            help |         --maskfile <maskfile>    Path to a different maskfile you want to use
+16:07:01            help | SUBCOMMANDS:
+16:07:01            help |     goreman-check           
+16:07:01            help |     goreman-help            
+16:07:01            help |     goreman-start           
+16:07:01            help |     goreman-tasks           
+16:07:01            help |     goreman-version         
+16:07:01            help |     help                    Prints this message or the help of the given subcommand(s)
+16:07:01            help |     ninja-all               
+16:07:01            help |     ninja-browse            
+16:07:01            help |     ninja-graph-dot         
+16:07:01            help |     ninja-graph-dot-xdot    
+16:07:01            help |     ninja-graph-png         
+16:07:01            help |     ninja-rules             
+16:07:01            help |     ninja-targets           
+16:07:01            help |     readme-md               
+16:07:01            help | Terminating help
+16:07:01   ninja-targets | all: phony
+16:07:01   ninja-targets | build/pandoc-lua-filters/include-files/include-files.lua: ghq
+16:07:01   ninja-targets | build/ninja/ninja-rules-output.txt: mask-stdout-tee
+16:07:01   ninja-targets | build/ninja/ninja-targets-output.txt: mask-stdout-tee
+16:07:01   ninja-targets | build/ninja/ninja.graph.dot: mask-tee
+16:07:01   ninja-targets | build/ninja/ninja.graph.png: mask
+16:07:01   ninja-targets | build/temp/README.md: copy_alternate
+16:07:01   ninja-targets | build/README.TOC/README.TOC.md: github-markdown-toc
+16:07:01   ninja-targets | README-template: phony
+16:07:01   ninja-targets | build/goreman-check-output.txt: mask-tee
+16:07:01   ninja-targets | build/goreman-start-output.txt: mask-ansifilter
+16:07:01   ninja-targets | build/goreman-version-output.txt: mask-tee
+16:07:01   ninja-targets | build/goreman-tasks-output.txt: mask-tee
+16:07:01   ninja-targets | build/goreman-help-output.txt: mask-tee
+16:07:01   ninja-targets | README-custom: phony
+16:07:01   ninja-targets | README.md: pandocomatic
+16:07:01     ninja-rules | cmdshelf-repository
+16:07:01     ninja-rules | copy_alternate
+16:07:01     ninja-rules | dot
+16:07:01     ninja-rules | ghq
+16:07:01     ninja-rules | github-markdown-toc
+16:07:01     ninja-rules | jupyter-nbconvert-markdown
+16:07:01     ninja-rules | mask
+16:07:01     ninja-rules | mask-ansifilter
+16:07:01     ninja-rules | mask-man-markdown
+16:07:01     ninja-rules | mask-screenshot
+16:07:01     ninja-rules | mask-stderr-tee
+16:07:01     ninja-rules | mask-stdout-csv-markdown
+16:07:01     ninja-rules | mask-stdout-json
+16:07:01     ninja-rules | mask-stdout-tee
+16:07:01     ninja-rules | mask-tee
+16:07:01     ninja-rules | pandocomatic
+16:07:01     ninja-rules | phony
+16:07:01       ninja-all | ninja: no work to do.
+16:07:01   ninja-targets | Terminating ninja-targets
+16:07:01     ninja-rules | Terminating ninja-rules
+16:07:01       ninja-all | Terminating ninja-all
+16:07:01       readme-md | ninja: no work to do.
+16:07:01       readme-md | Terminating readme-md
+16:07:01   goreman-tasks | Tasks:
+16:07:01   goreman-tasks |   goreman check                      # Show entries in Procfile
+16:07:01   goreman-tasks |   goreman help [TASK]                # Show this help
+16:07:01   goreman-tasks |   goreman export [FORMAT] [LOCATION] # Export the apps to another process
+16:07:01   goreman-tasks |                                        (upstart)
+16:07:01   goreman-tasks |   goreman run COMMAND [PROCESS...]   # Run a command
+16:07:01   goreman-tasks |                                        start
+16:07:01   goreman-tasks |                                        stop
+16:07:01   goreman-tasks |                                        stop-all
+16:07:01   goreman-tasks |                                        restart
+16:07:01   goreman-tasks |                                        restart-all
+16:07:01   goreman-tasks |                                        list
+16:07:01   goreman-tasks |                                        status
+16:07:01   goreman-tasks |   goreman start [PROCESS]            # Start the application
+16:07:01   goreman-tasks |   goreman version                    # Display Goreman version
+16:07:01   goreman-tasks | Options:
+16:07:01   goreman-tasks |   -b uint
+16:07:01   goreman-tasks |     	base number of port (default 5000)
+16:07:01   goreman-tasks |   -basedir string
+16:07:01   goreman-tasks |     	base directory
+16:07:01   goreman-tasks |   -exit-on-error
+16:07:01   goreman-tasks |     	Exit goreman if a subprocess quits with a nonzero return code
+16:07:01   goreman-tasks |   -f string
+16:07:01   goreman-tasks |     	proc file (default "Procfile")
+16:07:01   goreman-tasks |   -logtime
+16:07:01   goreman-tasks |     	show timestamp in log (default true)
+16:07:01   goreman-tasks |   -p uint
+16:07:01   goreman-tasks |     	port (default 8555)
+16:07:01   goreman-tasks |   -set-ports
+16:07:01   goreman-tasks |     	False to avoid setting PORT env var for each subprocess (default true)
+16:07:01 goreman-version | 0.3.7
+16:07:01    goreman-help | Usage of goreman:
+16:07:01    goreman-help |   -b uint
+16:07:01    goreman-help |     	base number of port (default 5000)
+16:07:01    goreman-help |   -basedir string
+16:07:01    goreman-help |     	base directory
+16:07:01    goreman-help |   -exit-on-error
+16:07:01    goreman-help |     	Exit goreman if a subprocess quits with a nonzero return code
+16:07:01    goreman-help |   -f string
+16:07:01    goreman-help |     	proc file (default "Procfile")
+16:07:01    goreman-help |   -logtime
+16:07:01    goreman-help |     	show timestamp in log (default true)
+16:07:01    goreman-help |   -p uint
+16:07:01    goreman-help |     	port (default 8555)
+16:07:01    goreman-help |   -set-ports
+16:07:01    goreman-help |     	False to avoid setting PORT env var for each subprocess (default true)
+16:07:01   goreman-check | valid procfile detected (goreman-check, goreman-help, goreman-tasks, goreman-version, help, ninja-all, ninja-graph-png, ninja-rules, ninja-targets, readme-md)
+16:07:01   goreman-tasks | Terminating goreman-tasks
+16:07:01 goreman-version | Terminating goreman-version
+16:07:01    goreman-help | Terminating goreman-help
+16:07:01   goreman-check | Terminating goreman-check
+16:07:01 ninja-graph-png | Terminating ninja-graph-png

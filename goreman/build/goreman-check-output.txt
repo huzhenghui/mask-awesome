@@ -1,0 +1,1 @@
+valid procfile detected (goreman-help, help, ninja-all, ninja-graph-png, ninja-rules, ninja-targets, readme-md)
