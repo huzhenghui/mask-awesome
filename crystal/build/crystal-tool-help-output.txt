@@ -1,0 +1,10 @@
+Usage: crystal tool [tool] [switches] [program file] [--] [arguments]
+
+Tool:
+    context                  show context for given location
+    expand                   show macro expansion for given location
+    format                   format project, directories and/or files
+    hierarchy                show type hierarchy
+    implementations          show implementations for given call in location
+    types                    show type of main variables
+    --help, -h               show this help

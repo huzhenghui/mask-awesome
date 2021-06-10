@@ -1,0 +1,14 @@
+Usage: crystal tool expand [options] [programfile] [--] [arguments]
+
+Options:
+    -D FLAG, --define FLAG           Define a compile-time flag
+    -c LOC, --cursor LOC             Cursor location with LOC as path/to/file.cr:line:column
+    -f text|json, --format text|json Output format text (default) or json
+    --error-trace                    Show full error trace
+    -h, --help                       Show this message
+    --no-color                       Disable colored output
+    --prelude                        Use given file as prelude
+    -s, --stats                      Enable statistics output
+    -p, --progress                   Enable progress output
+    -t, --time                       Enable execution time output
+    --stdin-filename                 Source file name to be read from STDIN

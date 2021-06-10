@@ -1,0 +1,9 @@
+Usage: crystal tool format [options] [file or directory]
+
+Options:
+    --check                          Checks that formatting code produces no changes
+    -i <path>, --include <path>      Include path
+    -e <path>, --exclude <path>      Exclude path (default: lib)
+    -h, --help                       Show this message
+    --no-color                       Disable colored output
+    --show-backtrace                 Show backtrace on a bug (used only for debugging)

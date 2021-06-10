@@ -1,0 +1,17 @@
+Parse:                            Parse:                             00:00:00.001745329 (   0.75MB)
+Semantic (top level):             Semantic (top level):              00:00:01.589832739 (  44.91MB)
+Semantic (new):                   Semantic (new):                    00:00:00.004340275 (  44.91MB)
+Semantic (type declarations):     Semantic (type declarations):      00:00:00.054928709 (  44.91MB)
+Semantic (abstract def check):    Semantic (abstract def check):     00:00:00.009922508 (  44.91MB)
+Semantic (ivars initializers):    Semantic (ivars initializers):     00:00:00.062930647 (  59.88MB)
+Semantic (cvars initializers):    Semantic (cvars initializers):     00:00:00.206804655 (  75.88MB)
+Semantic (main):                  Semantic (main):                   00:00:00.348050396 (  75.94MB)
+Semantic (cleanup):               Semantic (cleanup):                00:00:00.009025853 (  75.94MB)
+Semantic (recursive struct check):Semantic (recursive struct check): 00:00:00.001074554 (  75.94MB)
+Codegen (crystal):                Codegen (crystal):                 00:00:00.773531531 (  91.94MB)
+Codegen (bc+obj):                 Codegen (bc+obj):                  00:00:01.771913655 (  91.94MB)
+Codegen (linking):                Codegen (linking):                 00:00:06.977218478 (  91.94MB)
+dsymutil:                         dsymutil:                          00:00:02.698291392 (  91.94MB)
+
+Codegen (bc+obj):
+ - no previous .o files were reused

@@ -1,0 +1,4 @@
+lib:/usr/local/Cellar/crystal/1.0.0_1/src
+1.0.0
+/usr/local/lib
+

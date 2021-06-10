@@ -1,0 +1,7 @@
+Usage: crystal play [options] [file]
+
+Options:
+    -p PORT, --port PORT             Runs the playground on the specified port
+    -b HOST, --binding HOST          Binds the playground to the specified IP
+    -v, --verbose                    Display detailed information of executed code
+    -h, --help                       Show this message

@@ -1,0 +1,4 @@
+Crystal 1.0.0 (2021-03-22)
+
+LLVM: 9.0.1
+Default target: x86_64-apple-macosx

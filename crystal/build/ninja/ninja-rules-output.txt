@@ -1,0 +1,17 @@
+cmdshelf-repository
+copy_alternate
+dot
+ghq
+github-markdown-toc
+jupyter-nbconvert-markdown
+mask
+mask-ansifilter
+mask-man-markdown
+mask-screenshot
+mask-stderr-tee
+mask-stdout-csv-markdown
+mask-stdout-json
+mask-stdout-tee
+mask-tee
+pandocomatic
+phony

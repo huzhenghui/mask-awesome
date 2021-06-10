@@ -1,0 +1,17 @@
+Usage: crystal spec [options] [files]
+
+Options:
+    -d, --debug                      Add full symbolic debug info
+    --no-debug                       Skip any symbolic debug info
+    -D FLAG, --define FLAG           Define a compile-time flag
+    --error-trace                    Show full error trace
+    --release                        Compile in release mode
+    -s, --stats                      Enable statistics output
+    -p, --progress                   Enable progress output
+    -t, --time                       Enable execution time output
+    -h, --help                       Show this message
+    --no-color                       Disable colored output
+    --warnings all|none              Which warnings detect. (default: all)
+    --error-on-warnings              Treat warnings as errors.
+    --exclude-warnings <path>        Exclude warnings from path (default: lib)
+    --link-flags FLAGS               Additional flags to pass to the linker

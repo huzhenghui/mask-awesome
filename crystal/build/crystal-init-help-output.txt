@@ -1,0 +1,15 @@
+Usage: crystal init TYPE (DIR | NAME DIR)
+
+Initializes a project folder as a git repository and default folder
+structure for Crystal projects.
+
+TYPE is one of:
+    lib                      Creates a library skeleton
+    app                      Creates an application skeleton
+
+DIR  - directory where project will be generated
+NAME - name of project to be generated, default: basename of DIR
+
+    -h, --help                       show this help
+    -f, --force                      force overwrite existing files
+    -s, --skip-existing              skip existing files

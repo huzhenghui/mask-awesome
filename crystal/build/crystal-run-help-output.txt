@@ -1,0 +1,32 @@
+Usage: crystal run [options] [programfile] [--] [arguments]
+
+Options:
+    -d, --debug                      Add full symbolic debug info
+    --no-debug                       Skip any symbolic debug info
+    --lto=FLAG                       Use ThinLTO --lto=thin
+    -D FLAG, --define FLAG           Define a compile-time flag
+    --emit [asm|obj|llvm-bc|llvm-ir] Comma separated list of types of output for the compiler to emit
+    -f text|json, --format text|json Output format text (default) or json
+    --error-trace                    Show full error trace
+    -h, --help                       Show this message
+    --ll                             Dump ll to Crystal's cache directory
+    --link-flags FLAGS               Additional flags to pass to the linker
+    --mcpu CPU                       Target specific cpu type
+    --mattr CPU                      Target specific features
+    --mcmodel MODEL                  Target specific code model
+    --warnings all|none              Which warnings detect. (default: all)
+    --error-on-warnings              Treat warnings as errors.
+    --exclude-warnings <path>        Exclude warnings from path (default: lib)
+    --no-color                       Disable colored output
+    --no-codegen                     Don't do code generation
+    -o                               Output filename
+    --prelude                        Use given file as prelude
+    --release                        Compile in release mode
+    -s, --stats                      Enable statistics output
+    -p, --progress                   Enable progress output
+    -t, --time                       Enable execution time output
+    --single-module                  Generate a single LLVM module
+    --threads NUM                    Maximum number of threads to use
+    --verbose                        Display executed commands
+    --static                         Link statically
+    --stdin-filename                 Source file name to be read from STDIN

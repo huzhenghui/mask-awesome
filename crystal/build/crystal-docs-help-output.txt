@@ -1,0 +1,27 @@
+Usage: crystal docs [options]
+
+Generates API documentation from inline docstrings in all Crystal files inside ./src directory.
+
+Options:
+    --project-name=NAME              Set project name
+    --project-version=VERSION        Set project version
+    --source-refname=REFNAME         Set source refname (e.g. git tag, commit hash)
+    --source-url-pattern=REFNAME     Set URL pattern for source code links
+    --output=DIR, -o DIR             Set the output directory (default: ./docs)
+    --format=FORMAT, -f FORMAT       Set the output format [html, json] (default: html)
+    --json-config-url=URL            Set the URL pointing to a config file (used for discovering versions)
+    --canonical-base-url=URL         Indicate the preferred URL with rel="canonical" link element
+    --sitemap-base-url=URL, -b URL   Set the sitemap base URL and generates sitemap
+    --sitemap-priority=PRIO          Set the sitemap priority (default: 1.0)
+    --sitemap-changefreq=FREQ        Set the sitemap changefreq (default: never)
+    -D FLAG, --define FLAG           Define a compile-time flag
+    --error-trace                    Show full error trace
+    --no-color                       Disable colored output
+    --prelude                        Use given file as prelude
+    -s, --stats                      Enable statistics output
+    -p, --progress                   Enable progress output
+    -t, --time                       Enable execution time output
+    -h, --help                       Show this message
+    --warnings all|none              Which warnings detect. (default: all)
+    --error-on-warnings              Treat warnings as errors.
+    --exclude-warnings <path>        Exclude warnings from path (default: lib)
