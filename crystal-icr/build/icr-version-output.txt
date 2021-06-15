@@ -1,0 +1,3 @@
+icr version 0.8.0
+Author: Potapov Sergey
+Homepage: https://github.com/crystal-community/icr

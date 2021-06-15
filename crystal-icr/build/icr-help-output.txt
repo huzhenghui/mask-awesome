@@ -1,0 +1,12 @@
+Usage: icr [options]
+    -v, --version                    Show version
+    -h, --help                       Show this help
+    -d, --debug                      Run icr in debug mode
+    -r FILE, --require=FILE          auto require FILE
+    -p PROMPT, --prompt-mode=PROMPT  Switch prompt mode. Pre-defined prompt modes are `default`, `simple` and `none`
+    --disable-usage-warning          Disable usage warning
+    --disable-update-check           Disable update check
+    --no-color                       Disable colorized output (also highlight)
+
+Author: Potapov Sergey
+Homepage: https://github.com/crystal-community/icr
