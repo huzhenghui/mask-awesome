@@ -1,0 +1,391 @@
+builddir=./build
+mask_subcommand = --help
+mask_stdout_csv_markdowndelimiter = ","
+jupyter_nbconvert_markdown_output_files_dir=./build/jupyter-nbconvert-markdown-output-files
+
+#######################################
+# begin: rule in template
+
+rule mask
+  command = mask --maskfile $in $mask_subcommand
+
+rule mask-tee
+  command = mask --maskfile $in $mask_subcommand 2>&1 | tee $out 1> /dev/null
+
+rule mask-ansifilter
+  command = mask --maskfile $in $mask_subcommand 2>&1 | $
+    ansifilter | tee $out 1> /dev/null
+
+rule mask-stdout-tee
+  command = mask --maskfile $in $mask_subcommand 2>/dev/null | tee $out 1> /dev/null
+
+rule mask-stderr-tee
+  command = bash -c 'mask $mask_subcommand 1>/dev/null 2> >(tee $out)' || echo $$?
+
+# <!-- markdownlint-disable MD013 -->
+rule mask-man-markdown
+  command = set -e && set -o pipefail && $
+    mask --maskfile $in $mask_subcommand | $
+    ul | $
+    ansifilter --bbcode | $
+    inv --search-root="$$(ghq list --full-path https://github.com/huzhenghui/pyinvoke-awesome)/bbcode" bbcode-parser-format | $
+    pandoc --from=html --to=markdown | $
+    tee $out 1> /dev/null
+# <!-- markdownlint-enable MD013 -->
+
+rule mask-stdout-csv-markdown
+  command = mask --maskfile $in $mask_subcommand 2>/dev/null | $
+    csvtomd --delimiter "$$(echo $mask_stdout_csv_markdowndelimiter)" | $
+    tee $out 1> /dev/null
+
+rule mask-stdout-json
+  command = mask --maskfile $in $mask_subcommand 2>/dev/null | $
+    jq | $
+    tee $out 1> /dev/null
+
+rule mask-screenshot
+  command = $
+    regular_logfile="./build/temp/$$(basename $out).mask-screenshot.logfile" && $
+    rm -f -v "$${regular_logfile}" && $
+    until [[ -s "$${regular_logfile}" ]]; do $
+      screen_logfile="$$(mktemp -d)/logfile"; $
+      echo "$${screen_logfile}"; $
+      mkfifo "$${screen_logfile}"; $
+      screen -L -Logfile "$${screen_logfile}" $
+        -dmS mask-screenshot-"$$(basename $out)" $
+        sh -c "stdbuf -o0 mask --maskfile $in $mask_subcommand; $
+          date +'%F %T %Z %z - %+ https://github.com/huzhenghui' | lolcat;"; $
+      dd bs=1 if="$${screen_logfile}" of="$${regular_logfile}"; $
+    done && $
+    ansifilter --html --encoding=utf8 --input="$${regular_logfile}" | $
+      tee ./build/temp/"$$(basename $out)".mask-screenshot.html | $
+      wkhtmltoimage --format png - "$out"
+
+rule pandocomatic
+  command = pandocomatic --input $in --output $out
+
+rule github-markdown-toc
+  command = gh-md-toc --hide-header --hide-footer --no-escape $in > $out
+
+rule copy_alternate
+  command = if [[ -f "$alternate" ]]; $
+    then $
+      cp "$alternate" "$out"; $
+    else $
+      cp "$in" "$out"; $
+    fi;
+
+rule dot
+  command = dot -Tpng -o$out $in
+
+rule ghq
+  command = ghq get --update "$repository" && $
+    find -d "$link_dirname" -exec rmdir {} \; && $
+    ln -Fs "$$(ghq list --full-path $repository)" "$link_dirname"
+  generator = 1
+
+rule cmdshelf-repository
+  command = $$( $
+    cmdshelf remote list | ack "^$cmdshelf_name" 1>&2 || $
+    cmdshelf remote add "$cmdshelf_name" "$cmdshelf_url" 1>&2 $
+    ) && $
+    repository_path="$$(realpath $${HOME}/.cmdshelf/remote/$cmdshelf_name)" && $
+    echo "$${repository_path}" && $
+    stub_path="$$(realpath ./build/$cmdshelf_name)" && $
+    echo "$${stub_path}" && $
+    find -d "$${stub_path}" -exec rmdir {} \; && $
+    ln -Fs "$${repository_path}" "$${stub_path}"
+  generator = 1
+
+# <!-- markdownlint-disable MD013 -->
+rule jupyter-nbconvert-markdown
+  command = jupyter nbconvert $
+    --to=markdown $
+    --NbConvertApp.output_files_dir="$jupyter_nbconvert_markdown_output_files_dir" $
+    --output="$out" $
+    "$in"
+# <!-- markdownlint-enble MD013 -->
+
+# end: rule in template
+#######################################
+
+#######################################
+# start snippet custom-rule
+
+# custom rule here
+
+# end snippet custom-rule
+#######################################
+
+#######################################
+# start snippet build-all
+
+build all: phony README.md
+
+default all
+
+# end snippet build-all
+#######################################
+
+#######################################
+# start snippet custom-build
+
+# custom build here
+
+# end snippet custom-build
+#######################################
+
+#######################################
+# start snippet report-build
+
+# report build here
+
+# end snippet report-build
+#######################################
+
+#######################################
+# begin: readme-build in template
+
+# ninja will create ./build/pandoc-lua-filters/include-files/ automatically
+build ./build/pandoc-lua-filters/include-files/include-files.lua : ghq
+  repository = https://github.com/pandoc/lua-filters
+  link_dirname = ./build/pandoc-lua-filters
+
+build ./build/ninja/ninja-rules-output.txt : mask-stdout-tee ./maskfile.md
+  mask_subcommand = ninja-rules
+
+build ./build/ninja/ninja-targets-output.txt : mask-stdout-tee ./maskfile.md
+  mask_subcommand = ninja-targets
+
+build ./build/ninja/ninja.graph.dot : mask-tee ./maskfile.md
+  mask_subcommand = ninja-graph-dot
+
+build ./build/ninja/ninja.graph.png : mask ./maskfile.md | ./build/ninja/ninja.graph.dot
+  mask_subcommand = ninja-graph-png
+
+build ./build/temp/README.md : copy_alternate ./maskfile.md
+  alternate = ./README.md
+
+build ./build/README.TOC/README.TOC.md : github-markdown-toc ./build/temp/README.md
+
+build README-template : phony $
+  ./build/pandoc-lua-filters/include-files/include-files.lua $
+  ./build.ninja $
+  ./build/ninja/ninja-rules-output.txt $
+  ./build/ninja/ninja-targets-output.txt $
+  ./build/ninja/ninja.graph.dot $
+  ./build/ninja/ninja.graph.png $
+  ./build/README.TOC/README.TOC.md $
+
+# end: readme-build in template
+#######################################
+
+#######################################
+# start snippet custom-readme-build
+
+build ./build/rebar3-path-output.txt : mask-ansifilter ./maskfile.md
+  mask_subcommand = rebar3-path
+
+build ./build/rebar3-tree-output.txt : mask-ansifilter ./maskfile.md
+  mask_subcommand = rebar3-tree
+
+build ./build/rebar3-get-deps-output.txt : mask-ansifilter ./maskfile.md
+  mask_subcommand = rebar3-get-deps
+
+build ./build/rebar3-release-all-output.txt : mask-ansifilter ./maskfile.md
+  mask_subcommand = rebar3-release-all
+
+build ./build/rebar3-report-output.txt : mask-ansifilter ./maskfile.md
+  mask_subcommand = rebar3-report
+
+build ./build/rebar3-new-help-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help
+
+build ./build/rebar3-new-help-app-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-app
+
+build ./build/rebar3-new-help-cmake-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-cmake
+
+build ./build/rebar3-new-help-escript-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-escript
+
+build ./build/rebar3-new-help-lib-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-lib
+
+build ./build/rebar3-new-help-plugin-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-plugin
+
+build ./build/rebar3-new-help-release-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-release
+
+build ./build/rebar3-new-help-umbrella-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-new-help-umbrella
+
+build ./build/rebar3-version-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-version
+
+build ./build/rebar3-help-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help
+
+build ./build/rebar3-help-as-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-as
+
+build ./build/rebar3-help-clean-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-clean
+
+build ./build/rebar3-help-compile-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-compile
+
+build ./build/rebar3-help-cover-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-cover
+
+build ./build/rebar3-help-ct-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-ct
+
+build ./build/rebar3-help-deps-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-deps
+
+build ./build/rebar3-help-dialyzer-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-dialyzer
+
+build ./build/rebar3-help-do-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-do
+
+build ./build/rebar3-help-edoc-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-edoc
+
+build ./build/rebar3-help-escriptize-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-escriptize
+
+build ./build/rebar3-help-eunit-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-eunit
+
+build ./build/rebar3-help-get-deps-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-get-deps
+
+build ./build/rebar3-help-help-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-help
+
+build ./build/rebar3-help-new-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-new
+
+build ./build/rebar3-help-path-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-path
+
+build ./build/rebar3-help-pkgs-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-pkgs
+
+build ./build/rebar3-help-release-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-release
+
+build ./build/rebar3-help-relup-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-relup
+
+build ./build/rebar3-help-report-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-report
+
+build ./build/rebar3-help-shell-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-shell
+
+build ./build/rebar3-help-tar-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-tar
+
+build ./build/rebar3-help-tree-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-tree
+
+build ./build/rebar3-help-unlock-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-unlock
+
+build ./build/rebar3-help-update-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-update
+
+build ./build/rebar3-help-upgrade-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-upgrade
+
+build ./build/rebar3-help-version-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-version
+
+build ./build/rebar3-help-xref-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-xref
+
+build ./build/rebar3-help-local-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-local
+
+build ./build/rebar3-help-local-install-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-local-install
+
+build ./build/rebar3-help-local-upgrade-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-local-upgrade
+
+build ./build/rebar3-help-plugins-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-plugins
+
+build ./build/rebar3-help-plugins-list-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-plugins-list
+
+build ./build/rebar3-help-plugins-upgrade-output.txt : mask-tee ./maskfile.md
+  mask_subcommand = rebar3-help-plugins-upgrade
+
+build README-custom : phony $
+  ./build/rebar3-path-output.txt $
+  ./build/rebar3-tree-output.txt $
+  ./build/rebar3-get-deps-output.txt $
+  ./build/rebar3-release-all-output.txt $
+  ./build/rebar3-report-output.txt $
+  ./build/rebar3-new-help-output.txt $
+  ./build/rebar3-new-help-app-output.txt $
+  ./build/rebar3-new-help-cmake-output.txt $
+  ./build/rebar3-new-help-escript-output.txt $
+  ./build/rebar3-new-help-lib-output.txt $
+  ./build/rebar3-new-help-plugin-output.txt $
+  ./build/rebar3-new-help-release-output.txt $
+  ./build/rebar3-new-help-umbrella-output.txt $
+  ./build/rebar3-version-output.txt $
+  ./build/rebar3-help-output.txt $
+  ./build/rebar3-help-as-output.txt $
+  ./build/rebar3-help-clean-output.txt $
+  ./build/rebar3-help-compile-output.txt $
+  ./build/rebar3-help-cover-output.txt $
+  ./build/rebar3-help-ct-output.txt $
+  ./build/rebar3-help-deps-output.txt $
+  ./build/rebar3-help-dialyzer-output.txt $
+  ./build/rebar3-help-do-output.txt $
+  ./build/rebar3-help-edoc-output.txt $
+  ./build/rebar3-help-escriptize-output.txt $
+  ./build/rebar3-help-eunit-output.txt $
+  ./build/rebar3-help-get-deps-output.txt $
+  ./build/rebar3-help-help-output.txt $
+  ./build/rebar3-help-new-output.txt $
+  ./build/rebar3-help-path-output.txt $
+  ./build/rebar3-help-pkgs-output.txt $
+  ./build/rebar3-help-release-output.txt $
+  ./build/rebar3-help-relup-output.txt $
+  ./build/rebar3-help-report-output.txt $
+  ./build/rebar3-help-shell-output.txt $
+  ./build/rebar3-help-tar-output.txt $
+  ./build/rebar3-help-tree-output.txt $
+  ./build/rebar3-help-unlock-output.txt $
+  ./build/rebar3-help-update-output.txt $
+  ./build/rebar3-help-upgrade-output.txt $
+  ./build/rebar3-help-version-output.txt $
+  ./build/rebar3-help-xref-output.txt $
+  ./build/rebar3-help-local-output.txt $
+  ./build/rebar3-help-local-install-output.txt $
+  ./build/rebar3-help-local-upgrade-output.txt $
+  ./build/rebar3-help-plugins-output.txt $
+  ./build/rebar3-help-plugins-list-output.txt $
+  ./build/rebar3-help-plugins-upgrade-output.txt
+
+# end snippet custom-readme-build
+#######################################
+
+#######################################
+# $ followed by a newline
+# escape the newline (continue the current line across a line break).
+# start snippet readme-build
+
+build README.md : pandocomatic maskfile.md | README-template README-custom
+
+# end snippet readme-build
+#######################################

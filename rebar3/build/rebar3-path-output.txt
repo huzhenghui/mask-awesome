@@ -1,0 +1,5 @@
+_build/default
+../../mochiweb/ebin
+_build/default/lib
+_build/default/lib/appmochiweb/../../../../priv
+../../../../../../mochiweb/src

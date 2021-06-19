@@ -1,0 +1,6 @@
+Compile apps .app.src and .erl files.
+Usage: rebar3 compile [-d]
+
+  -d, --deps_only  Only compile dependencies, no project apps will be 
+                   built.
+

@@ -1,0 +1,4 @@
+
+local <task>:
+  install        Extract libs from rebar3 escript along with a run script.
+  upgrade        Download latest rebar3 escript and extract.

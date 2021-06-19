@@ -1,0 +1,2 @@
+Generate documentation using edoc.
+Usage: rebar3 edoc

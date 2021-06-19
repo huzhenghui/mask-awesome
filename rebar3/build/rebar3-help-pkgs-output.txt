@@ -1,0 +1,6 @@
+List information for a package.
+
+Usage: rebar3 pkgs [<package>]
+
+  <package>  Package to fetch information for.
+

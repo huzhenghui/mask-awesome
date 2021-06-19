@@ -1,0 +1,6 @@
+Unlock project dependencies. Mentioning no application will unlock all dependencies. To unlock specific dependencies, their name can be listed in the command.
+Usage: rebar3 unlock [<package>]
+
+  <package>  List of packages to unlock. If not specified, all 
+             dependencies are unlocked.
+

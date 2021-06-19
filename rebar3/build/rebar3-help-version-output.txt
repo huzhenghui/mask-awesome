@@ -1,0 +1,2 @@
+Print version for rebar and current Erlang.
+Usage: rebar3 version

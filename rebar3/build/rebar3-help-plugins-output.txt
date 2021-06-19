@@ -1,0 +1,4 @@
+
+plugins <task>:
+  list           List local and global plugins for this project
+  upgrade        Upgrade plugins

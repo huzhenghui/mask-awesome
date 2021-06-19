@@ -1,0 +1,13 @@
+escript:
+	built-in template
+	Description: Complete escriptized application structure
+	Variables:
+		name="mylib" (Name of the OTP application to be escriptized)
+		desc="An escript" (Short description of the project)
+		date="2021-06-19"
+		datetime="2021-06-19T04:08:13+00:00"
+		author_name=[32993,20105,36745]
+		author_email="hu@daonao.com"
+		copyright_year="2021"
+		apps_dir="apps" (Directory where applications will be created if needed)
+

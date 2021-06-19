@@ -1,0 +1,5 @@
+Display a list of tasks or help for a given task or subtask.
+Usage: rebar3 help [<help_task>]
+
+  <help_task>  Task to print help for.
+

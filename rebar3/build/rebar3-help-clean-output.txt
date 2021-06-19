@@ -1,0 +1,8 @@
+Remove compiled beam files from apps.
+Usage: rebar3 clean [-a] [--apps <apps>] [-p <profile>]
+
+  -a, --all      Clean all apps include deps
+  --apps         Clean a specific list of apps or dependencies
+  -p, --profile  Clean under profile. Equivalent to `rebar3 as <profile> 
+                 clean`
+

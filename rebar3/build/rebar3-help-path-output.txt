@@ -1,0 +1,20 @@
+Print paths to build dirs in current profile.
+Usage: rebar3 path [--app <app>] [--base <base>] [--bin <bin>]
+                   [--ebin <ebin>] [--lib <lib>] [--priv <priv>]
+                   [-s <separator>] [--src <src>] [--rel <rel>]
+
+  --app            Comma separated list of applications to return paths 
+                   for.
+  --base           Return the `base' path of the current profile.
+  --bin            Return the `bin' path of the current profile.
+  --ebin           Return all `ebin' paths of the current profile's 
+                   applications.
+  --lib            Return the `lib' path of the current profile.
+  --priv           Return the `priv' path of the current profile's 
+                   applications.
+  -s, --separator  In case of multiple return paths, the separator 
+                   character to use to join them.
+  --src            Return the `src' path of the current profile's 
+                   applications.
+  --rel            Return the `rel' path of the current profile.
+

@@ -1,0 +1,6 @@
+Generate an escript executable containing the project's and its dependencies' BEAM files.
+Usage: rebar3 escriptize [-a <main_app>]
+
+  -a, --main-app  Specify the name of the application to build an escript 
+                  for.
+

@@ -1,0 +1,6 @@
+Upgrade project dependencies. Mentioning no application will upgrade all dependencies. To upgrade specific dependencies, their names can be listed in the command.
+Usage: rebar3 upgrade [<package>]
+
+  <package>  List of packages to upgrade. If not specified, all 
+             dependencies are upgraded.
+

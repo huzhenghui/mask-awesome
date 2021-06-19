@@ -1,0 +1,13 @@
+lib:
+	built-in template
+	Description: Complete OTP Library application (no processes) structure
+	Variables:
+		name="mylib" (Name of the OTP library application)
+		desc="An OTP library" (Short description of the app)
+		date="2021-06-19"
+		datetime="2021-06-19T04:08:09+00:00"
+		author_name=[32993,20105,36745]
+		author_email="hu@daonao.com"
+		copyright_year="2021"
+		apps_dir="apps" (Directory where applications will be created if needed)
+

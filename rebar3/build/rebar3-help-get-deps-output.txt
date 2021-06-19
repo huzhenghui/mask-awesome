@@ -1,0 +1,2 @@
+Fetch project dependencies.
+Usage: rebar3 'get-deps'

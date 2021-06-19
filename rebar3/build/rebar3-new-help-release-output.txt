@@ -1,0 +1,13 @@
+release:
+	built-in template
+	Description: OTP Release structure for executable programs
+	Variables:
+		name="myapp" (Name of the OTP release. An app with this name will also be created.)
+		desc="An OTP application" (Short description of the release's main app's purpose)
+		date="2021-06-19"
+		datetime="2021-06-19T04:08:15+00:00"
+		author_name=[32993,20105,36745]
+		author_email="hu@daonao.com"
+		copyright_year="2021"
+		apps_dir="apps" (Directory where applications will be created if needed)
+

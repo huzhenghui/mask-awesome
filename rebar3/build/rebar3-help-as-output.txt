@@ -1,0 +1,5 @@
+Higher order provider for running multiple tasks in a sequence as a certain profiles.
+Usage: rebar3 as [<profile>]
+
+  <profile>  Profiles to run as.
+

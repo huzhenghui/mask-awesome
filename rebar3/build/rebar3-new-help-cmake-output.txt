@@ -1,0 +1,11 @@
+cmake:
+	built-in template
+	Description: Standalone Makefile for building C/C++ in c_src
+	Variables:
+		date="2021-06-19"
+		datetime="2021-06-19T04:08:07+00:00"
+		author_name=[32993,20105,36745]
+		author_email="hu@daonao.com"
+		copyright_year="2021"
+		apps_dir="apps" (Directory where applications will be created if needed)
+

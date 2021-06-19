@@ -1,0 +1,13 @@
+plugin:
+	built-in template
+	Description: Rebar3 plugin project structure
+	Variables:
+		name="myplugin" (Name of the plugin)
+		desc="A rebar plugin" (Short description of the plugin's purpose)
+		date="2021-06-19"
+		datetime="2021-06-19T04:08:16+00:00"
+		author_name=[32993,20105,36745]
+		author_email="hu@daonao.com"
+		copyright_year="2021"
+		apps_dir="apps" (Directory where applications will be created if needed)
+

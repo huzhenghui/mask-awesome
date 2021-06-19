@@ -1,0 +1,11 @@
+Create rebar3 project based on template and vars.
+
+Valid command line options:
+  <template> [var=foo,...]
+
+See available templates with: `rebar3 new help`
+
+Usage: rebar3 new [-f]
+
+  -f, --force  overwrite existing files
+

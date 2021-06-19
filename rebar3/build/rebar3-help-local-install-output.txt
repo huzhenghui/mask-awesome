@@ -1,0 +1,1 @@
+Usage: rebar3 local install

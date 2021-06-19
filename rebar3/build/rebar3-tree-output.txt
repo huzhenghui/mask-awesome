@@ -1,0 +1,4 @@
+===> Verifying dependencies...
+===> Fetching mochiweb (from {git,"git://github.com/mochi/mochiweb.git",{branch,"master"}})
+└─ appmochiweb─0.1 (project app)
+   └─ mochiweb─2.21.0 (git://github.com/mochi/mochiweb.git)

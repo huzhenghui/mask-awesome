@@ -1,0 +1,8 @@
+Perform coverage analysis.
+Usage: rebar3 cover [-r <reset>] [-v <verbose>] [-m <min_coverage>]
+
+  -r, --reset         Reset all coverdata.
+  -v, --verbose       Print coverage analysis.
+  -m, --min_coverage  Mandate a coverage percentage required to succeed 
+                      (0..100)
+

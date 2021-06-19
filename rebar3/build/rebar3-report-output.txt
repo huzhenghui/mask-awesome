@@ -1,0 +1,45 @@
+Rebar3 report
+ version 3.16.1
+ generated at 2021-06-19T04:08:00+00:00
+=================
+Please submit this along with your issue at https://github.com/erlang/rebar3/issues (and feel free to edit out private information, if any)
+-----------------
+Task: 
+Entered as:
+  
+-----------------
+Operating System: x86_64-apple-darwin20.4.0
+ERTS: Erlang/OTP 24 [erts-12.0.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit] [dtrace]
+Root Directory: /usr/local/Cellar/erlang/24.0.2/lib/erlang
+Library directory: /usr/local/Cellar/erlang/24.0.2/lib/erlang/lib
+-----------------
+Loaded Applications:
+bbmustache: 1.10.0
+certifi: 2.6.1
+cf: 0.3.1
+common_test: 1.20.4
+compiler: 8.0.1
+crypto: 5.0.2
+cth_readable: 1.5.1
+dialyzer: 4.4
+edoc: 1.0
+erlware_commons: 1.5.0
+eunit: 2.6.1
+eunit_formatters: 0.5.0
+getopt: 1.0.1
+inets: 7.4
+kernel: 8.0.1
+providers: 1.8.1
+public_key: 1.11
+relx: 4.4.0
+sasl: 4.1
+snmp: 5.9.1
+ssl_verify_fun: 1.1.6
+stdlib: 3.15.1
+syntax_tools: 2.6
+tools: 3.5
+
+-----------------
+Escript path: /usr/local/bin/rebar3
+Providers:
+  app_discovery as clean compile compile cover ct deps dialyzer do edoc escriptize eunit get-deps help install install_deps list lock new path pkgs release relup report repos shell state tar tree unlock update upgrade upgrade upgrade version xref 

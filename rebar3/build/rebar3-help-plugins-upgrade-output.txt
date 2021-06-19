@@ -1,0 +1,5 @@
+List or upgrade plugins
+Usage: rebar3 plugins upgrade [<plugin>]
+
+  <plugin>  Plugin to upgrade
+

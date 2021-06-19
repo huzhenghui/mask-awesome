@@ -1,0 +1,4 @@
+Usage: rebar3 tree [-v]
+
+  -v, --verbose  Print repo and branch/tag/ref for git and hg deps
+

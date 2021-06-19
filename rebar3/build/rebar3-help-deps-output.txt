@@ -1,0 +1,2 @@
+List dependencies. Those not matching the config file are followed by an asterisk (*).
+Usage: rebar3 deps

@@ -1,0 +1,2 @@
+List local and global plugins for this project
+Usage: rebar3 plugins list

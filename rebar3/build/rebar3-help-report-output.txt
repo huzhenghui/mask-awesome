@@ -1,0 +1,5 @@
+Provide a crash report to be sent to the rebar3 issues page.
+Usage: rebar3 report [<task>]
+
+  <task>  Task to print details for.
+

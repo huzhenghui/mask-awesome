@@ -1,0 +1,35 @@
+Create relup of releases.
+Usage: rebar3 relup [--all <all>] [-n <relname>] [-v <relvsn>]
+                    [-u <upfrom>] [-o <output_dir>] [-h] [-l <lib_dir>]
+                    [-d <dev_mode>] [-i <include_erts>] [-a <override>]
+                    [-c [<config>]] [--overlay_vars <overlay_vars>]
+                    [--vm_args <vm_args>] [--sys_config <sys_config>]
+                    [--system_libs <system_libs>] [--version]
+                    [-r <root_dir>]
+
+  --all               If true runs the command against all configured  
+                      releases
+  -n, --relname       Specify the name for the release that will be 
+                      generated
+  -v, --relvsn        Specify the version for the release
+  -u, --upfrom        Only valid with relup target, specify the release to 
+                      upgrade from
+  -o, --output-dir    The output directory for the release. This is `./` 
+                      by default.
+  -h, --help          Print usage
+  -l, --lib-dir       Additional dir that should be searched for OTP Apps
+  -d, --dev-mode      Symlink the applications and configuration into the 
+                      release instead of copying
+  -i, --include-erts  If true include a copy of erts used to build with, 
+                      if a path include erts at that path. If false, do 
+                      not include erts
+  -a, --override      Provide an app name and a directory to override in 
+                      the form <appname>:<app directory>
+  -c, --config        The path to a config file [default: ]
+  --overlay_vars      Path to a file of overlay variables
+  --vm_args           Path to a file to use for vm.args
+  --sys_config        Path to a file to use for sys.config
+  --system_libs       Boolean or path to dir of Erlang system libs
+  --version           Print relx version
+  -r, --root          The project root directory
+

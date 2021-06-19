@@ -1,0 +1,48 @@
+Run the Dialyzer analyzer on the project.
+
+This command will build, and keep up-to-date, a suitable PLT and will use it to carry out success typing analysis on the current project.
+
+The following (optional) configurations can be added to a `proplist` of options `dialyzer` in rebar.config:
+`warnings` - a list of dialyzer warnings
+`get_warnings` - display warnings when altering a PLT file (boolean)
+`plt_apps` - the strategy for determining the applications which included in the PLT file, `top_level_deps` to include just the direct dependencies or `all_deps` to include all nested dependencies or `all_apps` to include all project apps and nested dependencies*
+`plt_extra_apps` - a list of extra applications to include in the PLT file
+`plt_extra_mods` - a list of extra modules to includes in the PLT file
+`plt_location` - the location of the PLT file, `local` to store in the profile's base directory (default) or a custom directory.
+`plt_prefix` - the prefix to the PLT file, defaults to "rebar3"**
+`base_plt_apps` - a list of applications to include in the base PLT file***
+`base_plt_mods` - a list of modules to include in the base PLT file***
+`base_plt_location` - the location of base PLT file, `global` to store in $HOME/.cache/rebar3 (default) or  a custom directory***
+`base_plt_prefix` - the prefix to the base PLT file, defaults to "rebar3"** ***
+`exclude_apps` - a list of applications to exclude from PLT files and success typing analysis, `plt_extra_mods` and `base_plt_mods` can add modules from excluded applications
+`exclude_mods` - a list of modules to exclude from PLT files and success typing analysis
+`output_format` - configure whether the dialyzer_warnings file will have the `raw` or `formatted` output
+
+For example, to warn on unmatched returns: 
+{dialyzer, [{warnings, [unmatched_returns]}]}.
+
+*The direct dependent applications are listed in `applications` and `included_applications` of their .app files.
+**PLT files are named "<prefix>_<otp_release>_plt".
+***The base PLT is a PLT containing the core applications often required for a project's PLT. One base PLT is created per OTP version and stored in `base_plt_location`. A base PLT is used to build project PLTs.
+
+Usage: rebar3 dialyzer [-u <update_plt>] [-s <succ_typings>]
+                       [--base-plt-location <base_plt_location>]
+                       [--plt-location <plt_location>]
+                       [--plt-prefix <plt_prefix>] [-a <app>]
+                       [--base-plt-prefix <base_plt_prefix>]
+                       [--statistics <statistics>]
+
+  -u, --update-plt     Enable updating the PLT. Default: true
+  -s, --succ-typings   Enable success typing analysis. Default: true
+  --base-plt-location  The location of base PLT file, defaults to 
+                       $HOME/.cache/rebar3
+  --plt-location       The location of the PLT file, defaults to the 
+                       profile's base directory
+  --plt-prefix         The prefix to the PLT file, defaults to "rebar3"
+  -a, --app            Perform success typing analysis of a single 
+                       application
+  --base-plt-prefix    The prefix to the base PLT file, defaults to 
+                       "rebar3"
+  --statistics         Print information about the progress of execution. 
+                       Default: false
+
